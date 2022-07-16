@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Header("Distance")]
-    [SerializeField] private float distanceStopRun;
+    [SerializeField] private float visionArea;
 
     private Rigidbody2D rb;
     private Transform playerPosition;
@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerPosition.position) <= distanceStopRun)
+        if (IsPlayerInVisionArea())
         {
             animator.SetBool("isRunning", false);
             rb.velocity = Vector2.zero;
@@ -32,20 +32,27 @@ public class EnemyController : MonoBehaviour
             FollowPlayer();
         }
     }
-
+    private bool IsPlayerInVisionArea()
+    {
+        return Vector2.Distance(transform.position, playerPosition.position) <= visionArea;
+    }
+    private bool IsPlayerOnRightSide()
+    {
+        return playerPosition.position.x > transform.position.x;
+    }
     private void FollowPlayer()
     {
         animator.SetBool("isRunning", true);
+        transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, moveSpeed * Time.deltaTime);
 
-        if (rb.velocity.x > 0)
+        if (IsPlayerOnRightSide())
         {
             sr.flipX = false;
         }
-        else if (rb.velocity.y < 0)
+        else
         {
             sr.flipX = true;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, moveSpeed * Time.deltaTime);
     }
 }
