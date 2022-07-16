@@ -169,4 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   animator: {fileID: 2042954995021642506}
-  distanceStopRun: 2
+  visionArea: 1.5
