@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer sr;
     private bool isAttackingPlayer = false;
     private bool isAttackingObjective = false;
+    private Collider2D lastCollision;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,9 +37,9 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            GetComponent<LifeSystem>().TakeDamage(1);
             SetAnimationRunning(false);
             rb.velocity = Vector2.zero;
+            lastCollision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
         }
     }
     private Transform GetTarget()
@@ -107,13 +108,14 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        lastCollision = collision;
         if (collision.gameObject.CompareTag("Player") && !isAttackingObjective)
         {
             isAttackingPlayer = true;
-            if (collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage))
-            {
-                Debug.Log("Player is dead!");
-            }
+            //if (collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage))
+            //{
+            //    Debug.Log("Player is dead!");
+            //}
         }
         else if (collision.gameObject.CompareTag("Objective") && !isAttackingPlayer)
         {

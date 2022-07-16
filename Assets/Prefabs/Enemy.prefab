@@ -265,6 +265,8 @@ MonoBehaviour:
   maxLife: 50
   currentLife: 0
   HealtBar: {fileID: 5306220578475590257}
+  InvencibleTimeDamage: 1
+  animator: {fileID: 2042954995021642506}
 --- !u!1 &4547403953153143573
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (animator.GetBool("isHurting"))
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         #region Dash
         if (dashInput && canDash)
         {
