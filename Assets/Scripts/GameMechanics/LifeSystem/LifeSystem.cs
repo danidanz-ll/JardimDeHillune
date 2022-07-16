@@ -11,8 +11,11 @@ public class LifeSystem : MonoBehaviour
     private void Start()
     {
         currentLife = maxLife;
-        HealtBar.maxValue = maxLife;
-        HealtBar.value = currentLife;
+        if (HealtBar != null)
+        {
+            HealtBar.maxValue = maxLife;
+            HealtBar.value = currentLife;
+        }
     }
     public bool TakeDamage(float damage)
     {
@@ -30,6 +33,9 @@ public class LifeSystem : MonoBehaviour
     }
     public void UpdateHealthBar()
     {
-        HealtBar.value = currentLife;
+        if (HealtBar != null)
+        {
+            HealtBar.value = currentLife;
+        }
     }
 }

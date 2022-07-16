@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            GetComponent<LifeSystem>().TakeDamage(1);
             SetAnimationRunning(false);
             rb.velocity = Vector2.zero;
         }
