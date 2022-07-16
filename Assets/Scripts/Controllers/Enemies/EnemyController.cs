@@ -102,7 +102,6 @@ public class EnemyController : MonoBehaviour
     private void FollowTarget(Transform target)
     {
         SetAnimationRunning(true);
-
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
