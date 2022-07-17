@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] public float moveSpeed;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform playerPosition;
-    private Transform objectivePosition;
+    public Transform objectivePosition;
     private SpriteRenderer sr;
     private bool isAttackingPlayer = false;
     private bool isAttackingObjective = false;
@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
+        /*
         if (!isAttackingObjective && !isAttackingPlayer)
         {
             var target = GetTarget();
@@ -41,6 +42,7 @@ public class EnemyController : MonoBehaviour
             rb.velocity = Vector2.zero;
             lastCollision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
         }
+        */
     }
     private Transform GetTarget()
     {
