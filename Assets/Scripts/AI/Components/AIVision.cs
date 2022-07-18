@@ -15,7 +15,6 @@ public class AIVision : MonoBehaviour
     {
         enemyMovement = GetComponent<EnemyMovement>();
     }
-
     public bool IsVisible(GameObject target)
     {
         if (target == null)
@@ -47,7 +46,7 @@ public class AIVision : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, visionAngle/2) * visionDirection * visionRange));
         Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -visionAngle / 2) * visionDirection * visionRange));
     }
-    private Vector2 GetVisionDirection()
+    public Vector2 GetVisionDirection()
     {
         if (enemyMovement != null)
         {
@@ -55,7 +54,7 @@ public class AIVision : MonoBehaviour
         }
         else
         {
-            return new Vector2(1.0f, 1.0f);
+            return new Vector2(0.5f, 0.5f);
         }
     }
 }

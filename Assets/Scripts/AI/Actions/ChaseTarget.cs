@@ -16,6 +16,10 @@ public class ChaseTarget : BasePrimitiveAction
     }
     public override TaskStatus OnUpdate()
     {
+        if (targetObject == null)
+        {
+            return TaskStatus.ABORTED;
+        }
         Vector2 toTarget = targetObject.transform.position - enemyController.transform.position;
         enemyController.SetMovement(toTarget);
         return TaskStatus.COMPLETED;

@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(IDamageable))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent (typeof(PlayerInput))]
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(IDamageable))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Animation")]
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         damageable = GetComponent<IDamageable>();
 
-        //damageable.DamageEvent += OnDamage;
+        damageable.DeathEvent += OnDeath;
     }
 
     private void Update()
@@ -63,11 +63,12 @@ public class PlayerController : MonoBehaviour
     {
         if (damageable != null)
         {
-            damageable.DamageEvent -= OnDamage;
+            damageable.DeathEvent -= OnDeath;
         }
     }
-    private void OnDamage()
+    private void OnDeath()
     {
-
+        playerMovement.StopMovement();
+        enabled = false;
     }
 }

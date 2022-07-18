@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     private bool running = false;
     private bool lookingToRight = true;
     private Vector2 currentVelocity;
-    private Vector2 facingDirection = new(1.0f, 1.0f);
+    private Vector2 facingDirection = new(0.5f, 0.5f);
     public float GetCurrentVelocityNormalized()
     {
         var x = currentVelocity.x;

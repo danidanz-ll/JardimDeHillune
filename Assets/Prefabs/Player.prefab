@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8714474026156658655}
   - component: {fileID: 3455820143405995895}
   - component: {fileID: -6052855907788223349}
+  - component: {fileID: 3362380630819464892}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -323,7 +324,6 @@ MonoBehaviour:
   acceleration: 2
   decceleration: 5
   velPower: 0.8
-  animator: {fileID: -6193081077006437855}
 --- !u!114 &3455820143405995895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +358,18 @@ MonoBehaviour:
   InvencibleTimeDamage: 0.7
   TimeDamage: 0.2
   animator: {fileID: -6193081077006437855}
+--- !u!114 &3362380630819464892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414705926397175537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6930895518700754521
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,4 +442,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  attackFieldReason: 0.5
   attackTime: 0.2

@@ -30,12 +30,26 @@ public class IsTargetVisible : GOAction
     }
     private bool Check()
     {
-        if (aiVision.IsVisible(target))
+        if (aiVision.IsVisible(target) && IsAvailable())
         {
             forgetTargetTime = Time.time + targetMemoryDuration;
             return true;
         }
 
         return Time.time < forgetTargetTime;
+    }
+    private bool IsAvailable()
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        IDamageable damageable = target.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            return !damageable.IsDead;
+        }
+        return true;
     }
 }
