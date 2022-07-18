@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a7c8ca992f915438a96c2077353778, type: 3}
+  m_Name: BT_Enemy_Skeleton
+  m_EditorClassIdentifier: 
+  brickName: Assets/AI/BTs/BT_Enemy_Skeleton.asset
+  xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
+    version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
+    id=\"0\" guid=\"997a5691bd83aee4d8785c965502623e\" nextId=\"20\">\r\n      <root>\r\n       
+    <SelectorNode id=\"17\" />\r\n      </root>\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"AIVision\" type=\"AIVision\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"AIController\" type=\"EnemyController\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"Objective\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
+    <outputValues>\r\n          <entry name=\"foundGameObject\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
+    <localParams />\r\n    </BehaviorTree>\r\n    <SelectorNode id=\"17\">\r\n     
+    <children>\r\n        <elem>\r\n          <SequenceNode id=\"10\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <ActionNode id=\"19\" />\r\n        </elem>\r\n     
+    </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </SelectorNode>\r\n    <SequenceNode id=\"10\">\r\n      <children>\r\n       
+    <elem>\r\n          <ActionNode id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <ActionNode id=\"13\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
+    id=\"18\" />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
+    id=\"19\" action=\"Game/FollowObjective\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"AIController\" type=\"EnemyController\"
+    isBlackboard=\"True\" blackboard=\"AIController\" />\r\n          <entry name=\"Objective\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"Objective\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
+    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"9\" action=\"GameObject/ClosestGameObjectWithTag\">\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"tag\" type=\"System.String\"
+    isBlackboard=\"False\" value=\"Player\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"foundGameObject\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"foundGameObject\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
+    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"13\" action=\"Game/Perception/IsTargetVisible\">\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Target\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\"
+    type=\"AIVision\" isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n         
+    <entry name=\"TargetMemoryDuration\" type=\"System.Single\" isBlackboard=\"False\"
+    value=\"10\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"18\"
+    action=\"Game/ChaseTarget\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
+    <entry name=\"AIController\" type=\"EnemyController\" isBlackboard=\"True\" blackboard=\"AIController\"
+    />\r\n          <entry name=\"TargetObject\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
+    </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"BT_Enemy_Skeleton\"
+    _description=\"\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n       
+    <elem>\r\n          <ActionNode id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <SequenceNode id=\"10\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <ActionNode id=\"13\" />\r\n        </elem>\r\n        <elem>\r\n          <SelectorNode
+    id=\"17\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"18\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"19\" />\r\n       
+    </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n         
+    <SequenceNode id=\"10\" />\r\n          <ActionNode id=\"9\" />\r\n         
+    <ActionNode id=\"13\" />\r\n          <SelectorNode id=\"17\" />\r\n         
+    <ActionNode id=\"18\" />\r\n          <ActionNode id=\"19\" />\r\n        </nodes>\r\n     
+    </_nodes>\r\n    </BehaviorTree>\r\n    <SelectorNode id=\"17\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"223.1571 178.1225\" name=\"Selector\"
+    description=\"Executes all its children until one of them is successful\" cardinality=\"-1\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SelectorNode
+    id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SelectorNode>\r\n   
+    <SequenceNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"192.5328 341.273\" name=\"Sequence\" description=\"Executes all its
+    children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"10\" />\r\n         
+    <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <ActionNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"547.3165 264.3093\" name=\"Game/FollowObjective\" description=\"\"
+    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
+    <ActionNode id=\"19\" />\r\n          <SelectorNode id=\"17\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"9\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"-166.7166 583.024\" name=\"GameObject/ClosestGameObjectWithTag\"
+    description=\"Finds the closest game object with a given tag\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"9\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"13\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"True\" position=\"206 583.1667\" name=\"Game/Perception/IsTargetVisible\"
+    description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n          <SequenceNode
+    id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
+    <ActionNode id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"475.8874 547.1664\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"18\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 0.8
+  subslist: []
+  _guid: 997a5691bd83aee4d8785c965502623e
