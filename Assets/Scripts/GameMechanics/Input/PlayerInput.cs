@@ -14,7 +14,7 @@ public class PlayerInput : MonoBehaviour
     }
     public bool IsAttackButtonDown()
     {
-        bool isKeyboardButtonDown = Input.GetKeyDown(KeyCode.KeypadEnter);
+        bool isKeyboardButtonDown = Input.GetButtonDown("Attack");
         bool isMobileButtonDown = false;
         return isKeyboardButtonDown || isMobileButtonDown;
     }
