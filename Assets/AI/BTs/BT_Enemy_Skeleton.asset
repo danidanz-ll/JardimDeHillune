@@ -39,16 +39,16 @@ MonoBehaviour:
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"9\" action=\"GameObject/ClosestGameObjectWithTag\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"tag\" type=\"System.String\"
-    isBlackboard=\"False\" value=\"Ally\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"foundGameObject\"
-    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"foundGameObject\"
-    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
-    />\r\n    </ActionNode>\r\n    <ActionNode id=\"13\" action=\"Game/Perception/IsTargetVisible\">\r\n     
+    isBlackboard=\"False\" value=\"Player\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"foundGameObject\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"foundGameObject\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
+    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"13\" action=\"Game/Perception/IsTargetVisible\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\"
     type=\"AIVision\" isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n         
     <entry name=\"TargetMemoryDuration\" type=\"System.Single\" isBlackboard=\"False\"
-    value=\"3\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams
+    value=\"10\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams
     />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"18\"
     action=\"Game/ChaseTarget\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
     <entry name=\"AIController\" type=\"EnemyController\" isBlackboard=\"True\" blackboard=\"AIController\"
@@ -67,34 +67,34 @@ MonoBehaviour:
     <ActionNode id=\"13\" />\r\n          <SelectorNode id=\"17\" />\r\n         
     <ActionNode id=\"18\" />\r\n          <ActionNode id=\"19\" />\r\n        </nodes>\r\n     
     </_nodes>\r\n    </BehaviorTree>\r\n    <SelectorNode id=\"17\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"179.0929 41.88481\" name=\"Selector\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"223.1571 178.1225\" name=\"Selector\"
     description=\"Executes all its children until one of them is successful\" cardinality=\"-1\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SelectorNode
     id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SelectorNode>\r\n   
     <SequenceNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"148.4686 205.0353\" name=\"Sequence\" description=\"Executes all its
+    position=\"192.5328 341.273\" name=\"Sequence\" description=\"Executes all its
     children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"10\" />\r\n         
     <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"503.2523 128.0716\" name=\"Game/FollowObjective\" description=\"\"
+    position=\"547.3165 264.3093\" name=\"Game/FollowObjective\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"19\" />\r\n          <SelectorNode id=\"17\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"-210.7808 446.7863\" name=\"GameObject/ClosestGameObjectWithTag\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"-166.7166 583.024\" name=\"GameObject/ClosestGameObjectWithTag\"
     description=\"Finds the closest game object with a given tag\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"9\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"13\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"161.9358 446.929\" name=\"Game/Perception/IsTargetVisible\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"206 583.1667\" name=\"Game/Perception/IsTargetVisible\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n          <SequenceNode
     id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"431.8232 410.9287\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
+    position=\"475.8874 547.1664\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"18\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.5
+  zoom: 0.8
   subslist: []
   _guid: 997a5691bd83aee4d8785c965502623e

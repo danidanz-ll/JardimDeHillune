@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     IDamageable damageable;
 
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
     private PlayerMovement playerMovement;
     private Dash dash;
     private PlayerInput playerInput;
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         playerMovement = GetComponent<PlayerMovement>();
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
@@ -58,15 +56,6 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region Run
-        if (movementInupt.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (movementInupt.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-
         playerMovement.SetMovement(movementInupt);
         #endregion
     }

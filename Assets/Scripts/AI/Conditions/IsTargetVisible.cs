@@ -15,7 +15,7 @@ public class IsTargetVisible : GOAction
     [InParam("TargetMemoryDuration")]
     private float targetMemoryDuration;
 
-    private float forgetTargetTime;
+    private float forgetTargetTime = 0f;
 
     public override TaskStatus OnUpdate()
     {

@@ -71,6 +71,11 @@ public class EnemyMovement : MonoBehaviour, IMovement
             lookingToRight = false;
         }
     }
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+        running = false;
+    }
 
     void Start()
     {

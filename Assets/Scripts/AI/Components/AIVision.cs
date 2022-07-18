@@ -20,13 +20,11 @@ public class AIVision : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.Log("Objeto nulo");
             return false;
         }
 
         if (Vector2.Distance(transform.position, target.transform.position) > visionRange)
         {
-            Debug.Log("Objeto fora do raio");
             return false;
         }
 

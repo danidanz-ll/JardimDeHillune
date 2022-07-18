@@ -1,22 +1,14 @@
 using UnityEngine;
 
-public static class CharacterMovementAnimationKeys
+public class PlayerAnimationController : CharacterAnimationController
 {
-    public const string IsRunning = "isRunning";
-    public const string Speed = "Speed";
-}
-public class PlayerAnimationController : MonoBehaviour
-{
-    Animator animator;
-    PlayerMovement playerMovement;
-
-    private void Awake()
+    protected override void Awake()
     {
-        animator = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+        base.Awake();
+        movement = GetComponent<PlayerMovement>();
     }
-    private void Update()
+    protected override void Update()
     {
-        animator.SetFloat(CharacterMovementAnimationKeys.Speed, playerMovement.GetCurrentVelocityNormalized());
+        base.Update();
     }
 }

@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour, IMovement
     private Rigidbody2D rb;
     private bool running = false;
     private Vector2 currentVelocity;
+    private Vector2 lookingDirection;
+    private bool lookingRight = true;
 
     private void Start()
     {
@@ -24,6 +26,22 @@ public class PlayerMovement : MonoBehaviour, IMovement
     public bool isRunning()
     {
         return running;
+    }
+    public bool isLookingToRight()
+    {
+        if (GetFacingDirection().x > 0)
+        {
+            lookingRight = true;
+        }
+        else if (GetFacingDirection().x < 0)
+        {
+            lookingRight = false;
+        }
+        return lookingRight;
+    }
+    public Vector2 GetFacingDirection()
+    {
+        return lookingDirection.normalized;
     }
     public float GetCurrentVelocityNormalized()
     {
@@ -56,6 +74,12 @@ public class PlayerMovement : MonoBehaviour, IMovement
         }
         rb.AddForce(GetForceVector(direction.x, direction.y));
         currentVelocity = rb.velocity;
+        lookingDirection = direction;
+    }
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+        running = false;
     }
     private Vector2 GetForceVector(float x, float y)
     {

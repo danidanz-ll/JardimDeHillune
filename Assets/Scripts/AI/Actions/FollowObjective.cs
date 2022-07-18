@@ -25,7 +25,7 @@ public class FollowObjective : BasePrimitiveAction
     }
     private void Follow()
     {
-        Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.enemyMovement.moveSpeed * Time.deltaTime) * -1.0f;
-        enemyController.enemyMovement.SetMovement(direction.normalized);
+        Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
+        enemyController.SetMovement(direction.normalized);
     }
 }

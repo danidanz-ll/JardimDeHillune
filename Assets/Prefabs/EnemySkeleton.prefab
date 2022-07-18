@@ -476,7 +476,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   damage: 10
   playerVisionRay: 5
-  enemyMovement: {fileID: 0}
 --- !u!114 &1930486234779630036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 3
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
   m_ObjectHideFlags: 0

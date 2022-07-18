@@ -3190,7 +3190,7 @@ PrefabInstance:
     - target: {fileID: 2414705926397175537, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
       propertyPath: m_TagString
-      value: Ally
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3338281747438442239, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
