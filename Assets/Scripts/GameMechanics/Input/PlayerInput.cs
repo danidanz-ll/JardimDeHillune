@@ -8,8 +8,14 @@ public class PlayerInput : MonoBehaviour
         var verticalInput = Input.GetAxisRaw("Vertical");
         return new Vector2(horizontalInput, verticalInput);
     }
-    public bool IsJumpButtonDown()
+    public bool IsDashingButtonDown()
     {
         return Input.GetButtonDown("Dash");
+    }
+    public bool IsAttackButtonDown()
+    {
+        bool isKeyboardButtonDown = Input.GetKeyDown(KeyCode.KeypadEnter);
+        bool isMobileButtonDown = false;
+        return isKeyboardButtonDown || isMobileButtonDown;
     }
 }

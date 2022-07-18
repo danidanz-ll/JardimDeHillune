@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d985275179eb9140b35113ef11c1840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: -6193081077006437855}
+  weaponObject: {fileID: 6930895518700754521}
 --- !u!114 &2461474773925571185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,5 +442,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  attackFieldReason: 0.5
   attackTime: 0.2
