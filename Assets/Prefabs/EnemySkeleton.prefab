@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 2.96
+  visionRange: 4.34
   visionAngle: 85
 --- !u!1 &3820549099598856071
 GameObject:
