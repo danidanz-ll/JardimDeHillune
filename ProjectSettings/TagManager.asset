@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Objective
   - Enemy
+  - Ally
   layers:
   - Default
   - TransparentFX

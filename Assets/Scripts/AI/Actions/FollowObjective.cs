@@ -1,6 +1,7 @@
 using Pada1.BBCore;
 using Pada1.BBCore.Framework;
 using Pada1.BBCore.Tasks;
+using System.Collections;
 using UnityEngine;
 
 [Action("Game/FollowObjective")]
@@ -8,18 +9,23 @@ public class FollowObjective : BasePrimitiveAction
 {
     [InParam("AIController")]
     public EnemyController enemyController;
+    [InParam("Objective")]
+    public GameObject objectiveGameObject;
+    
+    private Transform objective;
     public override void OnStart()
     {
         base.OnStart();
-        Follow();
+        objective = objectiveGameObject.transform;
     }
     public override TaskStatus OnUpdate()
     {
-        return TaskStatus.RUNNING;
+        Follow();
+        return TaskStatus.COMPLETED;
     }
     private void Follow()
     {
-        Debug.Log("Following objective!");
-        enemyController.transform.position = Vector2.MoveTowards(enemyController.transform.position, enemyController.objectivePosition.position, enemyController.moveSpeed * Time.deltaTime);
+        Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.enemyMovement.moveSpeed * Time.deltaTime) * -1.0f;
+        enemyController.enemyMovement.SetMovement(direction.normalized);
     }
 }

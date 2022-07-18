@@ -3,19 +3,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] public float moveSpeed;
-
     [Header("Animation")]
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     [Header("Stats")]
     [SerializeField] private float damage;
     [SerializeField] private float playerVisionRay;
 
     private Rigidbody2D rb;
-    private Transform playerPosition;
-    public Transform objectivePosition;
+    public EnemyMovement enemyMovement;
     private SpriteRenderer sr;
     private bool isAttackingPlayer = false;
     private bool isAttackingObjective = false;
@@ -23,9 +19,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
-        objectivePosition = GameObject.FindGameObjectWithTag("Objective").transform;
         sr = GetComponent<SpriteRenderer>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
     void Update()
     {
@@ -38,59 +33,11 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            SetAnimationRunning(false);
             rb.velocity = Vector2.zero;
             lastCollision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
         }
         */
-    }
-    private Transform GetTarget()
-    {
-        var entities = GetEntitiesOnVision();
-        Transform target = objectivePosition;
-
-        if (entities.Count > 0)
-        {
-            float minDistance = float.MaxValue;
-            foreach (var entity in entities)
-            {
-                var distance = CalculateDistance(entity);
-
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    target = entity;
-                }
-            }
-        }
-        return target;
-    }
-    private List<Transform> GetEntitiesOnVision()
-    {
-        List<Transform> entities = new List<Transform>();
-        
-        if (IsPlayerInVisionArea())
-        {
-            entities.Add(playerPosition);
-        }
-        
-        return entities;
-    }
-    private float CalculateDistance(Transform entity)
-    {
-        return Vector2.Distance(transform.position, entity.position);
-    }
-    private bool IsPlayerInVisionArea()
-    {
-        return Vector2.Distance(transform.position, playerPosition.position) <= playerVisionRay;
-    }
-    private bool IsOnRightSide(Transform entity)
-    {
-        return entity.position.x > transform.position.x;
-    }
-    private void SetDirectionSprite(Transform entity)
-    {
-        if (IsOnRightSide(entity))
+        if (enemyMovement.isLookingToRight())
         {
             sr.flipX = false;
         }
@@ -98,15 +45,6 @@ public class EnemyController : MonoBehaviour
         {
             sr.flipX = true;
         }
-    }
-    private void SetAnimationRunning(bool play)
-    {
-        animator.SetBool("isRunning", play);
-    }
-    private void FollowTarget(Transform target)
-    {
-        SetAnimationRunning(true);
-        transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

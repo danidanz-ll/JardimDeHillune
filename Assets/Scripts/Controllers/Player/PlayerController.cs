@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         damageable = GetComponent<IDamageable>();
 
-        damageable.DamageEvent += OnDamage;
+        //damageable.DamageEvent += OnDamage;
     }
 
     private void Update()

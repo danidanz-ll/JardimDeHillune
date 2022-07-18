@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IMovement
 {
     [Header("Movement")]
     [SerializeField]
@@ -12,10 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private float decceleration;
     [SerializeField]
     private float velPower;
-
-    [Header("Animation")]
-    [SerializeField]
-    private Animator animator;
 
     private Rigidbody2D rb;
     private bool running = false;

@@ -228,6 +228,9 @@ GameObject:
   - component: {fileID: 8288167559617685692}
   - component: {fileID: 4352458261281635558}
   - component: {fileID: 7909793126351103840}
+  - component: {fileID: 1930486234779630036}
+  - component: {fileID: -8655884940628700118}
+  - component: {fileID: -2539461861218895632}
   m_Layer: 23
   m_Name: EnemySkeleton
   m_TagString: Enemy
@@ -403,7 +406,7 @@ MonoBehaviour:
   maxTasksPerTick: 500
   behavior: {fileID: 11400000, guid: 997a5691bd83aee4d8785c965502623e, type: 2}
   paused: 0
-  restartWhenFinished: 0
+  restartWhenFinished: 1
   blackboard:
     intParams: 
     intParamsNames: []
@@ -421,9 +424,13 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
+    - {fileID: -2539461861218895632}
     - {fileID: 7909793126351103840}
+    - {fileID: 0}
     objectParamsNames:
+    - AIVision
     - AIController
+    - Objective
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -466,10 +473,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f01e7f1fd0cbb489a08a792995eb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   animator: {fileID: 0}
-  damage: 0
-  playerVisionRay: 0
+  damage: 10
+  playerVisionRay: 5
+  enemyMovement: {fileID: 0}
+--- !u!114 &1930486234779630036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651131934071168343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b45132f5bbe7e14882c0a811c46374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8655884940628700118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651131934071168343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+--- !u!114 &-2539461861218895632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651131934071168343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionRange: 2.96
+  visionAngle: 85
 --- !u!1 &3820549099598856071
 GameObject:
   m_ObjectHideFlags: 0
