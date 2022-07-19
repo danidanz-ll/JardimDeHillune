@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private Dash dash;
     private PlayerInput playerInput;
+    private LifeSystem lifeSystem;
     private IWeapon weapon;
 
     void Start()
@@ -25,13 +26,15 @@ public class PlayerController : MonoBehaviour
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
         damageable = GetComponent<IDamageable>();
+        lifeSystem = GetComponent<LifeSystem>();
 
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        damageable.DeathEvent += OnDeath;
+        //damageable.DeathEvent += OnDeath;
+        //damageable.DamageEvent += OnDamage;
     }
 
     private void Update()
@@ -64,12 +67,18 @@ public class PlayerController : MonoBehaviour
     {
         if (damageable != null)
         {
-            damageable.DeathEvent -= OnDeath;
+            //damageable.DeathEvent -= OnDeath;
+            //damageable.DamageEvent -= OnDamage;
         }
     }
     private void OnDeath()
     {
         playerMovement.StopMovement();
         enabled = false;
+    }
+    private void OnDamage(float damage)
+    {
+        playerMovement.StopMovement();
+        lifeSystem.TakeDamage(damage);
     }
 }

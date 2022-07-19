@@ -67,34 +67,34 @@ MonoBehaviour:
     <ActionNode id=\"13\" />\r\n          <SelectorNode id=\"17\" />\r\n         
     <ActionNode id=\"18\" />\r\n          <ActionNode id=\"19\" />\r\n        </nodes>\r\n     
     </_nodes>\r\n    </BehaviorTree>\r\n    <SelectorNode id=\"17\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"223.1571 178.1225\" name=\"Selector\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"195.6571 381.8725\" name=\"Selector\"
     description=\"Executes all its children until one of them is successful\" cardinality=\"-1\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SelectorNode
     id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SelectorNode>\r\n   
     <SequenceNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"192.5328 341.273\" name=\"Sequence\" description=\"Executes all its
+    position=\"165.0328 545.023\" name=\"Sequence\" description=\"Executes all its
     children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"10\" />\r\n         
     <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"547.3165 264.3093\" name=\"Game/FollowObjective\" description=\"\"
+    position=\"519.8165 468.0593\" name=\"Game/FollowObjective\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"19\" />\r\n          <SelectorNode id=\"17\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"-166.7166 583.024\" name=\"GameObject/ClosestGameObjectWithTag\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"-194.2166 786.774\" name=\"GameObject/ClosestGameObjectWithTag\"
     description=\"Finds the closest game object with a given tag\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"9\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"13\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"True\" position=\"206 583.1667\" name=\"Game/Perception/IsTargetVisible\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"178.5 786.9167\" name=\"Game/Perception/IsTargetVisible\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n          <SequenceNode
     id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"475.8874 547.1664\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
+    position=\"448.3874 750.9164\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"18\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.8
+  zoom: 0.5
   subslist: []
   _guid: 997a5691bd83aee4d8785c965502623e

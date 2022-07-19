@@ -7,14 +7,15 @@ public class LifeSystem : MonoBehaviour
     [Header("Stats")]
     [SerializeField] public float maxLife;
     [SerializeField] public float currentLife;
-    [SerializeField] public Slider HealtBar;
-    [SerializeField] public float InvencibleTimeDamage;
-    [SerializeField] public float TimeDamage;
+    [SerializeField] private Slider HealtBar;
+    [SerializeField] private float InvencibleTimeDamage;
+    [SerializeField] private float TimeDamage;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
 
-    private bool isInvencible = false;
+    public bool IsHurting { get; private set; } = false;
+    public bool IsInvencible { get; private set; } = false;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class LifeSystem : MonoBehaviour
     }
     public bool TakeDamage(float damage)
     {
-        if (!isInvencible)
+        if (!IsInvencible)
         {
             StartCoroutine(PlayHurtingAnimation());
             StartCoroutine(TimeInvencible());
@@ -58,14 +59,14 @@ public class LifeSystem : MonoBehaviour
     
     public IEnumerator PlayHurtingAnimation()
     {
-        animator.SetBool("isHurting", true);
+        IsHurting = true;
         yield return new WaitForSeconds(TimeDamage);
-        animator.SetBool("isHurting", false);
+        IsHurting = false;
     }
     public IEnumerator TimeInvencible()
     {
-        isInvencible = true;
+        IsInvencible = true;
         yield return new WaitForSeconds(InvencibleTimeDamage);
-        isInvencible = false;
+        IsInvencible = false;
     }
 }

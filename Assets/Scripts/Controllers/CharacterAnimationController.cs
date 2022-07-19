@@ -19,7 +19,7 @@ public class CharacterAnimationController : MonoBehaviour
         damageable = GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.DeathEvent += OnDeath;
+            //damageable.DeathEvent += OnDeath;
         }
     }
     protected virtual void Update()
@@ -40,7 +40,7 @@ public class CharacterAnimationController : MonoBehaviour
     {
         if (damageable != null)
         {
-            damageable.DeathEvent -= OnDeath;
+            //damageable.DeathEvent -= OnDeath;
         }
     }
     private void OnDeath()
