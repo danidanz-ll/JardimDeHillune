@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: -8655884940628700118}
   - component: {fileID: -2539461861218895632}
   - component: {fileID: -143579857977391122}
+  - component: {fileID: 2739829779044965624}
   m_Layer: 23
   m_Name: EnemySkeleton
   m_TagString: Enemy
@@ -248,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 3651131934071168343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2337785646794571705}
@@ -297,12 +298,12 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -94127602, guid: 9d2c38d79fbb921438cfb03e18108cc9, type: 3}
+  m_Sprite: {fileID: -1384196622, guid: 46ff2e64cb9aeff428724dabee240ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.2}
+  m_Size: {x: 0.21, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -345,8 +346,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.2}
-    newSize: {x: 0.16, y: 0.2}
+    oldSize: {x: 0.21, y: 0.32}
+    newSize: {x: 0.21, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -534,6 +535,18 @@ MonoBehaviour:
   InvencibleTimeDamage: 0.7
   TimeDamage: 0.5
   animator: {fileID: 0}
+--- !u!114 &2739829779044965624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651131934071168343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3820549099598856071
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +687,7 @@ GameObject:
   - component: {fileID: 2178212163452715512}
   - component: {fileID: 812646791916465239}
   - component: {fileID: 613034583311412273}
+  - component: {fileID: 1446820802763199217}
   m_Layer: 23
   m_Name: TriggerDamage
   m_TagString: Untagged
@@ -720,7 +734,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -738,3 +752,17 @@ PolygonCollider2D:
     - - {x: 0.34830534, y: -0.0009640474}
       - {x: -0.0060519613, y: 0.23751496}
       - {x: -0.0032905191, y: 0.00038735382}
+--- !u!114 &1446820802763199217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287450414991337311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e7090a051a24e4a9a15266ea5aa0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  attackFieldReason: 0.5

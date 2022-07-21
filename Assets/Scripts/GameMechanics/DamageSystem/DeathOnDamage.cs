@@ -6,7 +6,6 @@ public class DeathOnDamage : MonoBehaviour
     public bool IsDead { get; private set; }
 
     public event Action DeathEvent;
-    public event Action DamageEvent;
 
     private void Awake()
     {

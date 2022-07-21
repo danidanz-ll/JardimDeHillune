@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8714474026156658655}
   - component: {fileID: 3455820143405995895}
   - component: {fileID: -6052855907788223349}
-  - component: {fileID: 3362380630819464892}
+  - component: {fileID: 1273608545874653311}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -140,7 +140,7 @@ SpriteRenderer:
   m_Size: {x: 0.17, y: 0.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!96 &3338281747438442239
@@ -358,7 +358,7 @@ MonoBehaviour:
   InvencibleTimeDamage: 0.7
   TimeDamage: 0.2
   animator: {fileID: -6193081077006437855}
---- !u!114 &3362380630819464892
+--- !u!114 &1273608545874653311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2414705926397175537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
+  m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6930895518700754521
@@ -413,7 +413,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0009046793, y: -0.0018153191}
@@ -441,5 +441,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  attackTime: 0.2
+  damage: 10
+  attackTime: 0.5

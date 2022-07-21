@@ -6,7 +6,7 @@ using System.Collections;
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(IDamageable))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Damage")]
     [SerializeField]
@@ -33,12 +33,15 @@ public class PlayerController : MonoBehaviour
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        //damageable.DeathEvent += OnDeath;
-        //damageable.DamageEvent += OnDamage;
+        damageable.DamageEvent += OnDamage;
     }
 
     private void Update()
     {
+        if (weapon.IsAttacking())
+        {
+            return;
+        }
         Vector2 movementInupt = playerInput.GetMovementInput();
 
         #region Dash
@@ -60,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if (weapon != null && playerInput.IsAttackButtonDown())
         {
+            playerMovement.StopMovement();
             weapon.Attack();
         }
     }
@@ -67,8 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (damageable != null)
         {
-            //damageable.DeathEvent -= OnDeath;
-            //damageable.DamageEvent -= OnDamage;
+            damageable.DamageEvent -= OnDamage;
         }
     }
     private void OnDeath()
@@ -76,9 +79,9 @@ public class PlayerController : MonoBehaviour
         playerMovement.StopMovement();
         enabled = false;
     }
-    private void OnDamage(float damage)
+    private void OnDamage()
     {
         playerMovement.StopMovement();
-        lifeSystem.TakeDamage(damage);
+        lifeSystem.TakeDamage(10);
     }
 }

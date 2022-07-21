@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
     private Vector2 lookingDirection;
     private Vector2 lastForce;
     private Vector2 lastAccelerateSignal;
-    private bool IsAcceleration = false;
     private bool lookingRight = true;
 
     private void Start()
@@ -60,11 +59,12 @@ public class PlayerMovement : MonoBehaviour, IMovement
     public float GetCurrentVelocityNormalized()
     {
         float velocity;
-        if (Vector2.Angle(lastForce, rb.velocity) == 0.0f)
+
+        if (Vector2.Angle(lastForce, rb.velocity) == 0.0f || (currentVelocity.sqrMagnitude >= 99.0f && currentVelocity.sqrMagnitude <= 101.0f) || (currentVelocity.sqrMagnitude >= 199.0f))
         {
             velocity = currentVelocity.sqrMagnitude;
         }
-        else if (Vector2.Angle(lastForce, rb.velocity) >= 170.0f && Vector2.Angle(lastForce, rb.velocity) <= 190.0f)
+        else if (Vector2.Angle(lastForce, rb.velocity) >= 90.0f && Vector2.Angle(lastForce, rb.velocity) <= 270.0f)
         {
             velocity = currentVelocity.sqrMagnitude * -1.0f;
         }
@@ -74,21 +74,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
         }
 
         return velocity;
-
-        /*
-        if (x >= 0.5f || x <= -0.5f)
-        {
-            return currentVelocity.normalized.x;
-        }
-        else if (y >= 0.5f || y <= -0.5f)
-        {
-            return currentVelocity.normalized.y;
-        }
-        else
-        {
-            return 0;
-        }
-        */
     }
 
     public void SetMovement(Vector2 direction)
