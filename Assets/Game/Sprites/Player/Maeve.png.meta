@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -1470,7 +1470,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Maeve_55: 1297812553
+      Maeve_11: -1959760153
       Maeve_32: 1833343962
       Maeve_33: -2101732453
       Maeve_37: 1141307688
@@ -1548,8 +1548,8 @@ TextureImporter:
       Maeve_46: 570369795
       Maeve_79: 83002587
       Maeve_70: -1630177338
+      Maeve_55: 1297812553
       Maeve_3: -140143910
-      Maeve_11: -1959760153
       Maeve_2: 45054876
   spritePackingTag: 
   pSDRemoveMatte: 0

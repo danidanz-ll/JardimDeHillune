@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField]
     GameObject weaponObject;
 
+    public bool IsDead = false;
     private PlayerMovement playerMovement;
     private Dash dash;
     private PlayerInput playerInput;
@@ -38,9 +39,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Update()
     {
+        if (lifeSystem.currentLife <= 0)
+        {
+            IsDead = true;
+            OnDeath();
+        }
+
         if (weapon.IsAttacking())
         {
-            Debug.Log("Player is attacking!");
+            playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
             return;
         }
         Vector2 movementInupt = playerInput.GetMovementInput();
@@ -64,7 +71,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         if (weapon != null && playerInput.IsAttackButtonDown())
         {
-            playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
             weapon.Attack();
         }
     }
@@ -74,6 +80,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             damageable.DamageEvent -= OnDamage;
         }
+    }
+
+    public bool CharacterIsDead()
+    {
+        return IsDead;
     }
     private void OnDeath()
     {
