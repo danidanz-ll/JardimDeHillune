@@ -154,7 +154,7 @@ TrailRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -164,7 +164,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 2eadcb54bb4ca874d922be12b4f9f75c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 6930895518700754521}
+  IsDead: 0
 --- !u!114 &2461474773925571185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6a050ea4555a14198a6188fe2ca19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeAttackDuration: 0.8
 --- !u!114 &1650838882543801875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,5 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackTime: 1
-  timeToFreeze: 0.2
+  attackTime: 0.8
+  timeToFreeze: 0
+  attackCooldown: 0.5

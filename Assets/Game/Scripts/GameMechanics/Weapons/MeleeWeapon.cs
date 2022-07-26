@@ -7,11 +7,16 @@ public class MeleeWeapon : TriggerDamageConstant, IWeapon
     private float attackTime = 0.2f;
     [SerializeField]
     private float timeToFreeze = 0.2f;
+    [SerializeField]
+    private float attackCooldown = 0f;
 
     private bool Attacking = false;
+    private bool attackCooldownOn = false;
+    private BoxCollider2D boxCollider;
     private void Awake()
     {
         gameObject.SetActive(true);
+        boxCollider = GetComponent<BoxCollider2D>();
     }
     private void Start()
     {
@@ -19,18 +24,21 @@ public class MeleeWeapon : TriggerDamageConstant, IWeapon
     }
     public void Attack()
     {
-        gameObject.SetActive(true);
-        //Debug.Log("Attacking weapon!");
-        StartCoroutine(PerformAttack());
+        if (!IsAttackInCooldown() && !IsAttacking())
+        {
+            gameObject.SetActive(true);
+            StartCoroutine(PerformAttack());
+        }
+
     }
 
     private IEnumerator PerformAttack()
     {
         Attacking = true;
         yield return new WaitForSeconds(attackTime);
+        StartCoroutine(StartAttackCooldown());
         Attacking = false;
-        gameObject.SetActive(false);
-        yield break;
+        boxCollider.enabled = false;
     }
 
     public bool IsAttacking()
@@ -46,5 +54,19 @@ public class MeleeWeapon : TriggerDamageConstant, IWeapon
     public float GetWaitToFreezeTime()
     {
         return timeToFreeze;
+    }
+
+    public bool IsAttackInCooldown()
+    {
+        return attackCooldownOn;
+    }
+
+    public IEnumerator StartAttackCooldown()
+    {
+        attackCooldownOn = true;
+        yield return new WaitForSeconds(attackCooldown);
+        attackCooldownOn = false;
+        boxCollider.enabled = true;
+        gameObject.SetActive(false);
     }
 }

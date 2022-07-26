@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -76,6 +77,23 @@ public class EnemyMovement : MonoBehaviour, IMovement
     {
         rb.velocity = Vector2.zero;
         running = false;
+    }
+    public void FreezeMovement(float timeWait, float timeFreezing)
+    {
+        rb.velocity = Vector2.zero;
+        running = false;
+        StartCoroutine(WaitToFreezing(timeWait, timeFreezing));
+    }
+    private IEnumerator WaitToFreezing(float timeWait, float timeFreezing)
+    {
+        yield return new WaitForSeconds(timeWait);
+        StartCoroutine(WaitFreezing(timeFreezing));
+    }
+    private IEnumerator WaitFreezing(float time)
+    {
+        isFreeze = true;
+        yield return new WaitForSeconds(time);
+        isFreeze = false;
     }
 
     void Start()
