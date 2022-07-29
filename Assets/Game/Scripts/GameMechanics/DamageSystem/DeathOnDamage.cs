@@ -1,18 +1,11 @@
 using System;
 using UnityEngine;
 
-public class DeathOnDamage : MonoBehaviour
+public class DeathOnDamage : MonoBehaviour, IMortal
 {
-    public bool IsDead { get; private set; }
-
     public event Action DeathEvent;
-
-    private void Awake()
-    {
-        IsDead = false;
-    }
-
-    public void SetDeath(float damage)
+    public bool IsDead { get; private set; } = false;
+    public void Die()
     {
         IsDead = true;
         DeathEvent.Invoke();
