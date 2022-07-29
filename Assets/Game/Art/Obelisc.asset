@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d5d47f857a0834aba5eab57e9f97cb, type: 3}
+  m_Name: Obelisc
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -383382119, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: 1455366669, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: 1528438080, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: -2090583101, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: -1118561268, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: -1930867343, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: -1665973202, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: 1408657257, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
+  - {fileID: 1408657257, guid: c6ffb641a1bcb7a4186a54969c219fa6, type: 3}
