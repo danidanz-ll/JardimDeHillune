@@ -9,6 +9,8 @@ public class FollowObjective : BasePrimitiveAction
 {
     [InParam("AIController")]
     public EnemyController enemyController;
+    [InParam("Objective")]
+    public GameObject objectiveGameObject;
     
     private Transform objective;
     public override void OnStart()
@@ -23,10 +25,7 @@ public class FollowObjective : BasePrimitiveAction
     }
     private void Follow()
     {
-        if (objective != null)
-        {
-            Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
-            enemyController.SetMovement(direction.normalized);
-        }
+        Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
+        enemyController.SetMovement(direction.normalized);
     }
 }
