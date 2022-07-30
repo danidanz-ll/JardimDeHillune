@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(IDamageable))]
+[RequireComponent(typeof(IMortal))]
 public class LifeSystem : MonoBehaviour
 {
     [Header("Stats")]
@@ -11,22 +13,32 @@ public class LifeSystem : MonoBehaviour
     [SerializeField] private float InvencibleTimeDamage;
     [SerializeField] private float TimeDamage;
 
-    [Header("Animation")]
-    [SerializeField] private Animator animator;
+    public IDamageable damageable { get; private set; }
+    public IMortal deathOnDamage { get; private set; }
 
     public bool IsHurting { get; private set; } = false;
     public bool IsInvencible { get; private set; } = false;
 
     private void Start()
     {
+        damageable = GetComponent<IDamageable>();
+        deathOnDamage = GetComponent<IMortal>();
         currentLife = maxLife;
         if (HealtBar != null)
         {
             HealtBar.maxValue = maxLife;
             HealtBar.value = currentLife;
         }
+        damageable.DamageEvent += TakeDamage;
     }
-    public bool TakeDamage(float damage)
+    private void OnDestroy()
+    {
+        if (damageable != null)
+        {
+            damageable.DamageEvent -= OnDamage;
+        }
+    }
+    public void TakeDamage(float damage)
     {
         if (!IsInvencible)
         {
@@ -37,16 +49,9 @@ public class LifeSystem : MonoBehaviour
             UpdateHealthBar();
             if (currentLife <= 0)
             {
-                return false;
+                Debug.Log("Dead!");
+                deathOnDamage.Die();
             }
-            else
-            {
-                return true;
-            }
-        }
-        else
-        {
-            return false;
         }
     }
     public void UpdateHealthBar()

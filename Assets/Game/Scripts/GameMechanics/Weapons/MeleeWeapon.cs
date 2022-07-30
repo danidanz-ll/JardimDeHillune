@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MeleeWeapon : TriggerDamageConstant, IWeapon
+public class MeleeWeapon : TriggerDamage, IWeapon
 {
     [SerializeField] 
     private float attackTime = 0.2f;

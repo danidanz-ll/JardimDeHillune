@@ -4,9 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour, IMovement
 {
-    [Header("Movement")]
-    [SerializeField]
-    public float moveSpeed;
+    [Header("Stats")]
+    [SerializeField] public float moveSpeed;
+
+    private IDamageable damageable;
+    private IMortal deathOnDamage;
 
     private Rigidbody2D rb;
     private bool running = false;
@@ -14,6 +16,24 @@ public class EnemyMovement : MonoBehaviour, IMovement
     private bool isFreeze = false;
     private Vector2 currentVelocity;
     private Vector2 facingDirection = new(0.5f, 0.5f);
+    private void Start()
+    {
+        damageable = GetComponent<IDamageable>();
+        deathOnDamage = GetComponent<IMortal>();
+        damageable.DamageEvent += StopMovement;
+        deathOnDamage.DeathEvent += StopMovement;
+    }
+    private void OnDestroy()
+    {
+        if (damageable != null)
+        {
+            damageable.DamageEvent -= StopMovement;
+        }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.DeathEvent -= StopMovement;
+        }
+    }
     public float GetCurrentVelocityNormalized()
     {
         var x = currentVelocity.x;

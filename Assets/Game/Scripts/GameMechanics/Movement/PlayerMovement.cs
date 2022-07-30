@@ -2,30 +2,35 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(IDamageable))]
+[RequireComponent(typeof(IMortal))]
 public class PlayerMovement : MonoBehaviour, IMovement
 {
-    [Header("Movement")]
-    [SerializeField]
-    private float moveSpeed;
-    [SerializeField]
-    private float acceleration;
-    [SerializeField]
-    private float decceleration;
-    [SerializeField]
-    private float velPower;
+    [Header("Stats")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float decceleration;
+    [SerializeField] private float velPower;
 
-    private bool isFreeze = false;
+    private IDamageable damageable;
+    private IMortal deathOnDamage;
+
     private Rigidbody2D rb;
+    private bool isFreeze = false;
+    private bool lookingRight = true;
     private bool running = false;
     private Vector2 currentVelocity;
     private Vector2 lookingDirection;
     private Vector2 lastForce;
     private Vector2 lastAccelerateSignal;
-    private bool lookingRight = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        damageable = GetComponent<IDamageable>();
+        deathOnDamage = GetComponent<IMortal>();
+        damageable.DamageEvent += StopMovement;
+        deathOnDamage.DeathEvent += StopMovement;
     }
     private void Update()
     {
@@ -36,6 +41,17 @@ public class PlayerMovement : MonoBehaviour, IMovement
         else
         {
             running = false;
+        }
+    }
+    private void OnDestroy()
+    {
+        if (damageable != null)
+        {
+            damageable.DamageEvent -= StopMovement;
+        }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.DeathEvent -= StopMovement;
         }
     }
     public bool isRunning()

@@ -12,35 +12,35 @@ public static class CharacterMovementAnimationKeys
 }
 public class CharacterAnimationController : MonoBehaviour
 {
-    [SerializeField]
-    private float timeAttackDuration = 0;
+    [SerializeField] private float timeAttackDuration = 0;
+    
     private SpriteRenderer spriteRenderer;
-    protected Animator animator;
-    private ICharacterController characterController;
-    protected IMovement movement;
     private IDamageable damageable;
+    private IMortal deathOnDamage;
     private IWeapon weapon;
     private bool AttackingAnimationIsOn = false;
+    protected IMovement movement;
+    protected Animator animator;
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageable = GetComponent<IDamageable>();
+        deathOnDamage = GetComponent<IMortal>();
+        
         weapon = GetComponentInChildren<IWeapon>();
-        characterController = GetComponent<ICharacterController>();
 
         if (damageable != null)
         {
             damageable.DamageEvent += OnDamage;
         }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.DeathEvent += OnDeath;
+        }
     }
     protected virtual void Update()
     {
-        if (characterController.CharacterIsDead())
-        {
-            animator.SetTrigger(CharacterMovementAnimationKeys.IsDead);
-            return;
-        }
         if (weapon != null)
         {
             if (weapon.IsAttacking() && !weapon.IsAttackInCooldown() && !AttackingAnimationIsOn)
@@ -73,10 +73,18 @@ public class CharacterAnimationController : MonoBehaviour
         {
             damageable.DamageEvent -= OnDamage;
         }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.DeathEvent -= OnDeath;
+        }
     }
     private void OnDamage()
     {
         animator.SetTrigger(CharacterMovementAnimationKeys.IsHurting);
+    }
+    private void OnDeath()
+    {
+        animator.SetTrigger(CharacterMovementAnimationKeys.IsDead);
     }
     private IEnumerator AttackingAnimationTime()
     {
