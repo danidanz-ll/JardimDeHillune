@@ -3,27 +3,25 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, ICharacterController
 {
     [Header("Config")]
-    [SerializeField] GameObject weaponObject;
+    [SerializeField]
+    GameObject weaponObject;
 
     public bool IsDead = false;
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
     private IDamageable damageable;
-    public IMortal deathOnDamage { get; private set; };
     private IWeapon weapon;
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
         damageable = GetComponent<IDamageable>();
-        damageable = GetComponent<IMortal>();
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
         damageable.DamageEvent += OnDamage;
-        deathOnDamage.DeathEvent += OnDeath;
     }
 
     private void Update()
@@ -40,10 +38,6 @@ public class EnemyController : MonoBehaviour, ICharacterController
         {
             damageable.DamageEvent -= OnDamage;
         }
-        if (deathOnDamage != null)
-        {
-            deathOnDamage.DeathEvent -= OnDeath;
-        }
     }
     public void SetMovement(Vector2 direction)
     {
@@ -58,13 +52,10 @@ public class EnemyController : MonoBehaviour, ICharacterController
         weapon.Attack();
         enemyMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
     }
-    private void OnDamage(float damage)
+    private void OnDamage()
     {
         enemyMovement.StopMovement();
-        if(!lifeSystem.TakeDamage(damage))
-        {
-            OnDeath();
-        }
+        lifeSystem.TakeDamage(10);
     }
     private void OnDeath()
     {
