@@ -9,30 +9,21 @@ public class EnemyController : MonoBehaviour, ICharacterController
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
     private IDamageable damageable;
-    public IMortal deathOnDamage { get; private set; };
+    public IMortal mortal { get; private set; }
     private IWeapon weapon;
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
         damageable = GetComponent<IDamageable>();
-        damageable = GetComponent<IMortal>();
+        mortal = GetComponent<IMortal>();
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
         damageable.DamageEvent += OnDamage;
-        deathOnDamage.DeathEvent += OnDeath;
-    }
-
-    private void Update()
-    {
-        if (lifeSystem.currentLife <= 0)
-        {
-            IsDead = true;
-            OnDeath();
-        }
+        mortal.DeathEvent += OnDeath;
     }
     private void OnDestroy()
     {
@@ -61,10 +52,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     private void OnDamage(float damage)
     {
         enemyMovement.StopMovement();
-        if(!lifeSystem.TakeDamage(damage))
-        {
-            OnDeath();
-        }
+        lifeSystem.TakeDamage(damage);
     }
     private void OnDeath()
     {
