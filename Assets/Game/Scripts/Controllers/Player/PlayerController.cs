@@ -6,15 +6,16 @@ using System.Collections;
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(IDamageable))]
+[RequireComponent(typeof(IMortal))]
+[RequireComponent(typeof(LifeSystem))]
 public class PlayerController : MonoBehaviour, ICharacterController
 {
-    [Header("Damage")]
-    [SerializeField]
-    IDamageable damageable;
-    [SerializeField]
-    GameObject weaponObject;
+    [Header("Weapon")]
+    [SerializeField] GameObject weaponObject;
 
     public bool IsDead = false;
+    public IDamageable damageable { get; private set; };
+    public IMortal deathOnDamage { get; private set; };
     private PlayerMovement playerMovement;
     private Dash dash;
     private PlayerInput playerInput;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
         damageable = GetComponent<IDamageable>();
+        damageable = GetComponent<IMortal>();
         lifeSystem = GetComponent<LifeSystem>();
 
         if (weaponObject != null)
@@ -35,16 +37,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
 
         damageable.DamageEvent += OnDamage;
+        deathOnDamage.DeathEvent += OnDeath;
     }
 
     private void Update()
     {
-        if (lifeSystem.currentLife <= 0)
-        {
-            IsDead = true;
-            OnDeath();
-        }
-
         if (weapon.IsAttacking())
         {
             playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
@@ -80,6 +77,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             damageable.DamageEvent -= OnDamage;
         }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.DeathEvent -= OnDeath;
+        }
     }
 
     public bool CharacterIsDead()
@@ -91,9 +92,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
         playerMovement.StopMovement();
         enabled = false;
     }
-    private void OnDamage()
+    private void OnDamage(float damage)
     {
         playerMovement.StopMovement();
-        lifeSystem.TakeDamage(10);
+        if(!lifeSystem.TakeDamage(damage))
+        {
+            OnDeath();
+        }
     }
 }
