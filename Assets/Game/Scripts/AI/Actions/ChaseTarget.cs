@@ -20,8 +20,15 @@ public class ChaseTarget : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
-        Vector2 toTarget = targetObject.transform.position - enemyController.transform.position;
-        enemyController.SetMovement(toTarget);
+        else if (!targetObject.enabled)
+        {
+            return TaskStatus.ABORTED;
+        }
+        else
+        {
+            Vector2 toTarget = targetObject.transform.position - enemyController.transform.position;
+            enemyController.SetMovement(toTarget);
+        }
         return TaskStatus.COMPLETED;
     }
 }
