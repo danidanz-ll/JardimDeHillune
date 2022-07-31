@@ -1,0 +1,87 @@
+/* General */
+body {
+    background-color: #444;
+    font-family: 'Roboto', sans-serif;
+}
+
+.row {
+    margin: 10px;
+}
+
+.container {
+    padding: 70px 0;
+}
+
+p, li {
+    color: #444;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Header */
+header h1 {
+    background-color: #444;
+    font-size: 70px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 70px 0;
+    text-align: center;
+    color: #FFF;
+}
+
+/* Navigation Bar */
+header, .navbar {
+    background-color: #444;
+}
+
+#nav-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#game-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbar-brand {
+    padding: 0;
+    color: #FFF;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1rem .8rem;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+/* About game */
+
+#about-game {
+    background-color: #F9F9F9;
+}
+
+#about-game img {
+    border-radius: 30px;
+}
+
+.main-title {
+    color: #2f3559;
+    margin: 0 0 65px 0;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about-title {
+    color: #2f3559;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: justify;
+}
