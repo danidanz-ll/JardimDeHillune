@@ -29,13 +29,13 @@ public class LifeSystem : MonoBehaviour
             HealtBar.maxValue = maxLife;
             HealtBar.value = currentLife;
         }
-        //damageable.DamageValueEvent += TakeDamageEvent;
+        damageable.DamageValueEvent += TakeDamageEvent;
     }
     private void OnDestroy()
     {
         if (damageable != null)
         {
-            //damageable.DamageValueEvent -= TakeDamageEvent;
+            damageable.DamageValueEvent -= TakeDamageEvent;
         }
     }
     public void TakeDamageEvent(object sender, float damage)
