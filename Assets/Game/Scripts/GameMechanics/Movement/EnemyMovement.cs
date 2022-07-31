@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
         deathOnDamage = GetComponent<IMortal>();
         damageable.DamageEvent += StopMovement;
         deathOnDamage.DeathEvent += StopMovement;
+        rb = GetComponent<Rigidbody2D>();
     }
     private void OnDestroy()
     {
@@ -114,11 +115,6 @@ public class EnemyMovement : MonoBehaviour, IMovement
         isFreeze = true;
         yield return new WaitForSeconds(time);
         isFreeze = false;
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
     }
 
     public bool isFreezing()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyController : MonoBehaviour, ICharacterController
 {
@@ -22,23 +23,26 @@ public class EnemyController : MonoBehaviour, ICharacterController
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        damageable.DamageEvent += OnDamage;
         mortal.DeathEvent += OnDeath;
     }
     private void OnDestroy()
     {
-        if (damageable != null)
+        if (mortal != null)
         {
-            damageable.DamageEvent -= OnDamage;
-        }
-        if (deathOnDamage != null)
-        {
-            deathOnDamage.DeathEvent -= OnDeath;
+            mortal.DeathEvent -= OnDeath;
         }
     }
     public void SetMovement(Vector2 direction)
     {
-        enemyMovement.SetMovement(direction.normalized);
+        try
+        {
+            enemyMovement.SetMovement(direction.normalized);
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Erroaqui");
+        }
+        
     }
     public float GetMovementSpeed()
     {
@@ -49,14 +53,8 @@ public class EnemyController : MonoBehaviour, ICharacterController
         weapon.Attack();
         enemyMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
     }
-    private void OnDamage(float damage)
-    {
-        enemyMovement.StopMovement();
-        lifeSystem.TakeDamage(damage);
-    }
     private void OnDeath()
     {
-        enemyMovement.StopMovement();
         enabled = false;
     }
     public bool CharacterIsDead()

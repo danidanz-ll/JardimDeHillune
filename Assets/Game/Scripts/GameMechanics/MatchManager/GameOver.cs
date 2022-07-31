@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
         PlayerLife = Player.GetComponent<LifeSystem>();
         ObjectiveLife = Objective.GetComponent<LifeSystem>();
     }
-    private void Start()
+    private void Update()
     {
         if (PlayerLife.currentLife <= 0 || ObjectiveLife.currentLife <= 0)
         {

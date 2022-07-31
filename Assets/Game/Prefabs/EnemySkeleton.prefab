@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackTime: 0.2
-  timeToFreeze: 0.4
-  attackCooldown: 1
+  attackTime: 1.5
+  timeToFreeze: 0.5
+  attackCooldown: 1.8
 --- !u!1 &3021196284507716434
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +300,6 @@ GameObject:
   - component: {fileID: -7444559928695909738}
   - component: {fileID: 3646557837351600611}
   - component: {fileID: -1851160430859019964}
-  - component: {fileID: 8288167559617685692}
   - component: {fileID: 4352458261281635558}
   - component: {fileID: 7909793126351103840}
   - component: {fileID: 1930486234779630036}
@@ -308,6 +307,7 @@ GameObject:
   - component: {fileID: -2539461861218895632}
   - component: {fileID: -143579857977391122}
   - component: {fileID: 2739829779044965624}
+  - component: {fileID: 1374744547458122985}
   m_Layer: 23
   m_Name: EnemySkeleton
   m_TagString: Enemy
@@ -372,7 +372,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1384196622, guid: 46ff2e64cb9aeff428724dabee240ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -451,24 +451,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8288167559617685692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3651131934071168343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82399e902b278424885e5d713cfb2d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLife: 50
-  currentLife: 0
-  HealtBar: {fileID: 4666449923132254164}
-  InvencibleTimeDamage: 1
-  TimeDamage: 1
-  animator: {fileID: -7444559928695909738}
 --- !u!114 &4352458261281635558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 2671455820243740955}
+  IsDead: 0
 --- !u!114 &1930486234779630036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b45132f5bbe7e14882c0a811c46374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAttackDuration: 0.8
+  timeAttackDuration: 1.5
 --- !u!114 &-8655884940628700118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,10 +589,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 50
   currentLife: 0
-  HealtBar: {fileID: 0}
-  InvencibleTimeDamage: 0.7
-  TimeDamage: 0.5
-  animator: {fileID: 0}
+  HealtBar: {fileID: 4666449923132254164}
+  InvencibleTimeDamage: 0.52
+  TimeDamage: 1.4
 --- !u!114 &2739829779044965624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +602,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1374744547458122985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651131934071168343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3820549099598856071

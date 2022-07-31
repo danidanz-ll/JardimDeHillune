@@ -20,7 +20,7 @@ public class ChaseTarget : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
-        else if (!targetObject.enabled)
+        else if (!targetObject.activeSelf)
         {
             return TaskStatus.ABORTED;
         }

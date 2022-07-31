@@ -8,7 +8,7 @@ public class SkeletonSpawner : MonoBehaviour, ISpawner
     [SerializeField] [Min(0)] private int NumberOfentities = 0;
     [SerializeField] [Min(0)] private float LenghtMap = 0;
 
-    public int LivingEntities { get; private set; };
+    public int LivingEntities { get; private set; }
     private List<GameObject> gameObjects = new List<GameObject>();
     private List<IMortal> deathEvents = new List<IMortal>();
     void Start()
@@ -37,7 +37,7 @@ public class SkeletonSpawner : MonoBehaviour, ISpawner
     {
         UnsubscribeDeathEvent();
     }
-    private void CreateEntities()
+    public void CreateEntities()
     {
         for (int i = 0; i < NumberOfentities; i++)
         {
@@ -53,14 +53,14 @@ public class SkeletonSpawner : MonoBehaviour, ISpawner
     }
     private void SubscribeDeathEvent()
     {
-        foreach (GameObject deathEvent in deathEvents)
+        foreach (IMortal deathEvent in deathEvents)
         {
             deathEvent.DeathEvent += CountDeath;
         }
     }
     private void UnsubscribeDeathEvent()
     {
-        foreach (GameObject deathEvent in deathEvents)
+        foreach (IMortal deathEvent in deathEvents)
         {
             if (deathEvent != null)
             {
@@ -68,7 +68,7 @@ public class SkeletonSpawner : MonoBehaviour, ISpawner
             }
         }
     }
-    private void ActivateAllEntities()
+    public void ActivateAllEntities()
     {
         foreach (GameObject gameObject in gameObjects)
         {
