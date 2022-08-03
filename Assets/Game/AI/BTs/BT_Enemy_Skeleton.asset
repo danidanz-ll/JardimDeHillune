@@ -75,38 +75,38 @@ MonoBehaviour:
     />\r\n          <ActionNode id=\"18\" />\r\n          <ActionNode id=\"19\" />\r\n         
     <ActionNode id=\"20\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
     <SelectorNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"198.9052 21.18991\" name=\"Selector\" description=\"Executes all its
+    position=\"693.155 418.047\" name=\"Selector\" description=\"Executes all its
     children until one of them is successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SelectorNode id=\"17\" />\r\n       
     </data>\r\n      </_data>\r\n    </SelectorNode>\r\n    <SequenceNode id=\"10\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"168.2809
-    184.3404\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"662.5308
+    581.1976\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"10\" />\r\n         
     <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"523.0643 107.3768\" name=\"Game/FollowObjective\" description=\"\"
+    position=\"1017.314 504.234\" name=\"Game/FollowObjective\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"19\" />\r\n          <SelectorNode id=\"17\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"-212.3971 370.3773\" name=\"GameObject/ClosestGameObjectWithTag\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"281.853 767.2344\" name=\"GameObject/ClosestGameObjectWithTag\"
     description=\"Finds the closest game object with a given tag\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"9\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"13\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"138.8909 440.5199\" name=\"Game/Perception/IsTargetVisible\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"633.141 837.377\" name=\"Game/Perception/IsTargetVisible\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n          <SequenceNode
     id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"393.0641 433.0909\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
+    position=\"887.3135 829.9481\" name=\"Game/ChaseTarget\" description=\"\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"18\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"20\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"True\" position=\"601.4286 461.4285\" name=\"Game/AttackTarget\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"1095.678 858.2856\" name=\"Game/AttackTarget\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"20\" />\r\n          <SequenceNode
     id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.7
+  zoom: 0.5
   subslist: []
   _guid: 997a5691bd83aee4d8785c965502623e

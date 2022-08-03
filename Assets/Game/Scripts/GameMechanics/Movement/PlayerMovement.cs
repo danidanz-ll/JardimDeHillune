@@ -148,4 +148,12 @@ public class PlayerMovement : MonoBehaviour, IMovement
         }
         return Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
     }
+    public void SetMass(float mass)
+    {
+        rb.mass = mass;
+    }
+    public void SetBodyType(RigidbodyType2D type)
+    {
+        rb.bodyType = type;
+    }
 }
