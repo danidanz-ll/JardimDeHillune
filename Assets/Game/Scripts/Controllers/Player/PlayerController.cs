@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     }
     private void OnDeath()
     {
+        playerMovement.SetBodyType(RigidbodyType2D.Static);
         enabled = false;
     }
 }
