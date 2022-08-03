@@ -1,3 +1,4 @@
+using System;
 using Pada1.BBCore;
 using Pada1.BBCore.Framework;
 using Pada1.BBCore.Tasks;
@@ -24,11 +25,26 @@ public class ChaseTarget : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
+        else if (GetControllerFromCharacter(targetObject).CharacterIsDead())
+        {
+            return TaskStatus.ABORTED;
+        }
         else
         {
             Vector2 toTarget = targetObject.transform.position - enemyController.transform.position;
             enemyController.SetMovement(toTarget);
         }
         return TaskStatus.COMPLETED;
+    }
+    private ICharacterController GetControllerFromCharacter(GameObject character)
+    {
+        try
+        {
+            return character.GetComponent<ICharacterController>();
+        } catch (Exception ex)
+        {
+            Debug.Log("[ERROR] ChaseTarget: Não foi possível recuperar controlador do alvo.");
+            return new NullCharacterController();
+        }
     }
 }
