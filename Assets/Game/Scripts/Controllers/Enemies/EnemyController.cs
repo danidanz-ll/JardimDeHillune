@@ -3,8 +3,11 @@ using System;
 
 public class EnemyController : MonoBehaviour, ICharacterController
 {
-    [Header("Config")]
+    [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
+    [Header("Death settings")]
+    [Min(0)]
+    [SerializeField] private TimeToDisappearAfterDeath = 0;
 
     public bool IsDead = false;
     private EnemyMovement enemyMovement;
@@ -34,15 +37,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     public void SetMovement(Vector2 direction)
     {
-        try
-        {
-            enemyMovement.SetMovement(direction.normalized);
-        }
-        catch(Exception e)
-        {
-            Debug.Log("Erroaqui");
-        }
-        
+        enemyMovement.SetMovement(direction.normalized);
     }
     public float GetMovementSpeed()
     {
@@ -55,10 +50,17 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     private void OnDeath()
     {
-        enabled = false;
+        enemyMovement.SetBodyType(RigidbodyType2D.Static);
+        StartCoroutine(DisappearAfterDeath());
     }
     public bool CharacterIsDead()
     {
         return IsDead;
+    }
+    private IEnumerator DisappearAfterDeath()
+    {
+        enabled = false;
+        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
+        Destroy();
     }
 }

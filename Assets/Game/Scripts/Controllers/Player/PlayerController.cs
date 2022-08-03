@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
+    [Header("Death settings")]
+    [Min(0)]
+    [SerializeField] private TimeToDisappearAfterDeath = 0;
 
     public IMortal deathOnDamage { get; private set; }
     private PlayerMovement playerMovement;
@@ -33,7 +36,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         deathOnDamage.DeathEvent += OnDeath;
     }
-
     private void Update()
     {
         if (weapon.IsAttacking())
@@ -79,6 +81,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private void OnDeath()
     {
         playerMovement.SetBodyType(RigidbodyType2D.Static);
+        StartCoroutine(DisappearAfterDeath());
+    }
+    private IEnumerator DisappearAfterDeath()
+    {
         enabled = false;
+        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
+        Destroy();
     }
 }
