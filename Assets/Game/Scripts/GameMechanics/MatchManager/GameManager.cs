@@ -2,34 +2,32 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameOver))]
+[RequireComponent(typeof(MatchWin))]
+[RequireComponent(typeof(MatchTimer))]
 public class GameManager : MonoBehaviour
 {
-    [Header("Enimies")] 
-    [SerializableField] private List<GameObject> SpawnersGameObjects;
-
-    private List<ISpawner> Spawners;
-
+    private GameOver gameOver;
+    private MatchWin matchWin;
+    private MatchTimer matchTimer;
     private void Start()
     {
-        foreach (GameObject spawnerGameObject in SpawnersGameObjects)
-        {
-            try
-            {
-                Spawners.Add(spawnerGameObject.GetComponent<ISpawner>());
-            } catch (Exception ex)
-            {
-                Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto!");
-            }
-        }
+        gameOver = GetComponent<GameOver>();
+        matchWin = GetComponent<MatchWin>();
+        matchTimer = GetComponent<MatchTimer>();
     }
     private void Update()
     {
-        foreach (ISpawner spawner in Spawners)
+        bool isRoundOver = false;
+        if (gameOver.IsGameOver || matchWin.IsMatchWin || matchTimer.IsTimerFinshed)
         {
-            if (spawner.LivingEntities <= 0)
-            {
-                Debug.Log("Player win!");
-            }
+            isRoundOver = true;
+        }
+
+        if (isRoundOver)
+        {
+            Debug.Log("Fim da partida!");
+            enabled = false;
         }
     }
 }

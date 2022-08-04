@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    public bool isGameOver { get; private set; } = false;
+    public bool IsGameOver { get; private set; } = false;
     
     private GameObject Player;
     private GameObject Objective;
@@ -21,7 +21,7 @@ public class GameOver : MonoBehaviour
         if (PlayerLife.currentLife <= 0) // || ObjectiveLife.currentLife <= 0)
         {
             Debug.Log("Game Over!");
-            isGameOver = true;
+            IsGameOver = true;
         }
     }
 }
