@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GameOver))]
-[RequireComponent(typeof(MatchWin))]
+//[RequireComponent(typeof(MatchWin))]
 [RequireComponent(typeof(MatchTimer))]
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameOver = GetComponent<GameOver>();
-        matchWin = GetComponent<MatchWin>();
+        //matchWin = GetComponent<MatchWin>();
         matchTimer = GetComponent<MatchTimer>();
     }
     private void Update()
     {
         bool isRoundOver = false;
-        if (gameOver.IsGameOver || matchWin.IsMatchWin || matchTimer.IsTimerFinshed)
+        if (gameOver.IsGameOver || matchTimer.IsTimerFinshed) // || matchWin.IsMatchWin
         {
             isRoundOver = true;
         }

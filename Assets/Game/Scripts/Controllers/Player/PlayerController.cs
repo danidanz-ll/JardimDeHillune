@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] GameObject weaponObject;
     [Header("Death settings")]
     [Min(0)]
-    [SerializeField] private TimeToDisappearAfterDeath = 0;
+    [SerializeField] private float TimeToDisappearAfterDeath = 0;
 
     public IMortal deathOnDamage { get; private set; }
     private PlayerMovement playerMovement;
@@ -87,6 +87,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-        Destroy();
+        Destroy(this);
     }
 }

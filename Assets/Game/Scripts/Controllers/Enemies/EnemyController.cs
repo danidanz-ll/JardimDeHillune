@@ -1,5 +1,5 @@
+using System.Collections;
 using UnityEngine;
-using System;
 
 public class EnemyController : MonoBehaviour, ICharacterController
 {
@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     [SerializeField] GameObject weaponObject;
     [Header("Death settings")]
     [Min(0)]
-    [SerializeField] private TimeToDisappearAfterDeath = 0;
+    [SerializeField] private float TimeToDisappearAfterDeath = 0;
 
     public bool IsDead = false;
     private EnemyMovement enemyMovement;
@@ -61,6 +61,6 @@ public class EnemyController : MonoBehaviour, ICharacterController
     {
         enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-        Destroy();
+        Destroy(this);
     }
 }

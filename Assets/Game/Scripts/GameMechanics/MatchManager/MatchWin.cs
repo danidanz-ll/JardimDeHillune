@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class MatchWin : MonoBehaviour
 {
-    [Header("Enimies")] 
-    [SerializableField] private List<GameObject> SpawnersGameObjects;
+    private List<GameObject> SpawnersGameObjects;
 
     private List<ISpawner> Spawners;
     public bool IsMatchWin { get; private set; } = false;
 
     private void Start()
-    {
+    {   
+        var objects = GameObject.FindGameObjectWithTag("Spawner");
+        Debug.Log(objects.ToString());   
+        SpawnersGameObjects.Add(new GameObject("teste"));   
+        /*foreach (GameObject spawnerGameObject in objects)
+        {
+            try
+            {
+                SpawnersGameObjects.Add(spawnerGameObject);
+            }catch (Exception ex)
+            {
+                Debug.Log("[ERROR] O objeto Spawner esta nulo!");
+            }
+        }*/
+        Debug.Log(SpawnersGameObjects.ToString()); 
         foreach (GameObject spawnerGameObject in SpawnersGameObjects)
         {
             try
