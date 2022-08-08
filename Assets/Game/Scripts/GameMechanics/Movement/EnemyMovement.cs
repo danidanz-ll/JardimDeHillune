@@ -116,9 +116,16 @@ public class EnemyMovement : MonoBehaviour, IMovement
         yield return new WaitForSeconds(time);
         isFreeze = false;
     }
-
     public bool isFreezing()
     {
         return isFreeze;
+    }
+    public void SetMass(float mass)
+    {
+        rb.mass = mass;
+    }
+    public void SetBodyType(RigidbodyType2D type)
+    {
+        rb.bodyType = type;
     }
 }

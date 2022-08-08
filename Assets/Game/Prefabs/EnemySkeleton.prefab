@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 2671455820243740955}
+  TimeToDisappearAfterDeath: 1.5
   IsDead: 0
 --- !u!114 &1930486234779630036
 MonoBehaviour:
