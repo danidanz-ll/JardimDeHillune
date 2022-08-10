@@ -2,7 +2,7 @@ using BBUnity.Conditions;
 using Pada1.BBCore;
 
 [Condition("Game/Perception/IsDead")]
-public class IsNotRunning : GOCondition
+public class IsDead : GOCondition
 {
     public override bool Check()
     {

@@ -3,7 +3,6 @@ using UnityEngine;
 public interface ISpawner
 {
     void CreateEntities();
-    void ActivateAllEntities();
-    Vector3 GetRandomPositionSpawn();
+    void ActivateAllEntities(bool active);
     int LivingEntities { get; }
 }
