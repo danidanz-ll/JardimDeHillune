@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     }
     private bool IsOnRightSide(Vector2 velocity)
     {
-        if (velocity.normalized.x >= 0 || velocity.normalized.y >= 0)
+        if (velocity.x >= 0 || velocity.y >= 0)
         {
             return true;
         }
@@ -79,7 +79,8 @@ public class EnemyMovement : MonoBehaviour, IMovement
     public void SetMovement(Vector2 direction)
     {
         rb.velocity = direction.normalized * moveSpeed;
-        currentVelocity = rb.velocity;
+        currentVelocity = direction.normalized * moveSpeed;
+
         if (direction != Vector2.zero)
         {
             facingDirection = direction.normalized;

@@ -59,8 +59,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     private IEnumerator DisappearAfterDeath()
     {
-        enabled = false;
+        //enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-        Destroy(this);
     }
 }

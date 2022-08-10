@@ -21,6 +21,7 @@ public class CharacterAnimationController : MonoBehaviour
     private bool AttackingAnimationIsOn = false;
     protected IMovement movement;
     protected Animator animator;
+    private bool dead = false;
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
@@ -41,6 +42,8 @@ public class CharacterAnimationController : MonoBehaviour
     }
     protected virtual void Update()
     {
+        if (dead) return;
+
         if (weapon != null)
         {
             if (weapon.IsAttacking() && !weapon.IsAttackInCooldown() && !AttackingAnimationIsOn)
@@ -50,7 +53,11 @@ public class CharacterAnimationController : MonoBehaviour
                 StartCoroutine(AttackingAnimationTime());
             }
         }
-        
+    }
+    private void FixedUpdate() 
+    {
+        if (dead) return;
+
         if (movement.isFreezing())
         {
             return;
@@ -85,6 +92,8 @@ public class CharacterAnimationController : MonoBehaviour
     private void OnDeath()
     {
         animator.SetTrigger(CharacterMovementAnimationKeys.IsDead);
+        dead = true;
+        enabled = false;
     }
     private IEnumerator AttackingAnimationTime()
     {

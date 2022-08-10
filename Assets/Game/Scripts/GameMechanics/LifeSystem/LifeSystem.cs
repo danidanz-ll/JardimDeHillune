@@ -53,7 +53,6 @@ public class LifeSystem : MonoBehaviour
             UpdateHealthBar();
             if (currentLife <= 0)
             {
-                Debug.Log("Dead!");
                 deathOnDamage.Die();
             }
         }

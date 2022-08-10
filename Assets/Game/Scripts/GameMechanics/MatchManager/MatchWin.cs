@@ -5,26 +5,20 @@ using UnityEngine;
 public class MatchWin : MonoBehaviour
 {
     private List<GameObject> SpawnersGameObjects;
-
-    private List<ISpawner> Spawners;
+    private List<EnemySpawner> Spawners;
     public bool IsMatchWin { get; private set; } = false;
 
     private void Start()
-    {   
-        var objects = GameObject.FindGameObjectWithTag("Spawner");
-        Debug.Log(objects.ToString());   
-        SpawnersGameObjects.Add(new GameObject("teste"));   
-        /*foreach (GameObject spawnerGameObject in objects)
+    {
+        try
         {
-            try
-            {
-                SpawnersGameObjects.Add(spawnerGameObject);
-            }catch (Exception ex)
-            {
-                Debug.Log("[ERROR] O objeto Spawner esta nulo!");
-            }
-        }*/
-        Debug.Log(SpawnersGameObjects.ToString()); 
+            SpawnersGameObjects.AddRange(GameObject.FindGameObjectsWithTag("Spawner"));   
+        } catch (Exception ex)
+        {
+            Debug.Log("[ERROR] Não foi possível obter os spawners dos inimigos!");
+            return;
+        }
+
         foreach (GameObject spawnerGameObject in SpawnersGameObjects)
         {
             try
@@ -46,8 +40,9 @@ public class MatchWin : MonoBehaviour
                 matchWin = false;
             }
         }
-        if (matchWin)
+        if (matchWin && Spawners.Count > 0)
         {
+            IsMatchWin = true;
             Debug.Log("Fim da partida, o jogador venceu!");
         }
     }

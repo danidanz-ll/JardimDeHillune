@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private PlayerInput playerInput;
     private LifeSystem lifeSystem;
     private IWeapon weapon;
+    private Vector2 movementInupt;
 
     void Start()
     {
@@ -38,17 +39,20 @@ public class PlayerController : MonoBehaviour, ICharacterController
     }
     private void Update()
     {
+        Vector2 movementInupt = playerInput.GetMovementInput();
+
+        if (weapon != null && playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
+        {
+            weapon.Attack();
+            playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
+        }
+    }
+    private void FixedUpdate()
+    {
         if (weapon.IsAttacking())
         {
             playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
             return;
-        }
-        Vector2 movementInupt = playerInput.GetMovementInput();
-
-        #region Dash
-        if (playerInput.IsDashingButtonDown() && dash.isAvailable())
-        {
-            dash.StartDashing(movementInupt);
         }
 
         if (dash.isRunning())
@@ -56,16 +60,18 @@ public class PlayerController : MonoBehaviour, ICharacterController
             dash.ContinueDashing();
             return;
         }
+
+        #region Dash
+        if (playerInput.IsDashingButtonDown() && dash.isAvailable())
+        {
+            dash.StartDashing(movementInupt);
+            return;
+        }
         #endregion
 
         #region Run
         playerMovement.SetMovement(movementInupt);
         #endregion
-
-        if (weapon != null && playerInput.IsAttackButtonDown())
-        {
-            weapon.Attack();
-        }
     }
     private void OnDestroy()
     {
@@ -87,6 +93,5 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-        Destroy(this);
     }
 }
