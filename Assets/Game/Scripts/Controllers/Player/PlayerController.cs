@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent (typeof(PlayerInput))]
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [Header("Death settings")]
     [Min(0)]
     [SerializeField] private float TimeToDisappearAfterDeath = 0;
+    [Header("Tower skills")]
+    [SerializeField] private TowerSkill towerSkill;
 
     public IMortal deathOnDamage { get; private set; }
     private PlayerMovement playerMovement;
@@ -45,6 +48,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             weapon.Attack();
             playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
+        }
+
+        if (playerInput.IsInvokeButtonDown())
+        {
+            towerSkill.Invoke(transform.position);
         }
     }
     private void FixedUpdate()

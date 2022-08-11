@@ -18,4 +18,10 @@ public class PlayerInput : MonoBehaviour
         bool isMobileButtonDown = false;
         return isKeyboardButtonDown || isMobileButtonDown;
     }
+    public bool IsInvokeButtonDown()
+    {
+        bool isKeyboardButtonDown = Input.GetButtonDown("Invoke");
+        bool isMobileButtonDown = false;
+        return isKeyboardButtonDown || isMobileButtonDown;
+    }
 }
