@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour, ISpawner
     void Start()
     {
         spawnerEvents = GetComponent<SpawnerEvents>();
-        LivingEntities = NumberOfentities;
+        LivingEntities = 0;
         CreateEntities();
 
         foreach (GameObject gameObject in gameObjects)
@@ -68,6 +68,13 @@ public class Spawner : MonoBehaviour, ISpawner
         foreach (GameObject gameObject in gameObjects)
         {
             gameObject.SetActive(active);
+            if (active)
+            {
+                LivingEntities++;
+            } else
+            {
+                LivingEntities--;
+            }
         }
     }
     private void CountDeath()
