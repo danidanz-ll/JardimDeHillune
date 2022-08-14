@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private PlayerInput playerInput;
     private LifeSystem lifeSystem;
     private IWeapon weapon;
-    private Vector2 movementInupt;
+    private Vector2 movementInput;
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         playerInput = GetComponent<PlayerInput>();
         deathOnDamage = GetComponent<IMortal>();
         lifeSystem = GetComponent<LifeSystem>();
+        towerSkill = GetComponent<TowerSkill>();
 
         if (weaponObject != null)
         {
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     }
     private void Update()
     {
-        Vector2 movementInupt = playerInput.GetMovementInput();
+        movementInput = playerInput.GetMovementInput();
 
         if (weapon != null && playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
         {
@@ -52,7 +53,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         if (playerInput.IsInvokeButtonDown())
         {
-            towerSkill.Invoke(transform.position);
+            Vector3 spaceInvoke = new Vector3(5,5,0);
+            Vector3 currentPosition = transform.position + spaceInvoke;
+            towerSkill.Invoke(currentPosition);
         }
     }
     private void FixedUpdate()
@@ -72,13 +75,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
         #region Dash
         if (playerInput.IsDashingButtonDown() && dash.isAvailable())
         {
-            dash.StartDashing(movementInupt);
+            dash.StartDashing(movementInput);
             return;
         }
         #endregion
 
         #region Run
-        playerMovement.SetMovement(movementInupt);
+        playerMovement.SetMovement(movementInput);
         #endregion
     }
     private void OnDestroy()

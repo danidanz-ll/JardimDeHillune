@@ -12,10 +12,12 @@ public class MatchWin : MonoBehaviour
     {
         try
         {
-            SpawnersGameObjects.AddRange(GameObject.FindGameObjectsWithTag("Spawner"));   
+            var spawnersTeste = GameObject.FindGameObjectsWithTag("Spawner");
+            Debug.Log(spawnersTeste.ToString());
+            SpawnersGameObjects.AddRange(spawnersTeste);   
         } catch (Exception ex)
         {
-            Debug.Log("[ERROR] Não foi possível obter os spawners dos inimigos!");
+            Debug.Log("[ERROR] Não foi possível obter os spawners dos inimigos!" + ex.ToString());
             return;
         }
 
@@ -23,7 +25,7 @@ public class MatchWin : MonoBehaviour
         {
             try
             {
-                Spawners.Add(spawnerGameObject.GetComponent<ISpawner>());
+                Spawners.Add(spawnerGameObject.GetComponent<EnemySpawner>());
             } catch (Exception ex)
             {
                 Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto!");
@@ -32,18 +34,21 @@ public class MatchWin : MonoBehaviour
     }
     private void Update()
     {
-        bool matchWin = true;
-        foreach (ISpawner spawner in Spawners)
+        if( Spawners != null )
         {
-            if (spawner.LivingEntities > 0)
+            bool matchWin = true;
+            foreach (EnemySpawner spawner in Spawners)
             {
-                matchWin = false;
+                if (spawner.LivingEntities > 0)
+                {
+                    matchWin = false;
+                }
             }
-        }
-        if (matchWin && Spawners.Count > 0)
-        {
-            IsMatchWin = true;
-            Debug.Log("Fim da partida, o jogador venceu!");
+            if (matchWin && Spawners.Count > 0)
+            {
+                IsMatchWin = true;
+                Debug.Log("Fim da partida, o jogador venceu!");
+            }
         }
     }
 }

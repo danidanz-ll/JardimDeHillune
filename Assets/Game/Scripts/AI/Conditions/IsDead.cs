@@ -7,6 +7,6 @@ public class IsDead : GOCondition
     public override bool Check()
     {
         ICharacterController characterController = gameObject.GetComponent<ICharacterController>();
-        return characterController.CharacterIsDead();
+        return !characterController.CharacterIsDead();
     }
 }

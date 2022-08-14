@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class EnemySpawner : Spawner
+public class EnemySpawner : MobSpawner
 {
-    protected override void Update()
+    public override void Start()
     {
-        base.Update();
+        base.Start();
         ActivateAllEntities(true);
         foreach (GameObject gameObject in gameObjects)
         {
             gameObject.transform.position = GetRandomPositionSpawn();
         }
+    }
+    private void Update()
+    {
     }
     public Vector3 GetRandomPositionSpawn()
     {

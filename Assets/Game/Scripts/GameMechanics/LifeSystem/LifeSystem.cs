@@ -30,6 +30,7 @@ public class LifeSystem : MonoBehaviour
             HealtBar.value = currentLife;
         }
         damageable.DamageValueEvent += TakeDamageEvent;
+        damageable.DamageEvent += DamageEventFunction;
     }
     private void OnDestroy()
     {
@@ -37,6 +38,10 @@ public class LifeSystem : MonoBehaviour
         {
             damageable.DamageValueEvent -= TakeDamageEvent;
         }
+    }
+    private void DamageEventFunction()
+    {
+
     }
     public void TakeDamageEvent(object sender, float damage)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TowerSpawner : Spawner
+public class TowerSpawner : MobSpawner
 {
     public void ActivateEntity(bool active, Vector3 position)
     {
@@ -11,6 +11,7 @@ public class TowerSpawner : Spawner
                 if (!gameObject.activeSelf)
                 {
                     gameObject.SetActive(active);
+                    gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("TowersParent").transform);
                     gameObject.transform.position = position;
                     LivingEntities++;
                     break;

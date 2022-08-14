@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: -6052855907788223349}
   - component: {fileID: 1273608545874653311}
   - component: {fileID: -8184389961736305724}
+  - component: {fileID: 5316983048113948849}
+  - component: {fileID: 7158663401731129994}
+  - component: {fileID: -4519107092639731022}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -286,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 6930895518700754521}
   TimeToDisappearAfterDeath: 4
+  towerSkill: {fileID: 0}
 --- !u!114 &2461474773925571185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e69579819ff6845a80de07f74be52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 15
   acceleration: 2
   decceleration: 6
   velPower: 0.8
@@ -382,6 +386,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5316983048113948849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414705926397175537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73949dcf663e8a34692bff52354e5612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7158663401731129994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414705926397175537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b9efff74084244bb492f8173b21758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
+  NumberOfentities: 1
+  LenghtMap: 0
+  LivingEntities: 0
+--- !u!114 &-4519107092639731022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414705926397175537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b4f2a381e686444b74b2b4f6207c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6930895518700754521
