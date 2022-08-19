@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MatchWin : MonoBehaviour
 {
+    [SerializeField] private TMP_Text matchWinText;
+
     private List<GameObject> SpawnersGameObjects;
     private List<EnemySpawner> Spawners;
     public bool IsMatchWin { get; private set; } = false;
 
     private void Start()
     {
+        SpawnersGameObjects = new List<GameObject>();
+        Spawners = new List<EnemySpawner>();
         try
         {
             var spawnersTeste = GameObject.FindGameObjectsWithTag("Spawner");
@@ -47,7 +52,10 @@ public class MatchWin : MonoBehaviour
             if (matchWin && Spawners.Count > 0)
             {
                 IsMatchWin = true;
-                Debug.Log("Fim da partida, o jogador venceu!");
+                if (matchWinText != null)
+                {
+                    matchWinText.text = "Jardim protegido!";
+                }
             }
         }
     }
