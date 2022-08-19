@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     public bool CharacterIsDead()
     {
-        return IsDead;
+        return mortal.IsDead;
     }
     private IEnumerator DisappearAfterDeath()
     {
