@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     private void Resurrect()
     {
-        enemyMovement.SetBodyType(RigidbodyType2D.Dinamic);
+        enemyMovement.SetBodyType(RigidbodyType2D.Dynamic);
     }
     public bool CharacterIsDead()
     {
