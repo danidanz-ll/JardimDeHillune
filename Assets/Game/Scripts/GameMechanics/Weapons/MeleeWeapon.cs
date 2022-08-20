@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
-    [SerializeField] 
-    private float attackTime = 0.2f;
-    [SerializeField]
-    private float timeToFreeze = 0.2f;
-    [SerializeField]
-    private float attackCooldown = 0f;
+    [SerializeField] private float attackTime = 0.2f;
+    [SerializeField] private float startAttackDamage = 0.2f;
+    [SerializeField] private float timeToFreeze = 0.2f;
+    [SerializeField] private float attackCooldown = 0f;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
@@ -26,10 +24,8 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         if (!IsAttackInCooldown() && !IsAttacking())
         {
-            gameObject.SetActive(true);
-            StartCoroutine(PerformAttack());
+            StartCoroutine(StartAttackDamage());
         }
-
     }
 
     private IEnumerator PerformAttack()
@@ -68,5 +64,11 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         attackCooldownOn = false;
         boxCollider.enabled = true;
         gameObject.SetActive(false);
+    }
+    public IEnumerator StartAttackDamage()
+    {
+        yield return new WaitForSeconds(startAttackDamage);
+        gameObject.SetActive(true);
+        StartCoroutine(PerformAttack());
     }
 }
