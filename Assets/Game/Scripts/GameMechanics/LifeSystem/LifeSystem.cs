@@ -54,11 +54,13 @@ public class LifeSystem : MonoBehaviour
         if (currentLife + points <= maxLife)
         {
             currentLife += points;
+            UpdateHealthBar();
         }
     }
     public void SetFullLife()
     {
         currentLife = maxLife;
+        UpdateHealthBar();
     }
     public void TakeDamageEvent(object sender, float damage)
     {
