@@ -65,7 +65,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         yield return new WaitForSeconds(attackCooldown);
         attackCooldownOn = false;
         boxCollider.enabled = true;
-        gameObject.SetActive(false);
     }
     public IEnumerator StartAttackDamage()
     {
