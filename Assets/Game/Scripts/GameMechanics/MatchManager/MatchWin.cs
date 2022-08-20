@@ -46,7 +46,7 @@ public class MatchWin : MonoBehaviour
     {
         if (spawnersInMatch == 0)
         {
-            SetPlayerWin();
+            //SetPlayerWin();
         }
     }
     private void AccountSpawnerFinished()

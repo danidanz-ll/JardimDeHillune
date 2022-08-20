@@ -22,7 +22,7 @@ public class MatchTimer : MonoBehaviour
             timer -= Time.deltaTime;
             if (clockText != null)
             {
-                int minutes = (int)(timer / 60.0f);
+                int minutes = (int)Mathf.Abs(timer / 60.0f);
                 int seconds = (int)Mathf.Abs((minutes * 60) - timer);
                 string minutesString = minutes.ToString();
                 string secondsString = seconds.ToString();
