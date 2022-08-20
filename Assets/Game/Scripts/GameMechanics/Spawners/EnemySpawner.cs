@@ -64,9 +64,10 @@ public class EnemySpawner : MobSpawner
     private override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)));
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)));
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)));
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)));
+        Vector3 lineSpawn = new Vector3(0, LenghtMap, 0);
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2))* lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)) * lineSpawn);
     }
 }
