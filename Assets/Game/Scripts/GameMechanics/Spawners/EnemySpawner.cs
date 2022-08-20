@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MobSpawner
@@ -14,6 +15,29 @@ public class EnemySpawner : MobSpawner
     }
     private void Update()
     {
+    }
+    private override void CountDeath()
+    {
+        base.CountDeath();
+        StartCoroutine(ResurrectEntityDead());
+    }
+    public IEnumerator ResurrectEntityDead()
+    {
+        foreach (IMortal deathEvent in deathEvents)
+        {
+            if (deathEvent != null)
+            {
+                if (deathEvent.IsDead)
+                {
+                    deathEvent.Resurrect();
+                    break;
+                }
+            }
+        }
+    }
+    private void RepositionEntity(Transform transformEntity)
+    {
+        transformEntity.position = GetRandomPositionSpawn();
     }
     public Vector3 GetRandomPositionSpawn()
     {
@@ -37,13 +61,12 @@ public class EnemySpawner : MobSpawner
 
         return new Vector3(x, y, 0);
     }
-    private void OnDrawGizmosSelected()
+    private override void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, LenghtMap);
-
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn / 2));
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2));
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn / 2));
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2));
+        base.OnDrawGizmosSelected();
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)));
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)));
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)));
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)));
     }
 }

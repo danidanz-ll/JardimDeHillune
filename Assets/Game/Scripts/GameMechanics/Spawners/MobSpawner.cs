@@ -6,17 +6,18 @@ public class MobSpawner : MonoBehaviour, ISpawner
 {
     [Header("Spawn settings")]
     [SerializeField] public GameObject Entity;
-    [SerializeField] [Min(0)] public int NumberOfentities = 0;
+    [SerializeField] [Min(0)] public int NumberOfEntitiesInGame = 0;
+    [SerializeField] [Min(0)] public int NumberMaxEntities = 0;
     [SerializeField] [Min(0)] public float LenghtMap = 0;
 
-    public int LivingEntities;
+    public int LivingEntities { get; private set; } = 0;
+    public int EliminatedEntities { get; private set; } = 0;
     public List<GameObject> gameObjects { get; private set; } = new List<GameObject>();
     public List<IMortal> deathEvents { get; private set; } = new List<IMortal>();
     public SpawnerEvents spawnerEvents { get; private set; }
     public virtual void Start()
     {
         spawnerEvents = GetComponent<SpawnerEvents>();
-        LivingEntities = 0;
         CreateEntities();
 
         foreach (GameObject gameObject in gameObjects)
@@ -34,7 +35,7 @@ public class MobSpawner : MonoBehaviour, ISpawner
     }
     public void CreateEntities()
     {
-        for (int i = 0; i < NumberOfentities; i++)
+        for (int i = 0; i < NumberOfEntitiesInGame; i++)
         {
             gameObjects.Add(Instantiate(Entity, new Vector3(0, 0, 0), Quaternion.identity));
         }
@@ -71,20 +72,21 @@ public class MobSpawner : MonoBehaviour, ISpawner
             if (active)
             {
                 LivingEntities++;
-            } else
-            {
-                LivingEntities--;
             }
         }
     }
     private void CountDeath()
     {
         LivingEntities--;
+        EliminatedEntities++;
 
-        if (LivingEntities == 0)
+        if (EliminatedEntities == NumberMaxEntities)
         {
-            Debug.Log("All units are dead!");
             spawnerEvents.WarnAllUnitsDied();
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, LenghtMap);
     }
 }
