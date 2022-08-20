@@ -130,8 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 1
   damage: 10
   attackTime: 1.5
+  startAttackDamageTime: 0.2
   timeToFreeze: 0.5
   attackCooldown: 1.8
 --- !u!1 &3021196284507716434

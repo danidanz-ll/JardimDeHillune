@@ -1484,9 +1484,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 8675903675867738905, guid: cabbbdd244eaeea4f9bbdf96038342f0, type: 3}
-  NumberOfentities: 0
+  NumberOfEntitiesInGame: 0
+  NumberMaxEntities: 0
   LenghtMap: 5
   LivingEntities: 0
+  angleRangeToSpawn: 30
+  timeToResurect: 3
 --- !u!114 &159961652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,7 +5456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655116232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2837665, y: -0.2807018, z: 0.07544637}
+  m_LocalPosition: {x: 0.07, y: -0.2807018, z: 0.07544637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5473,9 +5476,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
-  NumberOfentities: 1
+  NumberOfEntitiesInGame: 1
+  NumberMaxEntities: 20
   LenghtMap: 5
   LivingEntities: 0
+  angleRangeToSpawn: 30
+  timeToResurect: 3
 --- !u!114 &655116235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17275,6 +17281,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293727588}
   m_CullTransparentMesh: 1
+--- !u!1 &1311773607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2605292534048153270, guid: 816d17c6a9eedb240b658aae8b7914bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1695167318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311773613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311773607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7ccfc3d3bfae249970bafc2a1ef291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345830555
 GameObject:
   m_ObjectHideFlags: 0
@@ -19230,6 +19254,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 28580129303988559, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: timer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 28580129303988559, guid: 816d17c6a9eedb240b658aae8b7914bd,
         type: 3}
       propertyPath: clockText
