@@ -27,12 +27,14 @@ public class EnemyController : MonoBehaviour, ICharacterController
         }
 
         mortal.DeathEvent += OnDeath;
+        mortal.RessurectEvent += Resurrect;
     }
     private void OnDestroy()
     {
         if (mortal != null)
         {
             mortal.DeathEvent -= OnDeath;
+            mortal.RessurectEvent -= Resurrect;
         }
     }
     public void SetMovement(Vector2 direction)
@@ -51,7 +53,12 @@ public class EnemyController : MonoBehaviour, ICharacterController
     private void OnDeath()
     {
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
-        StartCoroutine(DisappearAfterDeath());
+        //StartCoroutine(DisappearAfterDeath());
+    }
+    private void Resurrect()
+    {
+        enemyMovement.SetBodyType(RigidbodyType2D.Dynamic);
+        lifeSystem.SetFullLife();
     }
     public bool CharacterIsDead()
     {

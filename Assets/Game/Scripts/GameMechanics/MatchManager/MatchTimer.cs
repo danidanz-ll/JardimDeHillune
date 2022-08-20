@@ -7,10 +7,12 @@ public class MatchTimer : MonoBehaviour
     [SerializeField] private TMP_Text clockText;
 
     public bool IsTimerFinshed{ get; private set; } = false;
+    private GameEvents gameEvents;
     private float oldTimer;
 
     private void Start()
     {
+        gameEvents = GetComponent<GameEvents>();
         oldTimer = timer;
     }
     private void Update()
@@ -20,14 +22,29 @@ public class MatchTimer : MonoBehaviour
             timer -= Time.deltaTime;
             if (clockText != null)
             {
-                int minutes = (int)(timer / 60.0f);
+                int minutes = (int)Mathf.Abs(timer / 60.0f);
                 int seconds = (int)Mathf.Abs((minutes * 60) - timer);
-                clockText.text = minutes.ToString() + ":" + seconds.ToString();
+                string minutesString = minutes.ToString();
+                string secondsString = seconds.ToString();
+                if (minutes < 10)
+                {
+                    minutesString = "0" + minutesString;
+                }
+                if (seconds < 10)
+                {
+                    secondsString = "0" + secondsString;
+                }
+                clockText.text = minutesString + ":" + secondsString;
             }
-            if (timer < 0)
+            if (timer <= 0)
             {
+                WarnTimerFinished();
                 IsTimerFinshed = true;
             }
         }
+    }
+    private void WarnTimerFinished()
+    {
+        gameEvents.WarnTimeOver();
     }
 }

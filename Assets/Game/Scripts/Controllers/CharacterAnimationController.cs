@@ -9,6 +9,7 @@ public static class CharacterMovementAnimationKeys
     public const string IsDashing = "isDashing";
     public const string IsAttacking = "isAttacking";
     public const string IsDead = "isDead";
+    public const string IsResurrect = "isResurrect";
 }
 public class CharacterAnimationController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class CharacterAnimationController : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
-    private IMortal deathOnDamage;
+    public IMortal deathOnDamage;
     private IWeapon weapon;
     private bool AttackingAnimationIsOn = false;
     protected IMovement movement;
