@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class GameEvents
+public class GameEvents : MonoBehaviour
 {
     public event Action MatchWin;
     public event Action GameOver;
