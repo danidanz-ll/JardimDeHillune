@@ -4,7 +4,7 @@ public class TowerSpawner : MobSpawner
 {
     public void ActivateEntity(bool active, Vector3 position)
     {
-        if (LivingEntities < NumberOfentities && active)
+        if (LivingEntities < NumberOfEntitiesInGame && active)
         {
             foreach (GameObject gameObject in gameObjects)
             {
