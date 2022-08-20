@@ -75,7 +75,7 @@ public class MobSpawner : MonoBehaviour, ISpawner
             }
         }
     }
-    private void CountDeath()
+    public virtual void CountDeath()
     {
         LivingEntities--;
         EliminatedEntities++;

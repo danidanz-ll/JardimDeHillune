@@ -16,7 +16,7 @@ public class EnemySpawner : MobSpawner
     private void Update()
     {
     }
-    private override void CountDeath()
+    public override void CountDeath()
     {
         base.CountDeath();
         StartCoroutine(ResurrectEntityDead());
