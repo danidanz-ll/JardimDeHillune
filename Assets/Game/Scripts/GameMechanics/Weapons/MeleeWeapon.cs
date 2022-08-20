@@ -18,7 +18,8 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     private void Start()
     {
-        gameObject.SetActive(false);
+        boxCollider.enabled = false;
+        //gameObject.SetActive(false);
     }
     public void Attack()
     {
@@ -31,6 +32,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     private IEnumerator PerformAttack()
     {
         Attacking = true;
+        boxCollider.enabled = true;
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(StartAttackCooldown());
         Attacking = false;
@@ -68,7 +70,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     public IEnumerator StartAttackDamage()
     {
         yield return new WaitForSeconds(startAttackDamageTime);
-        gameObject.SetActive(true);
         StartCoroutine(PerformAttack());
     }
 }
