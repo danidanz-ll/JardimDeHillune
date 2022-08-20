@@ -61,7 +61,7 @@ public class EnemySpawner : MobSpawner
 
         return new Vector3(x, y, 0);
     }
-    private override void OnDrawGizmosSelected()
+    public override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
         Vector3 lineSpawn = new Vector3(0, LenghtMap, 0);
