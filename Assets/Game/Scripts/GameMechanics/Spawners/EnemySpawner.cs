@@ -50,7 +50,7 @@ public class EnemySpawner : MobSpawner
             x = Random.Range(0, LenghtMap);
             y = Random.Range(0, LenghtMap);
             angle = Mathf.Atan2(x, y) * Mathf.Rad2Deg;
-        } while (angle >= angleRangeToSpawn);
+        } while (angle >= angleRangeToSpawn && (x ** 2 + y ** 2) ** (1.0f/2.0f) >= LenghtMap / 2.0f);
 
         if (Random.Range(-1, 1) < 0)
         {
