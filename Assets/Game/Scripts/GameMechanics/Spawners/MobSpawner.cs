@@ -85,7 +85,7 @@ public class MobSpawner : MonoBehaviour, ISpawner
             spawnerEvents.WarnAllUnitsDied();
         }
     }
-    public void OnDrawGizmosSelected()
+    public virtual void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, LenghtMap);
     }
