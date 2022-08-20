@@ -33,7 +33,7 @@ public class MatchWin : MonoBehaviour
                 Spawners.Add(spawnerGameObject.GetComponent<EnemySpawner>());
             } catch (Exception ex)
             {
-                Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto!");
+                Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto! (" + ex.ToString() + ")");
             }
         }
     }

@@ -43,7 +43,7 @@ public class ChaseTarget : BasePrimitiveAction
             return character.GetComponent<ICharacterController>();
         } catch (Exception ex)
         {
-            Debug.Log("[ERROR] ChaseTarget: Não foi possível recuperar controlador do alvo.");
+            Debug.Log("[ERROR] ChaseTarget: Não foi possível recuperar controlador do alvo. (" + ex.ToString() + ")");
             return new NullCharacterController();
         }
     }
