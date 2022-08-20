@@ -18,7 +18,10 @@ public class FollowObjective : BasePrimitiveAction
     }
     public override TaskStatus OnUpdate()
     {
-        Follow();
+        if (!enemyController.CharacterIsDead())
+        {
+            Follow();
+        }
         return TaskStatus.COMPLETED;
     }
     private void Follow()
