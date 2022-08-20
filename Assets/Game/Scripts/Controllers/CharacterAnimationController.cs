@@ -17,7 +17,7 @@ public class CharacterAnimationController : MonoBehaviour
     
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
-    private IMortal deathOnDamage;
+    public IMortal deathOnDamage;
     private IWeapon weapon;
     private bool AttackingAnimationIsOn = false;
     protected IMovement movement;
