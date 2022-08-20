@@ -9,10 +9,13 @@ public class MatchWin : MonoBehaviour
 
     private List<GameObject> SpawnersGameObjects;
     private List<EnemySpawner> Spawners;
+    private GameEvents gameEvents;
     public bool IsMatchWin { get; private set; } = false;
+    private int spawnersInMatch = 0;
 
     private void Start()
     {
+        gameEvents = GetComponent<GameEvents>();
         SpawnersGameObjects = new List<GameObject>();
         Spawners = new List<EnemySpawner>();
         try
@@ -36,27 +39,26 @@ public class MatchWin : MonoBehaviour
                 Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto! (" + ex.ToString() + ")");
             }
         }
+        spawnersInMatch = Spawners.Count;
+        gameEvents.TimeOver += SetPlayerWin;
     }
     private void Update()
     {
-        if( Spawners != null )
+        if (spawnersInMatch == 0)
         {
-            bool matchWin = true;
-            foreach (EnemySpawner spawner in Spawners)
-            {
-                if (spawner.LivingEntities > 0)
-                {
-                    matchWin = false;
-                }
-            }
-            if (matchWin && Spawners.Count > 0)
-            {
-                IsMatchWin = true;
-                if (matchWinText != null)
-                {
-                    matchWinText.text = "Jardim protegido!";
-                }
-            }
+            SetPlayerWin();
+        }
+    }
+    private void AccountSpawnerFinished()
+    {
+        spawnersInMatch--;
+    }
+    private void SetPlayerWin()
+    {
+        IsMatchWin = true;
+        if (matchWinText != null)
+        {
+            matchWinText.text = "Jardim protegido!";
         }
     }
 }
