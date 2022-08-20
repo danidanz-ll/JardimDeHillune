@@ -34,6 +34,7 @@ public class EnemySpawner : MobSpawner
                 }
             }
         }
+        yield break;
     }
     private void RepositionEntity(Transform transformEntity)
     {
