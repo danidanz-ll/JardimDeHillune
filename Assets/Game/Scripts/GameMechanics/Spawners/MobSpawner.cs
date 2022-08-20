@@ -10,7 +10,7 @@ public class MobSpawner : MonoBehaviour, ISpawner
     [SerializeField] [Min(0)] public int NumberMaxEntities = 0;
     [SerializeField] [Min(0)] public float LenghtMap = 0;
 
-    public int LivingEntities { get; private set; } = 0;
+    public int LivingEntities = 0;
     public int EliminatedEntities { get; private set; } = 0;
     public List<GameObject> gameObjects { get; private set; } = new List<GameObject>();
     public List<IMortal> deathEvents { get; private set; } = new List<IMortal>();
