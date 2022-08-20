@@ -13,9 +13,6 @@ public class EnemySpawner : MobSpawner
             gameObject.transform.position = GetRandomPositionSpawn();
         }
     }
-    private void Update()
-    {
-    }
     public override void CountDeath()
     {
         base.CountDeath();
@@ -23,16 +20,19 @@ public class EnemySpawner : MobSpawner
     }
     public IEnumerator ResurrectEntityDead()
     {
+        int i = 0;
         foreach (IMortal deathEvent in deathEvents)
         {
             if (deathEvent != null)
             {
                 if (deathEvent.IsDead)
                 {
+                    RepositionEntity(gameObjects[i].transform);
                     deathEvent.Resurrect();
                     break;
                 }
             }
+            i++;
         }
         yield break;
     }
@@ -66,9 +66,9 @@ public class EnemySpawner : MobSpawner
     {
         base.OnDrawGizmosSelected();
         Vector3 lineSpawn = new Vector3(0, LenghtMap, 0);
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2))* lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn / 2)) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn / 2)) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn)) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn))* lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn)) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn)) * lineSpawn);
     }
 }

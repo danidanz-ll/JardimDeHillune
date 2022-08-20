@@ -4,7 +4,7 @@ using UnityEngine;
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
     [SerializeField] private float attackTime = 0.2f;
-    [SerializeField] private float startAttackDamage = 0.2f;
+    [SerializeField] private float startAttackDamageTime = 0.2f;
     [SerializeField] private float timeToFreeze = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
 
@@ -67,7 +67,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     public IEnumerator StartAttackDamage()
     {
-        yield return new WaitForSeconds(startAttackDamage);
+        yield return new WaitForSeconds(startAttackDamageTime);
         gameObject.SetActive(true);
         StartCoroutine(PerformAttack());
     }
