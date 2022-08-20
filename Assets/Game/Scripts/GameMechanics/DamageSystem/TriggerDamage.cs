@@ -8,7 +8,7 @@ public class TriggerDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
-        GameObject collisionGameObject = collision.GetComponent<Collider>().gameObject;
+        GameObject collisionGameObject = collision.gameObject;
         if (damageable != null)
         {
             if (isEnemy)
