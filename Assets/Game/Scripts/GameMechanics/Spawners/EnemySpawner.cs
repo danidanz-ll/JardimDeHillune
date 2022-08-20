@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class EnemySpawner : MobSpawner
 {
-    [SerializeField] private float angleRangeToSpawn = 30.0f;
+    [SerializeField][Min(0)] private float angleRangeToSpawn = 30.0f;
+    [SerializeField][Min(0)] private float timeToResurect = 3.0f;
     public override void Start()
     {
         base.Start();
@@ -20,6 +21,7 @@ public class EnemySpawner : MobSpawner
     }
     public IEnumerator ResurrectEntityDead()
     {
+        yield return new WaitForSeconds(timeToResurect);
         int i = 0;
         foreach (IMortal deathEvent in deathEvents)
         {

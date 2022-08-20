@@ -31,17 +31,34 @@ public class LifeSystem : MonoBehaviour
         }
         damageable.DamageValueEvent += TakeDamageEvent;
         damageable.DamageEvent += DamageEventFunction;
+        deathOnDamage.RessurectEvent += SetFullLife;
     }
     private void OnDestroy()
     {
         if (damageable != null)
         {
             damageable.DamageValueEvent -= TakeDamageEvent;
+            damageable.DamageEvent -= DamageEventFunction;
+        }
+        if (deathOnDamage != null)
+        {
+            deathOnDamage.RessurectEvent -= SetFullLife;
         }
     }
     private void DamageEventFunction()
     {
 
+    }
+    public void RegenerateLife(float points)
+    {
+        if (currentLife + points <= maxLife)
+        {
+            currentLife += points;
+        }
+    }
+    public void SetFullLife()
+    {
+        currentLife = maxLife;
     }
     public void TakeDamageEvent(object sender, float damage)
     {
