@@ -13,7 +13,7 @@ public class EnemySpawner : MobSpawner
     public override void Start()
     {
         base.Start();
-        matchTimer = GameObject.FindGameObjectWithTag("GameManager");
+        matchTimer = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MatchTimer>();
         ActivateAllEntities(true);
         foreach (GameObject gameObject in gameObjects)
         {
