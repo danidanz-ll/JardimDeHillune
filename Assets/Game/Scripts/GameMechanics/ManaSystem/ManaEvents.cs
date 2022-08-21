@@ -55,6 +55,6 @@ public class ManaEvents : MonoBehaviour
     }
     public void UseMana(float points)
     {
-        DamageValueEvent.Invoke(this, points);
+        UseManaEvent.Invoke(this, points);
     }
 }
