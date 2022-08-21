@@ -15,10 +15,13 @@ public class MobSpawner : MonoBehaviour, ISpawner
     public List<GameObject> gameObjects { get; private set; } = new List<GameObject>();
     public List<IMortal> deathEvents { get; private set; } = new List<IMortal>();
     public SpawnerEvents spawnerEvents { get; private set; }
+    public virtual void Awake()
+    {
+        CreateEntities();
+    }
     public virtual void Start()
     {
         spawnerEvents = GetComponent<SpawnerEvents>();
-        CreateEntities();
 
         foreach (GameObject gameObject in gameObjects)
         {
