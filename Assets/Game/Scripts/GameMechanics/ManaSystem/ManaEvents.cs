@@ -1,22 +1,16 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class MatchWin : MonoBehaviour
+public class ManaEvents : MonoBehaviour
 {
-    [SerializeField] private TMP_Text matchWinText;
+    public event Action GetManaPoints;
+    public event EventHandler<float> UseManaEvent; 
 
     private List<GameObject> SpawnersGameObjects = new List<GameObject>();
     private List<EnemySpawner> Spawners = new List<EnemySpawner>();
-    private GameEvents gameEvents;
-    public bool IsMatchWin { get; private set; } = false;
-    private int spawnersInMatch = 0;
 
     private void Start()
     {
-        gameEvents = GetComponent<GameEvents>();
-
         try
         {
             SpawnersGameObjects.AddRange(GameObject.FindGameObjectsWithTag("Spawner"));   
@@ -35,27 +29,31 @@ public class MatchWin : MonoBehaviour
                 Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto: " + ex.ToString());
             }
         }
-        spawnersInMatch = Spawners.Count;
-        gameEvents.TimeOver += SetPlayerWin;
-    }
-    private void Update()
-    {
-        
-    }
-    private void AccountSpawnerFinished()
-    {
-        spawnersInMatch--;
-        if (spawnersInMatch == 0)
+
+        foreach (EnemySpawner spawner in Spawners)
         {
-            SetPlayerWin();
+            foreach (IMortal deathEvent in spawner.deathEvents)
+            {
+                deathEvent.DeathEvent += GetMana;
+            }
         }
     }
-    private void SetPlayerWin()
+    private void OnDestroy()
     {
-        IsMatchWin = true;
-        if (matchWinText != null)
+        foreach (EnemySpawner spawner in Spawners)
         {
-            matchWinText.text = "Jardim protegido!";
+            foreach (IMortal deathEvent in spawner.deathEvents)
+            {
+                deathEvent.DeathEvent -= GetMana;
+            }
         }
+    }
+    public void GetMana()
+    {
+        GetManaPoints.Invoke();
+    }
+    public void UseMana(float points)
+    {
+        DamageValueEvent.Invoke(this, points);
     }
 }

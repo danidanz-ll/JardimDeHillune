@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(IMortal))]
 [RequireComponent(typeof(LifeSystem))]
+[RequireComponent(typeof(ManaSystem))]
 public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]
@@ -16,12 +17,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private float TimeToDisappearAfterDeath = 0;
     [Header("Tower skills")]
     [SerializeField] private TowerSkill towerSkill;
+    [SerializeField][Min(0)] private float SummonCost = 0;
 
     public IMortal deathOnDamage { get; private set; }
     private PlayerMovement playerMovement;
     private Dash dash;
     private PlayerInput playerInput;
     private LifeSystem lifeSystem;
+    private ManaSystem manaSystem;
     private IWeapon weapon;
     private Vector2 movementInput;
 
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         playerInput = GetComponent<PlayerInput>();
         deathOnDamage = GetComponent<IMortal>();
         lifeSystem = GetComponent<LifeSystem>();
+        manaSystem = GetComponent<ManaSystem>();
         towerSkill = GetComponent<TowerSkill>();
 
         if (weaponObject != null)
@@ -53,9 +57,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         if (playerInput.IsInvokeButtonDown())
         {
-            Vector3 spaceInvoke = new Vector3(5,5,0);
-            Vector3 currentPosition = transform.position + spaceInvoke;
-            towerSkill.Invoke(currentPosition);
+            if (manaSystem.currentMana > 0)
+            {
+                manaSystem.UseMana(SummonCost);
+                Vector3 spaceInvoke = new Vector3(5,5,0);
+                Vector3 currentPosition = transform.position + spaceInvoke;
+                towerSkill.Invoke(currentPosition);
+            }
         }
     }
     private void FixedUpdate()
