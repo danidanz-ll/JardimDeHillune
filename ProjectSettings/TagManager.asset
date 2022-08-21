@@ -9,6 +9,7 @@ TagManager:
   - Ally
   - Spawner
   - TowersParent
+  - GameManager
   layers:
   - Default
   - TransparentFX
