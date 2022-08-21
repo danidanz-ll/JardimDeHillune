@@ -1488,8 +1488,10 @@ MonoBehaviour:
   NumberMaxEntities: 0
   LenghtMap: 5
   LivingEntities: 0
+  matchTimer: {fileID: 0}
   angleRangeToSpawn: 30
   timeToResurect: 3
+  IntervalBetweenSpawn: 3
 --- !u!114 &159961652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1711,11 @@ PrefabInstance:
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1791883046735300103, guid: be778f1d4e74fed42adf1261ef8c3898,
+        type: 3}
+      propertyPath: maxMana
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2414705926397175537, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
       propertyPath: m_Name
@@ -1764,6 +1771,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306691374141301980, guid: be778f1d4e74fed42adf1261ef8c3898,
+        type: 3}
+      propertyPath: SummonCost
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4369966541928459663, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
@@ -1824,6 +1836,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158663401731129994, guid: be778f1d4e74fed42adf1261ef8c3898,
+        type: 3}
+      propertyPath: NumberMaxEntities
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158663401731129994, guid: be778f1d4e74fed42adf1261ef8c3898,
+        type: 3}
+      propertyPath: NumberOfEntitiesInGame
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8021128410198725729, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
@@ -5476,12 +5498,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
-  NumberOfEntitiesInGame: 1
+  NumberOfEntitiesInGame: 0
   NumberMaxEntities: 20
   LenghtMap: 5
   LivingEntities: 0
+  matchTimer: {fileID: 0}
   angleRangeToSpawn: 30
   timeToResurect: 3
+  IntervalBetweenSpawn: 3
 --- !u!114 &655116235
 MonoBehaviour:
   m_ObjectHideFlags: 0
