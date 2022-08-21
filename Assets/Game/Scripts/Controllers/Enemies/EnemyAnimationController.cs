@@ -14,6 +14,8 @@ public class EnemyAnimationController : CharacterAnimationController
     }
     private void Resurrect()
     {
+        dead = false;
+        enabled = true;
         animator.SetTrigger(CharacterMovementAnimationKeys.IsResurrect);
     }
 }

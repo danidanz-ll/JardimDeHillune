@@ -78,12 +78,12 @@ public class EnemyMovement : MonoBehaviour, IMovement
     }
     public void SetMovement(Vector2 direction)
     {
-        rb.velocity = direction.normalized * moveSpeed;
-        currentVelocity = direction.normalized * moveSpeed;
+        rb.velocity = direction * moveSpeed * Time.deltaTime;
+        currentVelocity = direction * moveSpeed * Time.deltaTime;
 
         if (direction != Vector2.zero)
         {
-            facingDirection = direction.normalized;
+            facingDirection = direction;
         }
 
         if (IsOnRightSide(direction))
