@@ -24,7 +24,7 @@ public class EnemySpawner : MobSpawner
     }
     private void Update() 
     {
-        if (matchTimer.timer - oldTime >= IntervalBetweenSpawn)
+        if (oldTime - matchTimer.timer >= IntervalBetweenSpawn)
         {
             oldTime = matchTimer.timer;
             ReleaseDeactivatedEntity();
