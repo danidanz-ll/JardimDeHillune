@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class EnemySpawner : MobSpawner
 {
+    [SerializeField] private MatchTimer matchTimer;
     [SerializeField][Min(0)] private float angleRangeToSpawn = 30.0f;
     [SerializeField][Min(0)] private float timeToResurect = 3.0f;
+    [SerializeField][Min(0)] private float IntervalBetweenSpawn = 3.0f;
+
+    private float oldTime = 0;
+
     public override void Start()
     {
         base.Start();
@@ -12,6 +17,28 @@ public class EnemySpawner : MobSpawner
         foreach (GameObject gameObject in gameObjects)
         {
             gameObject.transform.position = GetRandomPositionSpawn();
+        }
+        ActivateAllEntities(false);
+        oldTime = matchTimer.timer;
+    }
+    private void Update() 
+    {
+        if (matchTimer.timer - oldTime >= IntervalBetweenSpawn)
+        {
+            oldTime = matchTimer.timer;
+            ReleaseDeactivatedEntity();
+        }
+    }
+    private void ReleaseDeactivatedEntity()
+    {
+        foreach (GameObject gameObject in gameObjects)
+        {
+            if (!gameObject.activeSelf)
+            {
+                gameObject.SetActive(true);
+                LivingEntities++;
+                break;
+            }
         }
     }
     public override void CountDeath()

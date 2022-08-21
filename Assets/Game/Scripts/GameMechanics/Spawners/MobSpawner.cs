@@ -73,6 +73,10 @@ public class MobSpawner : MonoBehaviour, ISpawner
             {
                 LivingEntities++;
             }
+            else
+            {
+                LivingEntities--;
+            }
         }
     }
     public virtual void CountDeath()
