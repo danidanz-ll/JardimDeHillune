@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     }
     public void SetMovement(Vector2 direction)
     {
-        enemyMovement.SetMovement(direction.normalized);
+        enemyMovement.SetMovement(direction);
     }
     public float GetMovementSpeed()
     {
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     public void Attack()
     {
         weapon.Attack();
-        enemyMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
+        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
     }
     private void OnDeath()
     {

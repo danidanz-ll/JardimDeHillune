@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class ProjectileWeapon : MonoBehaviour, IWeapon
 {
-    [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject projectileGameObject;
     [SerializeField][Min(0)] private float damageProjectiles = 0;
     [SerializeField][Min(0)] private float MoveSpeed = 10;
     [SerializeField] private bool isEnemy = false;
@@ -11,6 +12,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     [SerializeField] private float startAttackDamageTime = 0.2f;
     [SerializeField] private float timeToFreeze = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
+    public event Action AttackEvent;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
@@ -36,6 +38,10 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
             StartCoroutine(StartAttackDamage(direction));
         }
     }
+    public float GetAttackTime()
+    {
+        return attackTime;
+    }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
         yield return new WaitForSeconds(startAttackDamageTime);
@@ -51,7 +57,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     }
     private void FireProjectile(Vector2 direction)
     {
-        GameObject projectileCreated = Instantiate(projectile, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject projectileCreated = Instantiate(projectileGameObject, new Vector3(0, 0, 0), Quaternion.identity);
         Projectile projectile = projectileCreated.GetComponent<Projectile>();
         projectile.damage = damageProjectiles;
         projectile.isEnemy = isEnemy;

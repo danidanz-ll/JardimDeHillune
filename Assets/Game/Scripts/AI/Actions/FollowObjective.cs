@@ -18,10 +18,7 @@ public class FollowObjective : BasePrimitiveAction
     }
     public override TaskStatus OnUpdate()
     {
-        if (!enemyController.CharacterIsDead())
-        {
-            Follow();
-        }
+        Follow();
         return TaskStatus.COMPLETED;
     }
     private void Follow()
@@ -29,7 +26,7 @@ public class FollowObjective : BasePrimitiveAction
         if (objective != null)
         {
             Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
-            enemyController.SetMovement(direction.normalized);
+            enemyController.SetMovement(direction);
         }
     }
 }

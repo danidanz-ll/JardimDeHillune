@@ -49,10 +49,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         movementInput = playerInput.GetMovementInput();
 
-        if (weapon != null && playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
+        if (playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
         {
             weapon.Attack();
-            playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
+            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
         }
 
         if (playerInput.IsInvokeButtonDown())
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         if (weapon.IsAttacking())
         {
-            playerMovement.FreezeMovement(weapon.GetWaitToFreezeTime(), weapon.GetAttackingTime());
+            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
             return;
         }
 

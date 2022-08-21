@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MobSpawner
 {
     [SerializeField] private MatchTimer matchTimer;
-    [SerializeField][Min(0)] private float angleRangeToSpawn = 30.0f;
+    [SerializeField] private float angleRangeToSpawn = 30.0f;
     [SerializeField][Min(0)] private float timeToResurect = 3.0f;
     [SerializeField][Min(0)] private float IntervalBetweenSpawn = 3.0f;
 

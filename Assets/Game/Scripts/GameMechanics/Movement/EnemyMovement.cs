@@ -40,21 +40,18 @@ public class EnemyMovement : MonoBehaviour, IMovement
         var x = currentVelocity.x;
         var y = currentVelocity.y;
 
-        if (x >= 0.5f || x <= -0.5f)
-        {
-            return currentVelocity.normalized.x;
-        }
-        else if (y >= 0.5f || y <= -0.5f)
-        {
-            return currentVelocity.normalized.y;
-        }
-        else
-        {
-            return 0;
-        }
+        return currentVelocity.sqrMagnitude;
     }
     public bool isLookingToRight()
     {
+        if (GetFacingDirection().x > 0)
+        {
+            lookingToRight = true;
+        }
+        else if (GetFacingDirection().x < 0)
+        {
+            lookingToRight = false;
+        }
         return lookingToRight;
     }
     private bool IsOnRightSide(Vector2 velocity)
@@ -80,7 +77,6 @@ public class EnemyMovement : MonoBehaviour, IMovement
     {
         rb.velocity = direction * moveSpeed * Time.deltaTime;
         currentVelocity = direction * moveSpeed * Time.deltaTime;
-
         if (direction != Vector2.zero)
         {
             facingDirection = direction;

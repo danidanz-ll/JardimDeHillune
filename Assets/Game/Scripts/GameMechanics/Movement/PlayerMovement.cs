@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     }
     public Vector2 GetFacingDirection()
     {
-        return lookingDirection.normalized;
+        return lookingDirection;
     }
     public float GetCurrentVelocityNormalized()
     {
@@ -115,6 +115,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     public void FreezeMovement(float timeWait, float timeFreezing)
     {
         rb.velocity = Vector2.zero;
+        currentVelocity = Vector2.zero;
         running = false;
         StartCoroutine(WaitToFreezing(timeWait, timeFreezing));
     }

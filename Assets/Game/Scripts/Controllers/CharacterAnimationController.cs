@@ -12,9 +12,7 @@ public static class CharacterMovementAnimationKeys
     public const string IsResurrect = "isResurrect";
 }
 public class CharacterAnimationController : MonoBehaviour
-{
-    [SerializeField] private float timeAttackDuration = 0;
-    
+{   
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
     public IMortal deathOnDamage;
@@ -40,20 +38,14 @@ public class CharacterAnimationController : MonoBehaviour
         {
             deathOnDamage.DeathEvent += OnDeath;
         }
+        if (weapon != null)
+        {
+            weapon.AttackEvent += Attack;
+        }
     }
     protected virtual void Update()
     {
         if (dead) return;
-
-        if (weapon != null)
-        {
-            if (weapon.IsAttacking() && !weapon.IsAttackInCooldown() && !AttackingAnimationIsOn)
-            {
-                AttackingAnimationIsOn = true;
-                animator.SetTrigger(CharacterMovementAnimationKeys.IsAttacking);
-                StartCoroutine(AttackingAnimationTime());
-            }
-        }
     }
     private void FixedUpdate() 
     {
@@ -85,6 +77,16 @@ public class CharacterAnimationController : MonoBehaviour
         {
             deathOnDamage.DeathEvent -= OnDeath;
         }
+        if (weapon != null)
+        {
+            weapon.AttackEvent -= Attack;
+        }
+    }
+    private void Attack()
+    {
+        AttackingAnimationIsOn = true;
+        animator.SetTrigger(CharacterMovementAnimationKeys.IsAttacking);
+        StartCoroutine(AttackingAnimationTime());
     }
     private void OnDamage()
     {
@@ -98,7 +100,7 @@ public class CharacterAnimationController : MonoBehaviour
     }
     private IEnumerator AttackingAnimationTime()
     {
-        yield return new WaitForSeconds(timeAttackDuration);
+        yield return new WaitForSeconds(weapon.GetAttackingTime());
         AttackingAnimationIsOn = false;
     }
 }

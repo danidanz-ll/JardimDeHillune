@@ -1,16 +1,22 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
     [SerializeField] private float attackTime = 0.2f;
     [SerializeField] private float startAttackDamageTime = 0.2f;
-    [SerializeField] private float timeToFreeze = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
+
+    public event Action AttackEvent;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
     private BoxCollider2D boxCollider;
+    public float GetAttackTime()
+    {
+        return attackTime;
+    }
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -25,6 +31,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         if (!IsAttackInCooldown() && !IsAttacking())
         {
+            AttackEvent.Invoke();
             StartCoroutine(StartAttackDamage());
         }
     }
@@ -37,7 +44,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     private IEnumerator PerformAttack()
     {
-        Attacking = true;
         boxCollider.enabled = true;
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(StartAttackCooldown());
@@ -55,11 +61,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         return attackTime;
     }
 
-    public float GetWaitToFreezeTime()
-    {
-        return timeToFreeze;
-    }
-
     public bool IsAttackInCooldown()
     {
         return attackCooldownOn;
@@ -73,6 +74,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     public IEnumerator StartAttackDamage()
     {
+        Attacking = true;
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack());
     }
