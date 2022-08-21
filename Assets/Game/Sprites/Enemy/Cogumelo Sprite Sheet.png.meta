@@ -1,0 +1,798 @@
+fileFormatVersion: 2
+guid: c5988e6e68f63b047901d1040bda4b21
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 286
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33e8223ea2cd51540b15806a1e17f762
+      internalID: -615663500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 287
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2daab2a5d0ddb0419aaf96b8f1d1e5f
+      internalID: 1789425313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 287
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22012a512e4f604390963be717bc591
+      internalID: -1544584401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 287
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040f134e15a838b47a52266d0f3fb681
+      internalID: 939836994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 287
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb333796912a3544a374eeff468252b
+      internalID: 865918340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 287
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753eb70211a43bc43b216424be59d5d7
+      internalID: -1519712154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 287
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a700ceeeaeba54d9886e0e3fa8211d
+      internalID: -1859963774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 287
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f950913947a0b7749add441a5474bef9
+      internalID: 1366776623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d836f2255256f7f4ca90716bc52628d2
+      internalID: 356984492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 210
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2162ef6e25100ca4496bc62757b2ac85
+      internalID: 1948547113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 210
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5a0afe3e419f246933b4e13c981710
+      internalID: 1397029822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9e377285b2e834f83237ecab5874f2
+      internalID: 339974093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 148
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a922447ee16b944e8e4d3c7e56f0751
+      internalID: -1023592883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 148
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd124f4b3dbfa84e89664fda16aeac7
+      internalID: 621875241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 148
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5e797682cb636409d91b39f6cffb55
+      internalID: -1983305938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 148
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e765304bee010274b9360c5628b42259
+      internalID: -1986124331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 148
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963eb6c1a697de64a93739f463941ef8
+      internalID: -2085577693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 147
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98181890453569498f8bb8bcdac5425
+      internalID: -2078150278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 90
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa712cffac15fe4b8eb88968df82446
+      internalID: -482231379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 87
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa0dcfeb773caa42ba013eb64929ab5
+      internalID: 853582688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 88
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291da4637e7aeac45b0b16be989ae7b3
+      internalID: 342887653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 90
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a164061f940a040bacc3abead1ea40
+      internalID: 1112369389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 87
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7d81e73527fc241b29ce6e66a6b600
+      internalID: 543395430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 87
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b501889629edf6c44b6c72ec0e38626b
+      internalID: -1626127335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 88
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d2c371f22954043895493b2480e7a1
+      internalID: 767936220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 90
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5297c89a0baf3dc4586e8de87c71b0c1
+      internalID: -1942960513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 19
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51972ff754aa2674d9c68295f1bafa99
+      internalID: 1038405146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 19
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3bda127998af542ac1916b97ae491f
+      internalID: 1476852730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 19
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae94ec75e9f3444ab5f0a4bda96aa16
+      internalID: 856401837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cogumelo Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 19
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb1e1e141e3ce54caaf18c32e671992
+      internalID: -2027134664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cogumelo Sprite Sheet_12: 356984492
+      Cogumelo Sprite Sheet_19: -1986124331
+      Cogumelo Sprite Sheet_10: 1827695878
+      Cogumelo Sprite Sheet_33: -2027134664
+      Cogumelo Sprite Sheet_21: -2078150278
+      Cogumelo Sprite Sheet_13: 1948547113
+      Cogumelo Sprite Sheet_25: 1112369389
+      Cogumelo Sprite Sheet_32: 856401837
+      Cogumelo Sprite Sheet_7: 1366776623
+      Cogumelo Sprite Sheet_14: 1397029822
+      Cogumelo Sprite Sheet_6: -1859963774
+      Cogumelo Sprite Sheet_5: -1519712154
+      Cogumelo Sprite Sheet_15: 339974093
+      Cogumelo Sprite Sheet_17: 621875241
+      Cogumelo Sprite Sheet_16: -1023592883
+      Cogumelo Sprite Sheet_23: 853582688
+      Cogumelo Sprite Sheet_30: 1038405146
+      Cogumelo Sprite Sheet_29: -1942960513
+      Cogumelo Sprite Sheet_4: 865918340
+      Cogumelo Sprite Sheet_1: 1789425313
+      Cogumelo Sprite Sheet_3: 939836994
+      Cogumelo Sprite Sheet_28: 767936220
+      Cogumelo Sprite Sheet_18: -1983305938
+      Cogumelo Sprite Sheet_2: -1544584401
+      Cogumelo Sprite Sheet_11: -132041074
+      Cogumelo Sprite Sheet_31: 1476852730
+      Cogumelo Sprite Sheet_9: -1727641855
+      Cogumelo Sprite Sheet_20: -2085577693
+      Cogumelo Sprite Sheet_22: -482231379
+      Cogumelo Sprite Sheet_0: -615663500
+      Cogumelo Sprite Sheet_24: 342887653
+      Cogumelo Sprite Sheet_26: 543395430
+      Cogumelo Sprite Sheet_8: 988905320
+      Cogumelo Sprite Sheet_27: -1626127335
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
