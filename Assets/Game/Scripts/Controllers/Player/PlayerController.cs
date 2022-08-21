@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [Min(0)]
     [SerializeField] private float TimeToDisappearAfterDeath = 0;
     [Header("Tower skills")]
-    [SerializeField] private TowerSkill towerSkill;
     [SerializeField][Min(0)] private float SummonCost = 0;
 
     public IMortal deathOnDamage { get; private set; }
     private PlayerMovement playerMovement;
     private Dash dash;
+    private TowerSkill towerSkill;
     private PlayerInput playerInput;
     private LifeSystem lifeSystem;
     private ManaSystem manaSystem;
@@ -60,9 +60,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (manaSystem.currentMana > 0)
             {
                 manaSystem.UseMana(SummonCost);
-                Vector3 spaceInvoke = new Vector3(5,5,0);
-                Vector3 currentPosition = transform.position + spaceInvoke;
-                towerSkill.Invoke(currentPosition);
+                Vector2 aux = playerMovement.GetFacingDirection();
+                Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
+                towerSkill.Invoke(transform.position + aux2);
             }
         }
     }

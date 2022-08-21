@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ManaEvents : MonoBehaviour
@@ -54,6 +55,6 @@ public class ManaEvents : MonoBehaviour
     }
     public void UseMana(float points)
     {
-        DamageValueEvent.Invoke(this, points);
+        UseManaEvent.Invoke(this, points);
     }
 }
