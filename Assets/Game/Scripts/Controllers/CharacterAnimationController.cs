@@ -22,7 +22,7 @@ public class CharacterAnimationController : MonoBehaviour
     private bool AttackingAnimationIsOn = false;
     protected IMovement movement;
     protected Animator animator;
-    private bool dead = false;
+    public bool dead = false;
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();

@@ -28,7 +28,13 @@ public class MeleeWeapon : TriggerDamage, IWeapon
             StartCoroutine(StartAttackDamage());
         }
     }
-
+    public void Attack(Vector2 direction)
+    {
+        if (!IsAttackInCooldown() && !IsAttacking())
+        {
+            StartCoroutine(StartAttackDamage());
+        }
+    }
     private IEnumerator PerformAttack()
     {
         Attacking = true;

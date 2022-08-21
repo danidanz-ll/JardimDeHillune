@@ -14,7 +14,6 @@ public class TowerController : MonoBehaviour, ICharacterController
     private IWeapon weapon;
     private void Awake()
     {
-        enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
         damageable = GetComponent<IDamageable>();
         mortal = GetComponent<IMortal>();
@@ -43,7 +42,6 @@ public class TowerController : MonoBehaviour, ICharacterController
     }
     private void OnDeath()
     {
-        enemyMovement.SetBodyType(RigidbodyType2D.Static);
         //StartCoroutine(DisappearAfterDeath());
     }
     private void Resurrect()
