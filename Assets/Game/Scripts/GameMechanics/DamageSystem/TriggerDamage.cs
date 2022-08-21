@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TriggerDamage : MonoBehaviour
 {
-    [SerializeField] private bool isEnemy = false;
-    [SerializeField][Min(0)] private float damage = 0;
+    [SerializeField] public bool isEnemy = false;
+    [SerializeField][Min(0)] public float damage = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
