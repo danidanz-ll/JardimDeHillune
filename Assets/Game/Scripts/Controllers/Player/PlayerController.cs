@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (manaSystem.currentMana > 0)
             {
                 manaSystem.UseMana(SummonCost);
-                towerSkill.Invoke(transform.position + playerMovement.GetFacingDirection());
+                Vector2 aux = playerMovement.GetFacingDirection();
+                Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
+                towerSkill.Invoke(transform.position + aux2);
             }
         }
     }
