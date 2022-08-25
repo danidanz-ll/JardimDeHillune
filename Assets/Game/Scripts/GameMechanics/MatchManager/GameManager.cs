@@ -54,14 +54,19 @@ public class GameManager : MonoBehaviour
     {
         if (gameOverText != null && !(matchTimer.IsTimerFinshed || matchWin.IsMatchWin))
         {
-            gameOverText.text = "Voc� perdeu!";
+            gameOverText.text = "Você perdeu!";
             SaveProgress(Level);
-            StartCoroutine(LoadNextLevel());
+            StartCoroutine(ReloadLevel());
         }
     }
     private void SaveProgress(int level)
     {
         PlayerPrefs.SetInt("save_level", level);
+    }
+    public IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(TimeToNextLevel);
+        SceneManager.LoadScene("Level_" + Level);
     }
     public IEnumerator LoadNextLevel()
     {
