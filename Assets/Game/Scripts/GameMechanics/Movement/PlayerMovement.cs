@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
     [SerializeField] private float velPower;
+    [SerializeField] private float SpeedDecreaseFactor = 0.5f;
 
     private IDamageable damageable;
     private IMortal deathOnDamage;
@@ -156,5 +157,16 @@ public class PlayerMovement : MonoBehaviour, IMovement
     public void SetBodyType(RigidbodyType2D type)
     {
         rb.bodyType = type;
+    }
+    public void SetTemporarySlowdown(float time)
+    {
+        StartCoroutine(WaitForNormalSpeed(time));
+    }
+    public IEnumerator WaitForNormalSpeed(float time)
+    {
+        float moveSpeedDefault = moveSpeed;
+        moveSpeed -= moveSpeedDefault * SpeedDecreaseFactor;
+        yield return new WaitForSeconds(time);
+        moveSpeed = moveSpeedDefault;
     }
 }
