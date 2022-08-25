@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
         {
             IsRoundOver = true;
             matchWinText.text = "Jardim protegido!";
-            SaveProgress(NextLevel);
-            StartCoroutine(NextLevel());
+            SaveProgress(LoadNextLevel);
+            StartCoroutine(LoadNextLevel());
         }
     }
     private void ShowGameOver()
@@ -59,16 +59,16 @@ public class GameManager : MonoBehaviour
             IsRoundOver = true;
             gameOverText.text = "Voc� perdeu!";
             SaveProgress(Level);
-            StartCoroutine(NextLevel());
+            StartCoroutine(LoadNextLevel());
         }
     }
     private void SaveProgress(int level)
     {
         PlayerPrefs.SetInt("save_level", level);
     }
-    public IEnumerator NextLevel()
+    public IEnumerator LoadNextLevel()
     {
         yield return new WaitForSeconds(TimeToNextLevel);
-        SceneManager.LoadScene("Level_" + NextLevel);
+        SceneManager.LoadScene("Level_" + LoadNextLevel);
     }
 }
