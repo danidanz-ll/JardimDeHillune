@@ -20,7 +20,10 @@ public class TriggerDamage : MonoBehaviour
             }
             else
             {
-                damageable.TakeDamage(damage);
+                if (collisionGameObject.tag == "Enemy")
+                {
+                    damageable.TakeDamage(damage);
+                }
             }
         }
     }
