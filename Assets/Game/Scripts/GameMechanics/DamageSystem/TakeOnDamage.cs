@@ -10,7 +10,7 @@ public class TakeOnDamage : MonoBehaviour, IDamageable
     public bool IsHurting { get; private set; } = false;
     public void TakeDamage(float damage)
     {
-        if (System.Random.Range(0, 100) >= AttackEscape)
+        if (UnityEngine.Random.Range(0, 100) >= AttackEscape)
         {
             IsHurting = true;
             DamageEvent.Invoke();

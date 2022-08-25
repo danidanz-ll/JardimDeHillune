@@ -17,7 +17,7 @@ public class CharacterAnimationController : MonoBehaviour
     private IDamageable damageable;
     public IMortal deathOnDamage;
     private IWeapon weapon;
-    private bool AttackingAnimationIsOn = false;
+    //private bool AttackingAnimationIsOn = false;
     protected IMovement movement;
     protected Animator animator;
     public bool dead = false;
@@ -84,7 +84,7 @@ public class CharacterAnimationController : MonoBehaviour
     }
     private void Attack()
     {
-        AttackingAnimationIsOn = true;
+        //AttackingAnimationIsOn = true;
         animator.SetTrigger(CharacterMovementAnimationKeys.IsAttacking);
         StartCoroutine(AttackingAnimationTime());
     }
@@ -101,6 +101,6 @@ public class CharacterAnimationController : MonoBehaviour
     private IEnumerator AttackingAnimationTime()
     {
         yield return new WaitForSeconds(weapon.GetAttackingTime());
-        AttackingAnimationIsOn = false;
+        //AttackingAnimationIsOn = false;
     }
 }

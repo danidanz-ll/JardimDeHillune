@@ -5,7 +5,7 @@ public class MainMenuManager : MonoBehaviour
 {
     private void Start() 
     {
-        if (!HasKey("save_level"))
+        if (!PlayerPrefs.HasKey("save_level"))
         {
             PlayerPrefs.SetInt("save_level", 1);
         }

@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     private MatchTimer matchTimer;
     private GameEvents gameEvents;
 
-    private bool IsRoundOver = false;
     private void Start()
     {
         gameOver = GetComponent<GameOver>();
@@ -37,7 +36,7 @@ public class GameManager : MonoBehaviour
         gameEvents.MatchWin += ShowPlayerWin;
         gameEvents.GameOver += ShowGameOver;
 
-        if (!HasKey("save_level"))
+        if (!PlayerPrefs.HasKey("save_level"))
         {
             PlayerPrefs.SetInt("save_level", 1);
         }
@@ -46,9 +45,8 @@ public class GameManager : MonoBehaviour
     {
         if (matchWinText != null && !gameOver.IsGameOver)
         {
-            IsRoundOver = true;
             matchWinText.text = "Jardim protegido!";
-            SaveProgress(LoadNextLevel);
+            SaveProgress(NextLevel);
             StartCoroutine(LoadNextLevel());
         }
     }
@@ -56,7 +54,6 @@ public class GameManager : MonoBehaviour
     {
         if (gameOverText != null && !(matchTimer.IsTimerFinshed || matchWin.IsMatchWin))
         {
-            IsRoundOver = true;
             gameOverText.text = "Voc� perdeu!";
             SaveProgress(Level);
             StartCoroutine(LoadNextLevel());
@@ -69,6 +66,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator LoadNextLevel()
     {
         yield return new WaitForSeconds(TimeToNextLevel);
-        SceneManager.LoadScene("Level_" + LoadNextLevel);
+        SceneManager.LoadScene("Level_" + NextLevel);
     }
 }
