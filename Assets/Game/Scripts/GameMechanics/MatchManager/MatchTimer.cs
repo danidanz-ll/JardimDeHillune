@@ -14,6 +14,8 @@ public class MatchTimer : MonoBehaviour
     {
         gameEvents = GetComponent<GameEvents>();
         oldTimer = timer;
+
+        gameEvents.GameOver += StopTimer;
     }
     private void Update()
     {
@@ -46,5 +48,9 @@ public class MatchTimer : MonoBehaviour
     private void WarnTimerFinished()
     {
         gameEvents.WarnTimeOver();
+    }
+    private void StopTimer()
+    {
+        IsTimerFinshed = true;
     }
 }
