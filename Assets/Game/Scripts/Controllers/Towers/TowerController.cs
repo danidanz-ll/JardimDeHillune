@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(IMortal))]
+[RequireComponent(typeof(LifeSystem))]
 public class TowerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]

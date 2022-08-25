@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TakeOnDamage : MonoBehaviour, IDamageable
 {
-    [SerializeField][Min(0)] public float AttackEscape = 0.0f;
+    [SerializeField][Range(0.0f, 100.0f)] public float AttackEscape;
     public event Action DamageEvent;
     public event EventHandler<float> DamageValueEvent; 
     public bool IsHurting { get; private set; } = false;
