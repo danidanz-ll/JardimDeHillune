@@ -134,7 +134,6 @@ MonoBehaviour:
   damage: 10
   attackTime: 1.5
   startAttackDamageTime: 0.2
-  timeToFreeze: 0.5
   attackCooldown: 1.8
 --- !u!1 &3021196284507716434
 GameObject:
@@ -550,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b45132f5bbe7e14882c0a811c46374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAttackDuration: 1.5
   dead: 0
 --- !u!114 &-8655884940628700118
 MonoBehaviour:
@@ -565,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  SpeedDecreaseFactor: 0.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackEscape: 100
 --- !u!114 &1374744547458122985
 MonoBehaviour:
   m_ObjectHideFlags: 0
