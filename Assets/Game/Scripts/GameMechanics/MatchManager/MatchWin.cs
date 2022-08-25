@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class MatchWin : MonoBehaviour
 {
-    [SerializeField] private TMP_Text matchWinText;
-
     private List<GameObject> SpawnersGameObjects = new List<GameObject>();
     private List<EnemySpawner> Spawners = new List<EnemySpawner>();
     private GameEvents gameEvents;
@@ -36,7 +33,6 @@ public class MatchWin : MonoBehaviour
             }
         }
         spawnersInMatch = Spawners.Count;
-        gameEvents.TimeOver += SetPlayerWin;
     }
     private void Update()
     {
@@ -52,10 +48,7 @@ public class MatchWin : MonoBehaviour
     }
     private void SetPlayerWin()
     {
+        gameEvents.WarnMatchWin();
         IsMatchWin = true;
-        if (matchWinText != null)
-        {
-            matchWinText.text = "Jardim protegido!";
-        }
     }
 }
