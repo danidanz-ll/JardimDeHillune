@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
 {
     [Header("Stats")]
     [SerializeField] public float moveSpeed;
+    [SerializeField] private float SpeedDecreaseFactor = 0.5f;
 
     private IDamageable damageable;
     private IMortal deathOnDamage;
@@ -124,5 +125,16 @@ public class EnemyMovement : MonoBehaviour, IMovement
     public void SetBodyType(RigidbodyType2D type)
     {
         rb.bodyType = type;
+    }
+    public void SetTemporarySlowdown(float time)
+    {
+        StartCoroutine(WaitForNormalSpeed(time));
+    }
+    public IEnumerator WaitForNormalSpeed(float time)
+    {
+        float moveSpeedDefault = moveSpeed;
+        moveSpeed -= moveSpeedDefault * SpeedDecreaseFactor;
+        yield return new WaitForSeconds(time);
+        moveSpeed = moveSpeedDefault;
     }
 }
