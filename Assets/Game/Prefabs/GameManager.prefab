@@ -287,7 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b31451a638524e80683a99421b2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 8724933233710554967}
 --- !u!114 &3482393959709446075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf382387cc20b344a431efefedc9b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchWinText: {fileID: 4682878945248185430}
 --- !u!114 &28580129303988559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +325,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36bffa14cbca4c45a659027bb1a5683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: 0
+  NextLevel: 0
+  TimeToNextLevel: 0
+  gameOverText: {fileID: 8724933233710554967}
+  matchWinText: {fileID: 4682878945248185430}
 --- !u!114 &5596606351794421285
 MonoBehaviour:
   m_ObjectHideFlags: 0
