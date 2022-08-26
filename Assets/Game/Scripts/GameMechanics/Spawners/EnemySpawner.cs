@@ -72,33 +72,27 @@ public class EnemySpawner : MobSpawner
     }
     public Vector3 GetRandomPositionSpawn()
     {
-        float x, y, angle;
-        do
-        {
-            x = Random.Range(0, LenghtMap);
-            y = Random.Range(0, LenghtMap);
-            angle = Mathf.Atan2(x, y) * Mathf.Rad2Deg;
-        } while (angle >= angleRangeToSpawn && Mathf.Pow(Mathf.Pow(x, 2) + Mathf.Pow(y, 2), 1.0f/2.0f) >= LenghtMap / 2.0f);
+        Vector3 spawnPosition = Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), Vector3.right) * Vector3.right * LenghtMap;
 
         if (Random.Range(-1, 1) < 0)
         {
-            x *= -1;
+            spawnPosition.x *= -1;
         }
 
         if (Random.Range(-1, 1) < 0)
         {
-            y *= -1;
+            spawnPosition.y *= -1;
         }
 
-        return new Vector3(x, y, 0);
+        return spawnPosition;
     }
     public override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        Vector3 lineSpawn = new Vector3(0, LenghtMap, 0);
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, angleRangeToSpawn)) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -angleRangeToSpawn))* lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, angleRangeToSpawn)) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - (Quaternion.Euler(0, 0, -angleRangeToSpawn)) * lineSpawn);
+        Vector3 lineSpawn = new Vector3(LenghtMap, 0, 0);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), lineSpawn) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.AngleAxis(Random.Range(0, -angleRangeToSpawn), lineSpawn) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), lineSpawn) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - Quaternion.AngleAxis(Random.Range(0, -angleRangeToSpawn), lineSpawn) * lineSpawn);
     }
 }
