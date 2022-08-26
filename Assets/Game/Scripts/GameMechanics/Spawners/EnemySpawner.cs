@@ -71,8 +71,8 @@ public class EnemySpawner : MobSpawner
         transformEntity.position = GetRandomPositionSpawn();
     }
     public Vector3 GetRandomPositionSpawn()
-    {
-        Vector3 spawnPosition = Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), Vector3.up) * Vector3.right * LenghtMap;
+    {   
+        Vector3 spawnPosition = Quaternion.Euler(Random.Range(0, angleRangeToSpawn / 2.0f), 0.0f, 0.0f) * Vector3.right * LenghtMap;
 
         if (Random.Range(-1, 1) < 0)
         {
@@ -90,9 +90,9 @@ public class EnemySpawner : MobSpawner
     {
         base.OnDrawGizmosSelected();
         Vector3 lineSpawn = new Vector3(LenghtMap, 0, 0);
-        Gizmos.DrawLine(transform.position, transform.position + Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), lineSpawn) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position + Quaternion.AngleAxis(Random.Range(0, -angleRangeToSpawn), lineSpawn) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), lineSpawn) * lineSpawn);
-        Gizmos.DrawLine(transform.position, transform.position - Quaternion.AngleAxis(Random.Range(0, -angleRangeToSpawn), lineSpawn) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(angleRangeToSpawn / 2.0f, 0.0f, 0.0f) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(-angleRangeToSpawn / 2.0f, 0.0f, 0.0f) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - Quaternion.Euler(angleRangeToSpawn / 2.0f, 0.0f, 0.0f) * lineSpawn);
+        Gizmos.DrawLine(transform.position, transform.position - Quaternion.Euler(-angleRangeToSpawn / 2.0f, 0.0f, 0.0f) * lineSpawn);
     }
 }
