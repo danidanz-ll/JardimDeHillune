@@ -84,11 +84,11 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         if (right)
         {
-            transform.rotation.z = 0.0f;
+            gameObject.transform.rotation.z = 0.0f;
         }
         else
         {
-            transform.rotation.z = 180.0f;
+            gameObject.transform.rotation.z = 180.0f;
         }
     }
 }
