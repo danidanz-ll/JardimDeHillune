@@ -72,7 +72,7 @@ public class EnemySpawner : MobSpawner
     }
     public Vector3 GetRandomPositionSpawn()
     {
-        Vector3 spawnPosition = Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), Vector3.right) * Vector3.right * LenghtMap;
+        Vector3 spawnPosition = Quaternion.AngleAxis(Random.Range(0, angleRangeToSpawn), Vector3.up) * Vector3.right * LenghtMap;
 
         if (Random.Range(-1, 1) < 0)
         {
