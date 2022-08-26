@@ -72,10 +72,23 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         yield return new WaitForSeconds(attackCooldown);
         attackCooldownOn = false;
     }
+
     public IEnumerator StartAttackDamage()
     {
         Attacking = true;
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack());
+    }
+
+    public void SetDirectionWeapon(bool right)
+    {
+        if (right)
+        {
+            transform.rotation.z = 0.0f;
+        }
+        else
+        {
+            transform.rotation.z = 180.0f;
+        }
     }
 }

@@ -91,4 +91,16 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         yield return new WaitForSeconds(attackCooldown);
         attackCooldownOn = false;
     }
+
+    public void SetDirectionWeapon(bool right)
+    {
+        if (right)
+        {
+            transform.rotation.z = 0.0f;
+        }
+        else
+        {
+            transform.rotation.z = 180.0f;
+        }
+    }
 }

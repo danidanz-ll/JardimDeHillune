@@ -61,10 +61,18 @@ public class CharacterAnimationController : MonoBehaviour
         if (movement.isLookingToRight())
         {
             spriteRenderer.flipX = false;
+            if (weapon != null)
+            {
+                weapon.SetDirectionWeapon(true);
+            }
         }
         else
         {
             spriteRenderer.flipX = true;
+            if (weapon != null)
+            {
+                weapon.SetDirectionWeapon(false);
+            }
         }
     }
     private void OnDestroy()

@@ -12,4 +12,5 @@ public interface IWeapon
     IEnumerator StartAttackCooldown();
     bool IsAttackInCooldown();
     float GetAttackTime();
+    void SetDirectionWeapon(bool right);
 }
