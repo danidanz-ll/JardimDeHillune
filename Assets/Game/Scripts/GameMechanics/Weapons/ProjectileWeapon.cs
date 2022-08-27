@@ -44,6 +44,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
+        AttackEvent.Invoke();
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack(direction));
     }
@@ -55,7 +56,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         StartCoroutine(StartAttackCooldown());
         Attacking = false;
     }
-    private void FireProjectile(Vector2 direction)
+    private void FireProjectile(Vector3 direction)
     {
         GameObject projectileCreated = Instantiate(projectileGameObject, new Vector3(0, 0, 0), Quaternion.identity);
         Projectile projectile = projectileCreated.GetComponent<Projectile>();
