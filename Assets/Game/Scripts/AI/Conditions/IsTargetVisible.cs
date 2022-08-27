@@ -44,12 +44,6 @@ public class IsTargetVisible : GOAction
         {
             return false;
         }
-
-        IDamageable damageable = target.GetComponent<IDamageable>();
-        if (damageable != null)
-        {
-            //return !damageable.IsDead;
-        }
         return true;
     }
 }

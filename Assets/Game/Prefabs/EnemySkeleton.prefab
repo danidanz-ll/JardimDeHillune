@@ -549,6 +549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b45132f5bbe7e14882c0a811c46374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioHurting: {fileID: 0}
+  AudioAttacking: {fileID: 0}
+  AudioRunning: {fileID: 0}
+  AudioDeath: {fileID: 0}
   dead: 0
 --- !u!114 &-8655884940628700118
 MonoBehaviour:
@@ -576,8 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 4.34
-  visionAngle: 85
+  visionRange: 4.97
+  visionAngle: 94
+  visionAttack: 2.02
 --- !u!114 &-143579857977391122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackEscape: 100
+  AttackEscape: 0
 --- !u!114 &1374744547458122985
 MonoBehaviour:
   m_ObjectHideFlags: 0

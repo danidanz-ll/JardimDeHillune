@@ -3,10 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class AIVision : MonoBehaviour
 {
-    [Range(0.5f, 10.0f)]
-    public float visionRange = 5;
-    [Range(0, 360)]
-    public float visionAngle = 30;
+    [Range(0.5f, 10.0f)] public float visionRange = 5;
+    [Range(0, 360)] public float visionAngle = 30;
+
+    [Range(0.5f, 10.0f)] public float visionAttack = 5;
+
 
     private EnemyMovement enemyMovement;
     private Vector2 toTarget;
@@ -37,9 +38,32 @@ public class AIVision : MonoBehaviour
 
         return true;
     }
+    public bool IsDamageble(GameObject target)
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        if (Vector3.Distance(transform.position, target.transform.position) > visionAttack)
+        {
+            Debug.Log("Fora da distancia");
+            return false;
+        }
+        
+        toTarget = target.transform.position - transform.position;
+        Vector2 visionDirection = GetVisionDirection();
+        if (Vector2.Angle(visionDirection, toTarget) > visionAngle / 2)
+        {
+            return false;
+        }
+
+        return true;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, visionRange);
+        Gizmos.DrawWireSphere(transform.position, visionAttack);
 
         Vector3 visionDirection = GetVisionDirection();
         //Gizmos.DrawLine(transform.position, transform.position + visionDirection * visionRange);
