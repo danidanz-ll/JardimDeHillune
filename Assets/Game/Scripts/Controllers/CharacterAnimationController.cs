@@ -13,6 +13,12 @@ public static class CharacterMovementAnimationKeys
 }
 public class CharacterAnimationController : MonoBehaviour
 {   
+    [Header("Sound")]
+    [SerializeField] public AudioSource AudioHurting;
+    [SerializeField] public AudioSource AudioAttacking;
+    [SerializeField] public AudioSource AudioRunning;
+    [SerializeField] public AudioSource AudioDeath;
+
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
     public IMortal deathOnDamage;
@@ -92,16 +98,28 @@ public class CharacterAnimationController : MonoBehaviour
     }
     private void Attack()
     {
-        //AttackingAnimationIsOn = true;
+        if (AudioAttacking != null)
+        {
+            AudioAttacking.Play();
+        }
+        AudioHurting
         animator.SetTrigger(CharacterMovementAnimationKeys.IsAttacking);
         StartCoroutine(AttackingAnimationTime());
     }
     private void OnDamage()
     {
+        if (AudioHurting != null)
+        {
+            AudioHurting.Play();
+        }
         animator.SetTrigger(CharacterMovementAnimationKeys.IsHurting);
     }
     private void OnDeath()
     {
+        if (AudioDeath != null)
+        {
+            AudioDeath.Play();
+        }
         animator.SetTrigger(CharacterMovementAnimationKeys.IsDead);
         dead = true;
         enabled = false;
