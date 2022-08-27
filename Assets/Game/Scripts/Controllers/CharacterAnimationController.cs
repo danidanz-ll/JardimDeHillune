@@ -102,7 +102,6 @@ public class CharacterAnimationController : MonoBehaviour
         {
             AudioAttacking.Play();
         }
-        AudioHurting
         animator.SetTrigger(CharacterMovementAnimationKeys.IsAttacking);
         StartCoroutine(AttackingAnimationTime());
     }
