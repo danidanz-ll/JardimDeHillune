@@ -96,11 +96,11 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         if (right)
         {
-            gameObject.transform.rotation.z = 0.0f;
+            gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
         else
         {
-            gameObject.transform.rotation.z = 180.0f;
+            gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
     }
 }
