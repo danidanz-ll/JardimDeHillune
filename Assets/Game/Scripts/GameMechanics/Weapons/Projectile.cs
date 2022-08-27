@@ -6,7 +6,7 @@ public class Projectile : TriggerDamage
     public float LifeTime = 30.0f;
     public float MoveSpeed = 10.0f;
     private Rigidbody2D rb;
-    public Vector2 direction;
+    public Vector3 direction;
     private void Awake()
     {
         gameObject.SetActive(true);

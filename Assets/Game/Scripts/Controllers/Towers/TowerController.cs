@@ -42,6 +42,10 @@ public class TowerController : MonoBehaviour, ICharacterController
     {
         weapon.Attack();
     }
+    public void Attack(GameObject target)
+    {
+        weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+    }
     private void OnDeath()
     {
         //StartCoroutine(DisappearAfterDeath());

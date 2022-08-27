@@ -6,6 +6,7 @@ public class MatchWin : MonoBehaviour
 {
     private List<GameObject> SpawnersGameObjects = new List<GameObject>();
     private List<EnemySpawner> Spawners = new List<EnemySpawner>();
+    private List<SpawnerEvents> SpawnersEvents = new List<SpawnerEvents>();
     private GameEvents gameEvents;
     public bool IsMatchWin { get; private set; } = false;
     private int spawnersInMatch = 0;
@@ -27,11 +28,24 @@ public class MatchWin : MonoBehaviour
             try
             {
                 Spawners.Add(spawnerGameObject.GetComponent<EnemySpawner>());
+                SpawnersEvents.Add(spawnerGameObject.GetComponent<SpawnerEvents>());
             } catch (Exception ex)
             {
                 Debug.Log("[ERROR] Não foi possível obter componente spawner do objeto: " + ex.ToString());
             }
         }
+
+        foreach (SpawnerEvents spawnerEvents in SpawnersEvents)
+        {
+            try
+            {
+                spawnerEvents.AllUnitsAreDead += AccountSpawnerFinished;
+            } catch (Exception ex)
+            {
+                Debug.Log("[ERROR] Não foi possível se inscrever no evento de spawner: " + ex.ToString());
+            }
+        }
+
         spawnersInMatch = Spawners.Count;
     }
     private void Update()
