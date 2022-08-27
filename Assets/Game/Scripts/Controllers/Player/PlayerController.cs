@@ -49,21 +49,26 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         movementInput = playerInput.GetMovementInput();
 
-        if (playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
+        if (playerInput.IsSelectorTowerButtonDown())
         {
-            weapon.Attack();
-            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
+            towerSkill.SelectNextTower();
         }
 
         if (playerInput.IsInvokeButtonDown())
         {
-            if (manaSystem.currentMana > 0)
+            if (manaSystem.currentMana - SummonCost >= 0)
             {
                 manaSystem.UseMana(SummonCost);
                 Vector2 aux = playerMovement.GetFacingDirection();
                 Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
                 towerSkill.Invoke(transform.position + aux2);
             }
+        }
+
+        if (playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
+        {
+            weapon.Attack();
+            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
         }
     }
     private void FixedUpdate()
