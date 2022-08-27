@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(TowerSpawner))]
 public class TowerSkill : MonoBehaviour
 {
+    [SerializeField] public List<TowerSpawner> towerSpawners;
     public int currentTower = 0;
     private TowerSpawner towerSpawner;
-    public List<TowerSpawner> towerSpawners { get; private set; } = new List<TowerSpawner>();
     private void Start()
     {
         towerSpawner = GetComponent<TowerSpawner>();
