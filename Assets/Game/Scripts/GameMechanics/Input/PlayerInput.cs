@@ -12,6 +12,10 @@ public class PlayerInput : MonoBehaviour
     {
         return Input.GetButtonDown("Dash");
     }
+    public bool IsSelectorTowerButtonDown()
+    {
+        return Input.GetButtonDown("SelectorTower");
+    }
     public bool IsAttackButtonDown()
     {
         bool isKeyboardButtonDown = Input.GetButtonDown("Attack");
