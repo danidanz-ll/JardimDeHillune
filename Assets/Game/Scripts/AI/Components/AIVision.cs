@@ -3,11 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class AIVision : MonoBehaviour
 {
-    [Range(0.5f, 10.0f)] public float visionRange = 5;
-    [Range(0, 360)] public float visionAngle = 30;
-
-    [Range(0.5f, 10.0f)] public float visionAttack = 5;
-
+    [Range(0.5f, 10.0f)] public float visionRange = 5.0f;
+    [Range(0.5f, 10.0f)] public float visionAttack = 5.0f;
+    [Range(0, 360)] public float visionAngle = 30.0f;
 
     private EnemyMovement enemyMovement;
     private Vector2 toTarget;
@@ -31,7 +29,7 @@ public class AIVision : MonoBehaviour
         toTarget = target.transform.position - transform.position;
         Vector2 visionDirection = GetVisionDirection();
 
-        if (Vector2.Angle(visionDirection, toTarget) > visionAngle / 2)
+        if (Vector2.Angle(visionDirection, toTarget) > visionAngle / 2 && enemyMovement != null)
         {
             return false;
         }
@@ -47,7 +45,6 @@ public class AIVision : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.transform.position) > visionAttack)
         {
-            Debug.Log("Fora da distancia");
             return false;
         }
         

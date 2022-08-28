@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(LifeSystem))]
 public class TowerController : MonoBehaviour, ICharacterController
 {
+    [Header("Stats")]
+    [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
     [Header("Death settings")]
