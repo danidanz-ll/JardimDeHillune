@@ -53,7 +53,7 @@ public class TowerController : MonoBehaviour, ICharacterController
         {
             Debug.Log("Target Nulo");
         }
-        
+        Debug.Log("Atacando Target");
         weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
     }
     private void OnDeath()

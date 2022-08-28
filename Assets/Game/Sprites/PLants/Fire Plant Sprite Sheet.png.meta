@@ -1,0 +1,2001 @@
+fileFormatVersion: 2
+guid: c10f2aad6fb7cb24cac06057412c182a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 315
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56fffb53e4ff81e4194f88b94a7f8a6a
+      internalID: -558539730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 316
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38af0d41c2ca4c418700c9ae8c77bde
+      internalID: -691816176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 315
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaef01e10ef991a4bbe177ce51a224b8
+      internalID: 1806276856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 314
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc6296cb949aaf40947c04ea0d62c19
+      internalID: -1793953779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 313
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8128309fef4bf5640a9ad6fb37b8a8f5
+      internalID: -206571611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 312
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b6e44aeb1aa5e4393421360db172be
+      internalID: -1567488343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 311
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee7ed9f42a48e4439e26d9772b4ae89
+      internalID: -1289361058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 311
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb5d2fa5d88a1144830399b4e28fe36
+      internalID: 1560882237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 273
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f4deaaf7b823994981bae3e5aec3951
+      internalID: 382346243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 273
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa1e3e51adaf5d46b22241558740545
+      internalID: 228520599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 273
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0126193051256404daa32d241826679d
+      internalID: -285216323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 273
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f704fe0ab7f2df46a9332ceee48b954
+      internalID: 40461442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 273
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92ef5b8c2b6bdc499f2e81300bad635
+      internalID: -1116560266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 284
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c39268a4d2d9a459b9883804d32c5b
+      internalID: 643677019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 284
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dae2f4195e75649a7b48c0120e7978
+      internalID: -826869731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 284
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c7663797ee2dd4884513a3923573a4
+      internalID: 1283069969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 284
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc3b3a8bced7814a9eecfa42cf3db80
+      internalID: 1396236067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 280
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f05635e690d42749ad78a04c7a11486
+      internalID: 2082243890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 280
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9af9edabe993eb4694c669f76d2eb1b
+      internalID: -459382258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 280
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d283ed0886e814b8bb16092ed8e60a
+      internalID: -760812748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 280
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba5234d85b44cd4bab8d4cfbe6f2d60
+      internalID: -373527611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 282
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8a12b6f61479e4ab1e7896e77f3968
+      internalID: -1775850138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 279
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a915b520fcf39429636c456eb42a53
+      internalID: 1268931674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 280
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c19e813665f85428dc9f4653007ce2
+      internalID: -1475994253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 279
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c13879ace697784b929bc9e4d0fa17a
+      internalID: -1620003081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 287
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc957ad85eb381e429482578950f7240
+      internalID: -1245672238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 287
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c299481911178f4481f3c055482b37f
+      internalID: 1274490819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 287
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b61d62633ae10d4f9d7e524eeb4d996
+      internalID: 341994273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 287
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63cc5cdd432ef4a42bfdadb148e44fd6
+      internalID: -1268760972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 213
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b1844e77617e040a93dece5bbd1ad8
+      internalID: -442220757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 213
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a17363af32b904795dbc28a961bf97
+      internalID: -229116273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 213
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc74070b169660e4fb817bc878088958
+      internalID: -518082734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 213
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e67eac6c649eb4fbba0b777d33610c
+      internalID: -899288615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 213
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73108759b9d882e40bac265125030154
+      internalID: -1440242446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 213
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf3f56a35faca94eb5eb8074aa75922
+      internalID: -1364918665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 213
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2006d77549ab8524688f2329be25ba83
+      internalID: -1221097701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 213
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ea5590588ef944ea42fee29933279e
+      internalID: 330082779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 213
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147bfdb56a9a50f438945f84f5b82dce
+      internalID: 933696035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 213
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef82d26ffb130fa499a0190f8cbc1c61
+      internalID: 189258276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 213
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ec06d4c118905498d97513d0b037c5
+      internalID: 830797771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 213
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0be1efe388ba80459517eac1178c72b
+      internalID: -1190948160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 213
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85eaec6c36bf6e4084d83add66d7e01
+      internalID: 1802593722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 213
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0044b66fcd63c8d4f9eb1903aba6384a
+      internalID: -770828243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 158
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4122ae9dca3b56c4abf2de655800b8ea
+      internalID: -867859953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 158
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a430b3df717fc24b83a65c3f22b122f
+      internalID: 248717869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 158
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da08df31b3a96e24ab19fd45d301374d
+      internalID: 742658189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 158
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba05366197fd8f4b84b3e146bb5ec3e
+      internalID: 1825624088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 158
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf90628e6c6927449ad275528033a1d4
+      internalID: 144949415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 158
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a153615609bf0374d84f930aca4df054
+      internalID: 632038471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 158
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e14cc05967c5e48a9e661e06f23ceb
+      internalID: -1930981649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 158
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a515fec150b52b448a26d3c24c776e9b
+      internalID: -1266391581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 158
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74fe656c443b594380862a7988692cb
+      internalID: 307607844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 158
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461c38a0c9c1be241be40a567466467c
+      internalID: 1746846786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 160
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dfd3c822a885e46a345b1dc2f28af1
+      internalID: -1969057522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 158
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7c705451bb9fd46bb69925fcb5126e
+      internalID: 851979308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 158
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08d66ad925b82849945d695fa0a9fee
+      internalID: -385378927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 160
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9160f1acedb0a054082be5a46f8bbe90
+      internalID: -1462971995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 97
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac922aabe172c841b7c584fe8468cf1
+      internalID: -674186264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 97
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5307d0f93f42b43a9d9b9f8edf25f4
+      internalID: -1650163782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 97
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66653b615ee834d43a791d4e923b5cca
+      internalID: -1368576683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 97
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30394436b48a7e84ca7fdd312c324a17
+      internalID: 1074696402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 97
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58461882c879ad458b5e5377850160e
+      internalID: 2103583733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 97
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea79b3f79a3887409ffdd2084e04780
+      internalID: -1968798043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 97
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a78b78e6a089c4c8fe3b329d688d75
+      internalID: -350505254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 97
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a0668efa979864291133802113a990
+      internalID: -131170567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 97
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a902bc6baedd7044baab03bcf097e2c
+      internalID: 389182486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 97
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45dcae2df0a9b2e4e84c266bc181144b
+      internalID: -939981743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 97
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a71803089d14b48a8f40ae17ff09a4
+      internalID: -929741697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 97
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4bb115ef1f2df24a84b69da4cfe0873
+      internalID: -1555877142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 106
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc093109559c4f747823fd0a7e6e4bc0
+      internalID: -179152339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 106
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ee379d268fafb4fa51efd4af1ec1f1
+      internalID: 428798497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 40
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc88df0a61c6846408dba406fc537f27
+      internalID: 2138518418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 40
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b20f25d6f0da8448c629c75040a81c
+      internalID: 355244650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 40
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07355e5799d9fc6449a9b451be3e55bd
+      internalID: 1662780518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 40
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d320e65133e8eb4386d72b177e2b72f
+      internalID: -396848060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 40
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb990ed0e2ec2c4da4032c543409e70
+      internalID: 1421941205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 40
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0bf6ad4b6c662498ac5c9f656e1b1e
+      internalID: -1331437890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 40
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9ff4ad8f7cf5d47a806b218997b5f4
+      internalID: 433866234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 40
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141e0f514cb5a8b4b84a9e9e0c81f849
+      internalID: 1113942694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 40
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fe4a105febf2d48b6f216cc5410dd6
+      internalID: 1650290765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 40
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3927968cbf53c1446a3aa20c7454b4ee
+      internalID: 1518693301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 40
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fabc5b344ff95e48ab67fff5a815be8
+      internalID: 535805686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 40
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9652fe9bb324fd84895c76986a95a5be
+      internalID: 295387792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 43
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1e18b4483d89d45a73e2e49b4ff739
+      internalID: -2031055064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Plant Sprite Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 43
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e516df7916644a4cb845c029de6b691
+      internalID: 953295954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fire Plant Sprite Sheet_8: 382346243
+      Fire Plant Sprite Sheet_91: 953295954
+      Fire Plant Sprite Sheet_86: 1650290765
+      Fire Plant Sprite Sheet_7: 1560882237
+      Fire Plant Sprite Sheet_28: -1268760972
+      Fire Plant Sprite Sheet_77: 355244650
+      Fire Plant Sprite Sheet_27: 341994273
+      Fire Plant Sprite Sheet_53: 1746846786
+      Fire Plant Sprite Sheet_90: -2031055064
+      Fire Plant Sprite Sheet_45: 742658189
+      Fire Plant Sprite Sheet_48: 632038471
+      Fire Plant Sprite Sheet_34: -1364918665
+      Fire Plant Sprite Sheet_6: -1289361058
+      Fire Plant Sprite Sheet_89: 295387792
+      Fire Plant Sprite Sheet_84: 433866234
+      Fire Plant Sprite Sheet_76: 2138518418
+      Fire Plant Sprite Sheet_43: -867859953
+      Fire Plant Sprite Sheet_5: -1567488343
+      Fire Plant Sprite Sheet_35: -1221097701
+      Fire Plant Sprite Sheet_3: -1793953779
+      Fire Plant Sprite Sheet_82: -1331437890
+      Fire Plant Sprite Sheet_23: -1475994253
+      Fire Plant Sprite Sheet_33: -1440242446
+      Fire Plant Sprite Sheet_68: 389182486
+      Fire Plant Sprite Sheet_46: 1825624088
+      Fire Plant Sprite Sheet_22: 1268931674
+      Fire Plant Sprite Sheet_32: -899288615
+      Fire Plant Sprite Sheet_10: -285216323
+      Fire Plant Sprite Sheet_18: -459382258
+      Fire Plant Sprite Sheet_78: 1662780518
+      Fire Plant Sprite Sheet_57: -1462971995
+      Fire Plant Sprite Sheet_51: -1266391581
+      Fire Plant Sprite Sheet_4: -206571611
+      Fire Plant Sprite Sheet_81: 397665866
+      Fire Plant Sprite Sheet_88: 535805686
+      Fire Plant Sprite Sheet_92: -105601155
+      Fire Plant Sprite Sheet_40: -1190948160
+      Fire Plant Sprite Sheet_1: -691816176
+      Fire Plant Sprite Sheet_26: 1274490819
+      Fire Plant Sprite Sheet_14: -826869731
+      Fire Plant Sprite Sheet_20: -373527611
+      Fire Plant Sprite Sheet_21: -1775850138
+      Fire Plant Sprite Sheet_37: 933696035
+      Fire Plant Sprite Sheet_2: 1806276856
+      Fire Plant Sprite Sheet_17: 2082243890
+      Fire Plant Sprite Sheet_19: -760812748
+      Fire Plant Sprite Sheet_44: 248717869
+      Fire Plant Sprite Sheet_52: 307607844
+      Fire Plant Sprite Sheet_30: -229116273
+      Fire Plant Sprite Sheet_36: 330082779
+      Fire Plant Sprite Sheet_72: -179152339
+      Fire Plant Sprite Sheet_59: -1650163782
+      Fire Plant Sprite Sheet_93: -263383489
+      Fire Plant Sprite Sheet_39: 830797771
+      Fire Plant Sprite Sheet_12: -1116560266
+      Fire Plant Sprite Sheet_25: -1245672238
+      Fire Plant Sprite Sheet_16: 1396236067
+      Fire Plant Sprite Sheet_41: 1802593722
+      Fire Plant Sprite Sheet_38: 189258276
+      Fire Plant Sprite Sheet_24: -1620003081
+      Fire Plant Sprite Sheet_29: -442220757
+      Fire Plant Sprite Sheet_60: -1368576683
+      Fire Plant Sprite Sheet_55: 851979308
+      Fire Plant Sprite Sheet_79: -396848060
+      Fire Plant Sprite Sheet_54: -1969057522
+      Fire Plant Sprite Sheet_0: -558539730
+      Fire Plant Sprite Sheet_75: -1515394087
+      Fire Plant Sprite Sheet_56: -385378927
+      Fire Plant Sprite Sheet_31: -518082734
+      Fire Plant Sprite Sheet_85: 1113942694
+      Fire Plant Sprite Sheet_73: 428798497
+      Fire Plant Sprite Sheet_13: 643677019
+      Fire Plant Sprite Sheet_74: -1568819730
+      Fire Plant Sprite Sheet_62: 2103583733
+      Fire Plant Sprite Sheet_47: 144949415
+      Fire Plant Sprite Sheet_67: -131170567
+      Fire Plant Sprite Sheet_50: -1930981649
+      Fire Plant Sprite Sheet_69: -939981743
+      Fire Plant Sprite Sheet_11: 40461442
+      Fire Plant Sprite Sheet_49: 2017922446
+      Fire Plant Sprite Sheet_64: 2029809895
+      Fire Plant Sprite Sheet_65: -350505254
+      Fire Plant Sprite Sheet_83: 108448086
+      Fire Plant Sprite Sheet_15: 1283069969
+      Fire Plant Sprite Sheet_61: 1074696402
+      Fire Plant Sprite Sheet_63: -1968798043
+      Fire Plant Sprite Sheet_70: -929741697
+      Fire Plant Sprite Sheet_87: 1518693301
+      Fire Plant Sprite Sheet_42: -770828243
+      Fire Plant Sprite Sheet_58: -674186264
+      Fire Plant Sprite Sheet_80: 1421941205
+      Fire Plant Sprite Sheet_9: 228520599
+      Fire Plant Sprite Sheet_66: -1587406445
+      Fire Plant Sprite Sheet_71: -1555877142
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -580,9 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 5.07
-  visionAngle: 98
+  visionRange: 4.08
   visionAttack: 2.42
+  visionAngle: 180
 --- !u!114 &-143579857977391122
 MonoBehaviour:
   m_ObjectHideFlags: 0

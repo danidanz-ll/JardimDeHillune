@@ -19,14 +19,17 @@ public class ChaseTarget : BasePrimitiveAction
     {
         if (targetObject == null)
         {
+            Debug.Log("Target Nulo");
             return TaskStatus.ABORTED;
         }
         else if (!targetObject.activeSelf)
         {
+            Debug.Log("Target Desativado");
             return TaskStatus.ABORTED;
         }
         else if (GetControllerFromCharacter(targetObject).CharacterIsDead())
         {
+            Debug.Log("Target Esta morto");
             return TaskStatus.ABORTED;
         }
         else

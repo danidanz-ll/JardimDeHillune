@@ -10,6 +10,7 @@ TagManager:
   - Spawner
   - TowersParent
   - GameManager
+  - ProjectilesParent
   layers:
   - Default
   - TransparentFX

@@ -50,7 +50,7 @@ public class AIVision : MonoBehaviour
         
         toTarget = target.transform.position - transform.position;
         Vector2 visionDirection = GetVisionDirection();
-        if (Vector2.Angle(visionDirection, toTarget) > visionAngle / 2)
+        if (Vector2.Angle(visionDirection, toTarget) > visionAngle / 2 && enemyMovement != null)
         {
             return false;
         }
@@ -66,6 +66,7 @@ public class AIVision : MonoBehaviour
         //Gizmos.DrawLine(transform.position, transform.position + visionDirection * visionRange);
         Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, visionAngle/2) * visionDirection * visionRange));
         Gizmos.DrawLine(transform.position, transform.position + (Quaternion.Euler(0, 0, -visionAngle / 2) * visionDirection * visionRange));
+        Gizmos.DrawLine(transform.position,toTarget);
     }
     public Vector2 GetVisionDirection()
     {
