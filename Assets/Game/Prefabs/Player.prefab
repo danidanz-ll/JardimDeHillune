@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: -4519107092639731022}
   - component: {fileID: 4421398486152457438}
   - component: {fileID: 1791883046735300103}
+  - component: {fileID: -3345949707257302164}
   m_Layer: 23
   m_Name: Player
   m_TagString: Player
@@ -291,7 +292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 6930895518700754521}
   TimeToDisappearAfterDeath: 4
-  towerSkill: {fileID: 0}
   SummonCost: 0
 --- !u!114 &2461474773925571185
 MonoBehaviour:
@@ -305,7 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6a050ea4555a14198a6188fe2ca19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAttackDuration: 0.8
+  AudioHurting: {fileID: 0}
+  AudioAttacking: {fileID: 0}
+  AudioRunning: {fileID: 0}
+  AudioDeath: {fileID: 0}
+  dead: 0
 --- !u!114 &1650838882543801875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +338,7 @@ MonoBehaviour:
   acceleration: 2
   decceleration: 6
   velPower: 0.8
+  SpeedDecreaseFactor: 0.5
 --- !u!114 &3455820143405995895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910581bc2ebaa874b899201cca7b153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackEscape: 0
 --- !u!114 &-8184389961736305724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,8 +422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
-  NumberOfEntitiesInGame: 0
-  NumberMaxEntities: 0
+  NumberOfEntitiesInGame: 10
+  NumberMaxEntities: 999
   LenghtMap: 0
   LivingEntities: 0
 --- !u!114 &-4519107092639731022
@@ -432,6 +438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b4f2a381e686444b74b2b4f6207c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerSpawners:
+  - {fileID: 7158663401731129994}
+  - {fileID: -3345949707257302164}
+  currentTower: 0
 --- !u!114 &4421398486152457438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,10 +466,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efd1e1cb0cf72c45a84f0c56b8b44d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 50
-  currentMana: 0
+  maxMana: 100
+  currentMana: 100
   ManaBar: {fileID: 0}
   ManaPointRate: 10
+--- !u!114 &-3345949707257302164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414705926397175537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b9efff74084244bb492f8173b21758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entity: {fileID: 3651131934071168343, guid: e3c5209114661a847aaef1d695919c98, type: 3}
+  NumberOfEntitiesInGame: 10
+  NumberMaxEntities: 999
+  LenghtMap: 0
+  LivingEntities: 0
 --- !u!1 &6930895518700754521
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,5 +562,4 @@ MonoBehaviour:
   damage: 10
   attackTime: 0.8
   startAttackDamageTime: 0.2
-  timeToFreeze: 0
   attackCooldown: 0.5

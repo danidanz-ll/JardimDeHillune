@@ -11,7 +11,6 @@ public class IsTargetClose : GOAction
     [InParam("Target")] private GameObject target;
     [InParam("AIVision")] private AIVision aiVision;
     [InParam("TargetMemoryDuration")] private float targetMemoryDuration;
-    [InParam("RangeAttack")] private float RangeAttack;
     [InParam("IsObjective")] private bool IsObjective = false;
     private float forgetTargetTime = 0f;
 
@@ -32,10 +31,14 @@ public class IsTargetClose : GOAction
         {
             target = GameObject.FindGameObjectWithTag("Objective");
         }
-        if (aiVision.IsVisible(target) && IsAvailable() && Vector2.Distance(target.transform.position,gameObject.transform.position) <= RangeAttack)
+
+        if (IsAvailable())
         {
-            forgetTargetTime = Time.time + targetMemoryDuration;
-            return true;
+            if (aiVision.IsDamageble(target))
+            {
+                forgetTargetTime = Time.time + targetMemoryDuration;
+                return true;
+            }
         }
 
         return Time.time < forgetTargetTime;
@@ -47,11 +50,6 @@ public class IsTargetClose : GOAction
             return false;
         }
 
-        IDamageable damageable = target.GetComponent<IDamageable>();
-        if (damageable != null)
-        {
-            //return !damageable.IsDead;
-        }
         return true;
     }
 }

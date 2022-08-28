@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(LifeSystem))]
 public class TowerController : MonoBehaviour, ICharacterController
 {
+    [Header("Stats")]
+    [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
     [Header("Death settings")]
@@ -44,6 +46,14 @@ public class TowerController : MonoBehaviour, ICharacterController
     }
     public void Attack(GameObject target)
     {
+        var targetAttack = target.transform.position.normalized;
+        var gameObjectAttack = gameObject.transform.position.normalized;
+
+        if(targetAttack == null)
+        {
+            Debug.Log("Target Nulo");
+        }
+        
         weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
     }
     private void OnDeath()

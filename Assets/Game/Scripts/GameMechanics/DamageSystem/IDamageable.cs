@@ -3,6 +3,11 @@ using System;
 public interface IDamageable
 {
     void TakeDamage(float damage);
+    void Die();
+    void Resurrect();
     event Action DamageEvent;
-    event EventHandler<float> DamageValueEvent; 
+    event Action DeathEvent;
+    event Action RessurectEvent;
+    event EventHandler<float> DamageValueEvent;
+    bool IsDead { get; }
 }

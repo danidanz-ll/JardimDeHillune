@@ -18,7 +18,7 @@ public class TowerSkill : MonoBehaviour
     }
     public void SelectNextTower()
     {
-        if (currentTower < towerSpawners.Count)
+        if (currentTower < towerSpawners.Count - 1)
         {
             currentTower++;
         }

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Level_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Game/Scenes/Options_Menu.unity
+    guid: 4203f79c6bc38de499794214154f1cd5
+  - enabled: 1
+    path: Assets/Game/Scenes/Fase Selection.unity
+    guid: 87691ef1eebe6804697c10d806b3fbca
   m_configObjects: {}

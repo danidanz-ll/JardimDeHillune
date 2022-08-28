@@ -549,6 +549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b45132f5bbe7e14882c0a811c46374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioHurting: {fileID: 0}
+  AudioAttacking: {fileID: 0}
+  AudioRunning: {fileID: 0}
+  AudioDeath: {fileID: 0}
   dead: 0
 --- !u!114 &-8655884940628700118
 MonoBehaviour:
@@ -576,8 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 5.01
-  visionAngle: 83
+  visionRange: 5.07
+  visionAngle: 98
+  visionAttack: 2.42
 --- !u!114 &-143579857977391122
 MonoBehaviour:
   m_ObjectHideFlags: 0
