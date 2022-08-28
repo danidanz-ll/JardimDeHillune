@@ -21,10 +21,16 @@ public class FireProjectile : BasePrimitiveAction
         }
         if (targetObject == null)
         {
-            Debug.Log("Target é nulo no FIreProjectile");
             return TaskStatus.ABORTED;
         }
-        towerController.Attack(targetObject);
+        
+        try
+        {
+            towerController.Attack(targetObject);
+        } catch (Exception ex)
+        {
+            return TaskStatus.ABORTED;
+        }
         return TaskStatus.COMPLETED;
     }
 }

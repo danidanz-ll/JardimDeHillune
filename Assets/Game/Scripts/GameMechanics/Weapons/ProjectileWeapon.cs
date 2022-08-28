@@ -44,7 +44,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
-        // AttackEvent.Invoke();
+        AttackEvent.Invoke();
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack(direction));
     }
