@@ -31,11 +31,14 @@ public class IsTargetClose : GOAction
         {
             target = GameObject.FindGameObjectWithTag("Objective");
         }
-        Debug.Log("Is visible " + aiVision.IsDamageble(target).ToString());
-        if (aiVision.IsDamageble(target) && IsAvailable())
+
+        if (IsAvailable())
         {
-            forgetTargetTime = Time.time + targetMemoryDuration;
-            return true;
+            if (aiVision.IsDamageble(target))
+            {
+                forgetTargetTime = Time.time + targetMemoryDuration;
+                return true;
+            }
         }
 
         return Time.time < forgetTargetTime;

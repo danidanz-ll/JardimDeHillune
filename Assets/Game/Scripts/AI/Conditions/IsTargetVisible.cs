@@ -30,12 +30,14 @@ public class IsTargetVisible : GOAction
     }
     private bool Check()
     {
-        if (aiVision.IsVisible(target) && IsAvailable())
+        if (IsAvailable())
         {
-            forgetTargetTime = Time.time + targetMemoryDuration;
-            return true;
+            if (aiVision.IsVisible(target))
+            {
+                forgetTargetTime = Time.time + targetMemoryDuration;
+                return true;
+            }
         }
-
         return Time.time < forgetTargetTime;
     }
     private bool IsAvailable()
