@@ -6,7 +6,7 @@ using UnityEngine;
 [Action("Game/AttackTarget")]
 public class AttackTarget : BasePrimitiveAction
 {
-    [InParam("AIController")] public EnemyController enemyController;
+    [InParam("AIController")] public IAIController iaController;
     [InParam("TargetObject")] public GameObject targetObject;
     [InParam("IsObjective")] private bool IsObjective = false;
     public override void OnStart()
@@ -23,7 +23,7 @@ public class AttackTarget : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
-        enemyController.Attack();
+        iaController.Attack();
         return TaskStatus.COMPLETED;
     }
 }

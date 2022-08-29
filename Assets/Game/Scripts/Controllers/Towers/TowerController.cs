@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(IMortal))]
 [RequireComponent(typeof(LifeSystem))]
-public class TowerController : MonoBehaviour, ICharacterController
+public class TowerController : MonoBehaviour, ICharacterController, IAIController
 {
     [Header("Stats")]
     [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
@@ -51,9 +51,8 @@ public class TowerController : MonoBehaviour, ICharacterController
 
         if(targetAttack == null)
         {
-            Debug.Log("Target Nulo");
+            return;
         }
-        Debug.Log("Atacando Target");
         weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
     }
     private void OnDeath()
@@ -72,5 +71,17 @@ public class TowerController : MonoBehaviour, ICharacterController
     {
         //enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
+    }
+    private void SetMovement()
+    {
+
+    }
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    private float GetMovementSpeed()
+    {
+        return 0.0f;
     }
 }

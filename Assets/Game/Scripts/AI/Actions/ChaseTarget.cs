@@ -7,10 +7,8 @@ using UnityEngine;
 [Action("Game/ChaseTarget")]
 public class ChaseTarget : BasePrimitiveAction
 {
-    [InParam("AIController")]
-    public EnemyController enemyController;
-    [InParam("TargetObject")]
-    public GameObject targetObject;
+    [InParam("AIController")] public IAIController iaController;
+    [InParam("TargetObject")] public GameObject targetObject;
     public override void OnStart()
     {
         base.OnStart();
@@ -34,8 +32,8 @@ public class ChaseTarget : BasePrimitiveAction
         }
         else
         {
-            Vector2 toTarget = targetObject.transform.position - enemyController.transform.position;
-            enemyController.SetMovement(toTarget);
+            Vector2 toTarget = targetObject.transform.position - iaController.GetPosition();
+            iaController.SetMovement(toTarget);
         }
         return TaskStatus.COMPLETED;
     }
