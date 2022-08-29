@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 918715972429428339}
   - component: {fileID: 60182214137979287}
-  - component: {fileID: 6074203198832890612}
+  - component: {fileID: 5063216703566601276}
   m_Layer: 23
   m_Name: Weapon
   m_TagString: Untagged
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2671455820243740955}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8333334, y: 0.8333334, z: 0.8333334}
   m_ConstrainProportionsScale: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0007034093, y: -0.00003578514}
+  m_Offset: {x: 0.1765167, y: -0.04045268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116,9 +116,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48447296, y: 0.42833167}
+  m_Size: {x: 0.3349305, y: 0.40408152}
   m_EdgeRadius: 0
---- !u!114 &6074203198832890612
+--- !u!114 &5063216703566601276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +127,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2671455820243740955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
+  m_Script: {fileID: 11500000, guid: a2e10c150f0179946b0ca348383c47d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 1
-  damage: 10
-  attackTime: 1.5
-  startAttackDamageTime: 0.2
-  attackCooldown: 1.8
+  projectileGameObject: {fileID: 1517298776174689585, guid: 5ca00784a272f2b4d90a55d6b255b207,
+    type: 3}
+  damageProjectiles: 0
+  MoveSpeed: 100
+  isEnemy: 0
+  attackTime: 1.8
+  startAttackDamageTime: 0.3
+  timeToFreeze: 0
+  attackCooldown: 3
 --- !u!1 &3021196284507716434
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +314,7 @@ GameObject:
   - component: {fileID: 2739829779044965624}
   - component: {fileID: 1374744547458122985}
   m_Layer: 23
-  m_Name: EnemySkeleton
+  m_Name: Eye
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,7 +378,7 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1384196622, guid: 46ff2e64cb9aeff428724dabee240ea9, type: 3}
+  m_Sprite: {fileID: -1110194610, guid: 65d2a79a5d7ac2745a57702801886a9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -395,7 +399,7 @@ Animator:
   m_GameObject: {fileID: 3651131934071168343}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 682a9b6d6e617d840a216ed8b318f65c, type: 2}
+  m_Controller: {fileID: 9100000, guid: b3c4cf5d36add9c439d6494d44f01094, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -418,18 +422,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05010293, y: -0.039735354}
+  m_Offset: {x: -0.014177434, y: 0.0015789866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.21, y: 0.32}
+    oldSize: {x: 0.66, y: 0.55}
     newSize: {x: 0.21, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11193315, y: 0.24265574}
+  m_Size: {x: 0.23407985, y: 0.38037014}
   m_EdgeRadius: 0
 --- !u!50 &-1851160430859019964
 Rigidbody2D:
@@ -465,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: 0ac8aed396d7fd344959166009d8654a, type: 2}
+  behavior: {fileID: 11400000, guid: 997a5691bd83aee4d8785c965502623e, type: 2}
   paused: 0
   restartWhenFinished: 1
   blackboard:
@@ -566,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 8
   SpeedDecreaseFactor: 0.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
@@ -580,9 +584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bd630e7871bdf46b1418e2505c6a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 4.97
-  visionAttack: 2.02
-  visionAngle: 94
+  visionRange: 6.72
+  visionAttack: 4.76
+  visionAngle: 180
 --- !u!114 &-143579857977391122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,10 +600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 50
-  currentLife: 0
+  currentLife: 50
   HealtBar: {fileID: 4666449923132254164}
-  InvencibleTimeDamage: 0.52
-  TimeDamage: 1.4
+  InvencibleTimeDamage: 0.3
+  TimeDamage: 1.5
 --- !u!114 &2739829779044965624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,7 +666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.323}
+  m_AnchoredPosition: {x: 0, y: 0.95}
   m_SizeDelta: {x: 1.16, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8993712177993643657

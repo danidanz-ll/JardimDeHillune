@@ -30,7 +30,8 @@ namespace BBUnity.Actions
             float dist = float.MaxValue;
             foreach(GameObject go in GameObject.FindGameObjectsWithTag(tag))
             {
-                float newdist = (go.transform.position + gameObject.transform.position).sqrMagnitude;
+                float newdist = Vector3.Distance(go.transform.position, gameObject.transform.position);
+                // float newdist = (go.transform.position + gameObject.transform.position).sqrMagnitude;
                 if(newdist < dist)
                 {
                     dist = newdist;

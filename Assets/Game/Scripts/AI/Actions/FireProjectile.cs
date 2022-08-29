@@ -2,6 +2,8 @@ using Pada1.BBCore;
 using Pada1.BBCore.Framework;
 using Pada1.BBCore.Tasks;
 using UnityEngine;
+using System;
+
 
 [Action("Game/FireProjectile")]
 public class FireProjectile : BasePrimitiveAction
@@ -29,6 +31,7 @@ public class FireProjectile : BasePrimitiveAction
             iaController.Attack(targetObject);
         } catch (Exception ex)
         {
+            Debug.Log(ex.ToString());
             return TaskStatus.ABORTED;
         }
         return TaskStatus.COMPLETED;

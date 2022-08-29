@@ -11,7 +11,12 @@ public static class TowerAnimationKeys
 public class TowerAnimationController : MonoBehaviour
 {
     [SerializeField] private float timeAttackDuration = 0;
-    
+
+    [Header("Sound")]
+    [SerializeField] public AudioSource AudioHurting;
+    [SerializeField] public AudioSource AudioAttacking;
+    [SerializeField] public AudioSource AudioRunning;
+    [SerializeField] public AudioSource AudioDeath;
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
     public IMortal deathOnDamage;
@@ -37,20 +42,23 @@ public class TowerAnimationController : MonoBehaviour
             deathOnDamage.DeathEvent += OnDeath;
             deathOnDamage.RessurectEvent += Resurrect;
         }
+        if (weapon != null)
+        {
+            weapon.AttackEvent += Attack;
+        }
+    }
+    private void Attack()
+    {
+        if (AudioAttacking != null)
+        {
+            AudioAttacking.Play();
+        }
+        animator.SetTrigger(TowerAnimationKeys.IsAttacking);
+        StartCoroutine(AttackingAnimationTime());
     }
     protected virtual void Update()
     {
         if (dead) return;
-
-        if (weapon != null)
-        {
-            if (weapon.IsAttacking() && !weapon.IsAttackInCooldown() && !AttackingAnimationIsOn)
-            {
-                AttackingAnimationIsOn = true;
-                animator.SetTrigger(TowerAnimationKeys.IsAttacking);
-                StartCoroutine(AttackingAnimationTime());
-            }
-        }
     }
     private void FixedUpdate() 
     {

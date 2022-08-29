@@ -49,10 +49,10 @@ MonoBehaviour:
   damageProjectiles: 10
   MoveSpeed: 100
   isEnemy: 0
-  attackTime: 2
-  startAttackDamageTime: 0
+  attackTime: 1.8
+  startAttackDamageTime: 0.2
   timeToFreeze: 0
-  attackCooldown: 4
+  attackCooldown: 3
 --- !u!1 &6274658479629603192
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: -5382865598614053702}
   - component: {fileID: 1585976662449313121}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: FirePLant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2135064016, guid: f01aa9039938fe64fb2fd6e77b8b795c, type: 3}
+  m_Sprite: {fileID: 2138518418, guid: c10f2aad6fb7cb24cac06057412c182a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -336,7 +336,7 @@ Animator:
   m_GameObject: {fileID: 6274658479629603192}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7a901bc3de660a4094470876c7aff3f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9fae6a00f7623c048927c333971d1651, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -363,7 +363,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.27, y: 0.29}
+    oldSize: {x: 0.27, y: 0.3}
     newSize: {x: 0.29, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -385,3 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAttackDuration: 0
+  AudioHurting: {fileID: 0}
+  AudioAttacking: {fileID: 0}
+  AudioRunning: {fileID: 0}
+  AudioDeath: {fileID: 0}

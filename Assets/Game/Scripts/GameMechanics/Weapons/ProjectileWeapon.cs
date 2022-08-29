@@ -44,13 +44,13 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
+        Attacking = true;
         AttackEvent.Invoke();
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack(direction));
     }
     private IEnumerator PerformAttack(Vector2 direction)
     {
-        Attacking = true;
         FireProjectile(direction);
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(StartAttackCooldown());
@@ -65,6 +65,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         projectile.damage = damageProjectiles;
         projectile.isEnemy = isEnemy;
         projectile.direction = direction;
+        Debug.Log("Direction:" + projectile.direction.sqrMagnitude.ToString());
         projectile.MoveSpeed = MoveSpeed;
         projectile.Fire();
     }

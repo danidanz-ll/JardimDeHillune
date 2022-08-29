@@ -46,14 +46,15 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public void Attack(GameObject target)
     {
-        var targetAttack = target.transform.position.normalized;
-        var gameObjectAttack = gameObject.transform.position.normalized;
-
-        if(targetAttack == null)
+        if(target == null)
         {
             return;
         }
+<<<<<<< Updated upstream
         weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+=======
+        weapon.Attack(target.transform.position - gameObject.transform.position);
+>>>>>>> Stashed changes
     }
     private void OnDeath()
     {
