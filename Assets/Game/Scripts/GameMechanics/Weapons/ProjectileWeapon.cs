@@ -13,12 +13,14 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     [SerializeField] private float timeToFreeze = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
     public event Action AttackEvent;
+    private SpriteRenderer spriteRenderer;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
     private void Awake()
     {
         gameObject.SetActive(true);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
@@ -46,6 +48,14 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         Attacking = true;
         AttackEvent.Invoke();
+        if (direction.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack(direction));
     }
@@ -65,7 +75,6 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         projectile.damage = damageProjectiles;
         projectile.isEnemy = isEnemy;
         projectile.direction = direction;
-        Debug.Log("Direction:" + projectile.direction.sqrMagnitude.ToString());
         projectile.MoveSpeed = MoveSpeed;
         projectile.Fire();
     }
