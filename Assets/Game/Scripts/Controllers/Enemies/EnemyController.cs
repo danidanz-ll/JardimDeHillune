@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, ICharacterController
+public class EnemyController : MonoBehaviour, ICharacterController, IAIController
 {
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour, ICharacterController
     private IDamageable damageable;
     public IMortal mortal { get; private set; }
     private IWeapon weapon;
+
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
@@ -50,6 +51,18 @@ public class EnemyController : MonoBehaviour, ICharacterController
         weapon.Attack();
         enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
     }
+    public void Attack(GameObject target)
+    {
+        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
+        var targetAttack = target.transform.position.normalized;
+        var gameObjectAttack = gameObject.transform.position.normalized;
+
+        if(targetAttack == null)
+        {
+            return;
+        }
+        weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+    }
     private void OnDeath()
     {
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
@@ -68,5 +81,9 @@ public class EnemyController : MonoBehaviour, ICharacterController
     {
         //enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
+    }
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

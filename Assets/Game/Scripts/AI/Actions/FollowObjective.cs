@@ -8,7 +8,7 @@ using UnityEngine;
 public class FollowObjective : BasePrimitiveAction
 {
     [InParam("AIController")]
-    public EnemyController enemyController;
+    public IAIController iaController;
     
     private Transform objective;
     public override void OnStart()
@@ -25,8 +25,8 @@ public class FollowObjective : BasePrimitiveAction
     {
         if (objective != null)
         {
-            Vector2 direction = Vector2.MoveTowards(enemyController.transform.position, objective.position, enemyController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
-            enemyController.SetMovement(direction);
+            Vector2 direction = Vector2.MoveTowards(iaController.GetPosition(), objective.position, iaController.GetMovementSpeed() * Time.deltaTime) * -1.0f;
+            iaController.SetMovement(direction);
         }
     }
 }

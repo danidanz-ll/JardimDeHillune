@@ -6,7 +6,7 @@ using UnityEngine;
 [Action("Game/FireProjectile")]
 public class FireProjectile : BasePrimitiveAction
 {
-    [InParam("AIController")] public TowerController towerController;
+    [InParam("AIController")] public IAIController iaController;
     [InParam("TargetObject")] public GameObject targetObject;
     [InParam("IsObjective")] private bool IsObjective = false;
     public override void OnStart()
@@ -26,7 +26,7 @@ public class FireProjectile : BasePrimitiveAction
         
         try
         {
-            towerController.Attack(targetObject);
+            iaController.Attack(targetObject);
         } catch (Exception ex)
         {
             return TaskStatus.ABORTED;
