@@ -8,14 +8,10 @@ using UnityEngine;
 [Action("Game/Perception/IsTargetVisible")]
 public class IsTargetVisible : GOAction
 {
-    [InParam("Target")]
-    private GameObject target;
-    [InParam("AIVision")]
-    private AIVision aiVision;
-    [InParam("TargetMemoryDuration")]
-    private float targetMemoryDuration;
-
-    private float forgetTargetTime = 0f;
+    [InParam("Target")] private GameObject target;
+    [InParam("AIVision")] private AIVision aiVision;
+    [InParam("TargetMemoryDuration")] private float targetMemoryDuration;
+    [InParam("ForgetTargetTime")] private float forgetTargetTime;
 
     public override TaskStatus OnUpdate()
     {
@@ -34,11 +30,12 @@ public class IsTargetVisible : GOAction
         {
             if (aiVision.IsVisible(target))
             {
-                forgetTargetTime = Time.time + targetMemoryDuration;
+                aiVision.forgetTargetTime = Time.time + targetMemoryDuration;
                 return true;
             }
         }
-        return Time.time < forgetTargetTime;
+        //Debug.Log(aiVision.forgetTargetTime.ToString());
+        return Time.time < aiVision.forgetTargetTime;
     }
     private bool IsAvailable()
     {

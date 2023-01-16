@@ -9,8 +9,6 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
-    [Header("Death settings")]
-    [SerializeField][Min(0)] private float TimeToDisappearAfterDeath = 0;
 
     private LifeSystem lifeSystem;
     private IDamageable damageable;
@@ -50,11 +48,7 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
         {
             return;
         }
-<<<<<<< Updated upstream
         weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
-=======
-        weapon.Attack(target.transform.position - gameObject.transform.position);
->>>>>>> Stashed changes
     }
     private void OnDeath()
     {
@@ -68,21 +62,26 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     {
         return mortal.IsDead;
     }
-    private IEnumerator DisappearAfterDeath()
-    {
-        //enabled = false;
-        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-    }
     private void SetMovement()
     {
 
     }
-    public Vector3 GetPosition()
+    public Vector3 GetCurrentPosition()
     {
         return transform.position;
     }
     private float GetMovementSpeed()
     {
         return 0.0f;
+    }
+
+    public void SetMovement(Vector2 direction)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    float IAIController.GetMovementSpeed()
+    {
+        throw new System.NotImplementedException();
     }
 }

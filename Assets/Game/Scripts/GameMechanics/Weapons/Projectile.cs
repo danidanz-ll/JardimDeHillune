@@ -17,12 +17,7 @@ public class Projectile : TriggerDamage
     public void Fire()
     {
         rb.velocity = direction * MoveSpeed * Time.deltaTime;
-<<<<<<< Updated upstream
         float angle = Vector3.Angle(Vector3.up, rb.velocity);
-=======
-        Debug.Log("Velocity:" + rb.velocity.sqrMagnitude.ToString());
-        float angle = Vector3.Angle(Vector3.right, rb.velocity);
->>>>>>> Stashed changes
         spriteRenderer.transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
         StartCoroutine(DestroyProjectile());
     }

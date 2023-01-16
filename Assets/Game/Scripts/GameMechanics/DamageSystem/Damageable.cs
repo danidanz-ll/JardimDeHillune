@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class TakeOnDamage : MonoBehaviour, IDamageable
+public class Damageable : MonoBehaviour, IDamageable, IMortal
 {
     [SerializeField][Range(0.0f, 100.0f)] public float AttackEscape;
     public event Action DamageEvent;

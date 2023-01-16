@@ -40,52 +40,53 @@ MonoBehaviour:
     isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\"
     type=\"AIVision\" isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n         
     <entry name=\"TargetMemoryDuration\" type=\"System.Single\" isBlackboard=\"False\"
-    value=\"5\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"8\"
-    action=\"Game/Perception/IsTargetClose\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
-    <entry name=\"Target\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\" type=\"AIVision\"
-    isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n          <entry name=\"TargetMemoryDuration\"
-    type=\"System.Single\" isBlackboard=\"False\" value=\"0\" />\r\n          <entry
+    value=\"5\" />\r\n          <entry name=\"ForgetTargetTime\" type=\"System.Single\"
+    isBlackboard=\"False\" value=\"0\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"8\" action=\"Game/Perception/IsTargetClose\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"Target\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\"
+    type=\"AIVision\" isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n         
+    <entry name=\"TargetMemoryDuration\" type=\"System.Single\" isBlackboard=\"False\"
+    value=\"0\" />\r\n          <entry name=\"IsObjective\" type=\"System.Boolean\"
+    isBlackboard=\"False\" value=\"False\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
+    <ActionNode id=\"9\" action=\"Game/AttackTarget\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"AIController\" type=\"EnemyController\"
+    isBlackboard=\"True\" blackboard=\"AIController\" />\r\n          <entry name=\"TargetObject\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"False\" />\r\n          <entry
     name=\"IsObjective\" type=\"System.Boolean\" isBlackboard=\"False\" value=\"False\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
-    <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"9\" action=\"Game/AttackTarget\">\r\n     
-    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"AIController\"
-    type=\"EnemyController\" isBlackboard=\"True\" blackboard=\"AIController\" />\r\n         
-    <entry name=\"TargetObject\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
-    />\r\n          <entry name=\"IsObjective\" type=\"System.Boolean\" isBlackboard=\"False\"
-    value=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n 
-    <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Tower_Basic 1\" _description=\"\"
-    _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n         
-    <SequenceNode id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
-    id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"7\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <ActionNode id=\"9\" />\r\n        </elem>\r\n     
-    </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n          <SequenceNode
-    id=\"1\" />\r\n          <ActionNode id=\"2\" />\r\n          <ActionNode id=\"9\"
-    />\r\n          <ActionNode id=\"7\" />\r\n          <ActionNode id=\"8\" />\r\n       
-    </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <SequenceNode id=\"1\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"522.764
-    208.7169\" name=\"Sequence\" description=\"Executes all its children in sequence
-    until all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
+    <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n   
+    <BehaviorTree id=\"0\" _name=\"Tower_Basic 1\" _description=\"\" _removeIfClosed=\"False\">\r\n     
+    <_rootList>\r\n        <elem>\r\n          <SequenceNode id=\"1\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <ActionNode id=\"2\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <ActionNode id=\"7\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <ActionNode id=\"8\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
+    id=\"9\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    <nodes>\r\n          <SequenceNode id=\"1\" />\r\n          <ActionNode id=\"2\"
+    />\r\n          <ActionNode id=\"9\" />\r\n          <ActionNode id=\"7\" />\r\n         
+    <ActionNode id=\"8\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
+    <SequenceNode id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"404.764 272.7169\" name=\"Sequence\" description=\"Executes all its
+    children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"2\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"142.264 423.7156\" name=\"GameObject/ClosestGameObjectWithTag\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"24.26401 487.7156\" name=\"GameObject/ClosestGameObjectWithTag\"
     description=\"Finds the closest game object with a given tag\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"2\" />\r\n          <SequenceNode id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"7\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"468.264 421.7156\" name=\"Game/Perception/IsTargetVisible\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"350.264 485.7156\" name=\"Game/Perception/IsTargetVisible\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"7\" />\r\n          <SequenceNode id=\"1\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode
     id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"736.2642 421.7156\" name=\"Game/Perception/IsTargetClose\" description=\"\"
+    position=\"618.2642 485.7156\" name=\"Game/Perception/IsTargetClose\" description=\"\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"8\" />\r\n          <SequenceNode id=\"1\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"True\" position=\"988 430\" name=\"Game/AttackTarget\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"870 494\" name=\"Game/AttackTarget\"
     description=\"\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode id=\"1\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"

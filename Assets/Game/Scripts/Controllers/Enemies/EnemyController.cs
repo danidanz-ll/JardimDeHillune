@@ -9,11 +9,9 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     [Min(0)]
     [SerializeField] private float TimeToDisappearAfterDeath = 0;
 
-    public bool IsDead = false;
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
     private IDamageable damageable;
-    public IMortal mortal { get; private set; }
     private IWeapon weapon;
 
     void Start()
@@ -21,21 +19,20 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
         enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
         damageable = GetComponent<IDamageable>();
-        mortal = GetComponent<IMortal>();
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        mortal.DeathEvent += OnDeath;
-        mortal.RessurectEvent += Resurrect;
+        damageable.DeathEvent += OnDeath;
+        damageable.RessurectEvent += Resurrect;
     }
     private void OnDestroy()
     {
-        if (mortal != null)
+        if (damageable != null)
         {
-            mortal.DeathEvent -= OnDeath;
-            mortal.RessurectEvent -= Resurrect;
+            damageable.DeathEvent -= OnDeath;
+            damageable.RessurectEvent -= Resurrect;
         }
     }
     public void SetMovement(Vector2 direction)
@@ -75,15 +72,17 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public bool CharacterIsDead()
     {
-        return mortal.IsDead;
+        return damageable.IsDead;
     }
     private IEnumerator DisappearAfterDeath()
     {
         //enabled = false;
         yield return new WaitForSeconds(TimeToDisappearAfterDeath);
     }
-    public Vector3 GetPosition()
+    public Vector3 GetCurrentPosition()
     {
+        Debug.Log($"Returning current position.");
+        Debug.Log($"Current position: {transform.position}");
         return transform.position;
     }
 }

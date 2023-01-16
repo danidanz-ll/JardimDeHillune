@@ -27,7 +27,13 @@ public class BehaviorExecutor : BBUnity.InternalBehaviorExecutor
     new void Update()
     {
         bool prev = this.requestTickExecution;
-        base.Update();
+        try
+        {
+            base.Update();
+        } catch (System.Exception ex)
+        {
+
+        }
         if (prev != this.requestTickExecution)
             // Force inspector repaint in editor mode to reactivate
             // Tick button.

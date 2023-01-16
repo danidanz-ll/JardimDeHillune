@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: -2539461861218895632}
   - component: {fileID: -143579857977391122}
   - component: {fileID: 2739829779044965624}
-  - component: {fileID: 1374744547458122985}
   m_Layer: 23
   m_Name: Eye
   m_TagString: Enemy
@@ -488,14 +487,8 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams:
-    - {fileID: -2539461861218895632}
-    - {fileID: 7909793126351103840}
-    - {fileID: 0}
-    objectParamsNames:
-    - AIVision
-    - AIController
-    - Objective
+    objectParams: []
+    objectParamsNames: []
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -617,18 +610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackEscape: 0
---- !u!114 &1374744547458122985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3651131934071168343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3820549099598856071
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,7 @@ public class IsTargetClose : GOAction
 {
     [InParam("Target")] private GameObject target;
     [InParam("AIVision")] private AIVision aiVision;
-    [InParam("TargetMemoryDuration")] private float targetMemoryDuration;
     [InParam("IsObjective")] private bool IsObjective = false;
-    private float forgetTargetTime = 0f;
 
     public override TaskStatus OnUpdate()
     {
@@ -36,12 +34,11 @@ public class IsTargetClose : GOAction
         {
             if (aiVision.IsDamageble(target))
             {
-                forgetTargetTime = Time.time + targetMemoryDuration;
                 return true;
             }
         }
 
-        return Time.time < forgetTargetTime;
+        return false;
     }
     private bool IsAvailable()
     {
