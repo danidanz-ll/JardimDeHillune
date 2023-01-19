@@ -1,33 +1,20 @@
-using BBUnity.Actions;
 using BBUnity.Conditions;
 using Pada1.BBCore;
-using Pada1.BBCore.Framework;
-using Pada1.BBCore.Tasks;
 using UnityEngine;
 
-[Action("Game/Perception/IsTargetVisible")]
-public class IsTargetVisible : GOAction
+[Condition("Game/Perception/IsTargetVisible")]
+public class IsTargetVisible : GOCondition
 {
     [InParam("Target")] private GameObject target;
     [InParam("AIVision")] private AIVision aiVision;
     [InParam("TargetMemoryDuration")] private float targetMemoryDuration;
     [InParam("ForgetTargetTime")] private float forgetTargetTime;
-
-    public override TaskStatus OnUpdate()
-    {
-        if (Check())
-        {
-            return TaskStatus.COMPLETED;
-        }
-        else
-        {
-            return TaskStatus.FAILED;
-        }
-    }
-    private bool Check()
+    public override bool Check()
     {
         if (IsAvailable())
         {
+            if (IsObjective()) return true;
+
             if (aiVision.IsVisible(target))
             {
                 aiVision.forgetTargetTime = Time.time + targetMemoryDuration;
@@ -44,5 +31,13 @@ public class IsTargetVisible : GOAction
             return false;
         }
         return true;
+    }
+    private bool IsObjective()
+    {
+        if (target.tag == "Objective")
+        {
+            return true;
+        }
+        return false;
     }
 }

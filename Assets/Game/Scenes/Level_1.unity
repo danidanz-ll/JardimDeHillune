@@ -24479,7 +24479,6 @@ GameObject:
   - component: {fileID: 1697811636}
   - component: {fileID: 1697811635}
   - component: {fileID: 1697811640}
-  - component: {fileID: 1697811639}
   - component: {fileID: 1697811638}
   m_Layer: 0
   m_Name: Obelisc
@@ -24739,18 +24738,6 @@ MonoBehaviour:
   HealtBar: {fileID: 0}
   InvencibleTimeDamage: 2
   TimeDamage: 1
---- !u!114 &1697811639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697811631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1697811640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30700,6 +30687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySkeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352458261281635558, guid: 40157553e8bcc8e4eb4c7bcce9737d4d,
+        type: 3}
+      propertyPath: restartWhenFinished
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340184316468651167, guid: 40157553e8bcc8e4eb4c7bcce9737d4d,
         type: 3}

@@ -7,7 +7,7 @@ using UnityEngine;
 [Action("Game/ChaseTarget")]
 public class ChaseTarget : BasePrimitiveAction
 {
-    [InParam("AIController")] public EnemyController enemyController;
+    [InParam("Controller")] public EnemyController enemyController;
     [InParam("TargetObject")] public GameObject targetObject;
     public override void OnStart()
     {
@@ -22,6 +22,11 @@ public class ChaseTarget : BasePrimitiveAction
         else if (!targetObject.activeSelf)
         {
             return TaskStatus.ABORTED;
+        }
+        else if (targetObject.tag == "Objective")
+        {
+            Vector2 toTarget = targetObject.transform.position - enemyController.GetCurrentPosition();
+            enemyController.SetMovement(toTarget);
         }
         else if (GetControllerFromCharacter(targetObject).CharacterIsDead())
         {
