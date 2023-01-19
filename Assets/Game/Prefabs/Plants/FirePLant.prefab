@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 4957783487188309171}
   - component: {fileID: -5029467521817047356}
   - component: {fileID: 1135958757769859665}
-  - component: {fileID: -3774103191041175433}
   - component: {fileID: 9038443638871317788}
   - component: {fileID: -82692446307469739}
   - component: {fileID: 2010964802740940287}
@@ -132,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisionRange: 0
   weaponObject: {fileID: 475007656323915311}
-  TimeToDisappearAfterDeath: 0
 --- !u!114 &1135958757769859665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,18 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackEscape: 0
---- !u!114 &-3774103191041175433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6274658479629603192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b51aa9699b1e4cb0c4134535adf18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9038443638871317788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,10 +236,8 @@ MonoBehaviour:
     boolParams: 
     boolParamsNames: []
     boolParamsLostDefaultValue: 
-    floatParams:
-    - 10
-    floatParamsNames:
-    - TargetMemoryDuration
+    floatParams: []
+    floatParamsNames: []
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -261,12 +245,8 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams:
-    - {fileID: -8374880937101174335}
-    - {fileID: -5029467521817047356}
-    objectParamsNames:
-    - AIVision
-    - AIController
+    objectParams: []
+    objectParamsNames: []
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []

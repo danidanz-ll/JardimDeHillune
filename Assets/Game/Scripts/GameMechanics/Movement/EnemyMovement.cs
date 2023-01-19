@@ -77,7 +77,6 @@ public class EnemyMovement : MonoBehaviour, IMovement
     public void SetMovement(Vector2 direction)
     {
         rb.velocity = direction * moveSpeed * Time.deltaTime;
-        Debug.Log($"Velocity: {rb.velocity}");
         currentVelocity = direction * moveSpeed * Time.deltaTime;
         if (direction != Vector2.zero)
         {
