@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9023578234379484189}
   m_Layer: 0
   m_Name: BasicProjectile
-  m_TagString: Untagged
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,8 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   damage: 10
-  LifeTime: 3
+  LifeTime: 10
   MoveSpeed: 200
+  Origin: 
   direction: {x: 0, y: 0, z: 0}
 --- !u!50 &925499489414433808
 Rigidbody2D:

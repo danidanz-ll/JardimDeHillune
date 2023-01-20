@@ -66,6 +66,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         projectile.isEnemy = isEnemy;
         projectile.direction = direction;
         projectile.MoveSpeed = MoveSpeed;
+        projectile.Origin = transform.parent.gameObject.tag;
         projectile.Fire();
     }
     public bool IsAttacking()

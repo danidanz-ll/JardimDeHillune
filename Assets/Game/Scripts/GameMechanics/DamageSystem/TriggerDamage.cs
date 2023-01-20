@@ -8,19 +8,18 @@ public class TriggerDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
-        GameObject collisionGameObject = collision.gameObject;
         if (damageable != null)
         {
-            if (isEnemy)
+            GameObject collisionGameObject = collision.gameObject;
+            if (gameObject.tag == "Player" || gameObject.tag == "Ally" || gameObject.tag == "Objective")
             {
-                if (collisionGameObject.tag != "Enemy")
+                if (collisionGameObject.tag == "Enemy")
                 {
                     damageable.TakeDamage(damage);
                 }
-            }
-            else
+            } else
             {
-                if (collisionGameObject.tag == "Enemy")
+                if (collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective")
                 {
                     damageable.TakeDamage(damage);
                 }
