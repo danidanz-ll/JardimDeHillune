@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisionRange: 0
+  IsMelee: 0
   weaponObject: {fileID: 475007656323915311}
 --- !u!114 &1135958757769859665
 MonoBehaviour:

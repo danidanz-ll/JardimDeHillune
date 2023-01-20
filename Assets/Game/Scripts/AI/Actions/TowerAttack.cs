@@ -5,8 +5,8 @@ using UnityEngine;
 using System;
 
 
-[Action("Game/FireProjectile")]
-public class FireProjectile : BasePrimitiveAction
+[Action("Game/TowerAttack")]
+public class TowerAttack : BasePrimitiveAction
 {
     [InParam("TowerController")] public TowerController towerController;
     [InParam("TargetObject")] public GameObject targetObject;
@@ -20,14 +20,13 @@ public class FireProjectile : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
-        
-        try
+
+        if (towerController.IsMelee)
+        {
+            towerController.Attack();
+        } else
         {
             towerController.Attack(targetObject);
-        } catch (Exception ex)
-        {
-            Debug.Log(ex.ToString());
-            return TaskStatus.ABORTED;
         }
         return TaskStatus.COMPLETED;
     }

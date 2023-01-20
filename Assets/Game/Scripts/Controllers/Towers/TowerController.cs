@@ -7,6 +7,8 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
 {
     [Header("Stats")]
     [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
+    [Header("Settings")]
+    [SerializeField] public bool IsMelee = true;
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
 

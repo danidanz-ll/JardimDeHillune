@@ -3,8 +3,8 @@ using Pada1.BBCore.Framework;
 using Pada1.BBCore.Tasks;
 using UnityEngine;
 
-[Action("Game/AttackTarget")]
-public class AttackTarget : BasePrimitiveAction
+[Action("Game/EnemyAttack")]
+public class EnemyAttack : BasePrimitiveAction
 {
     [InParam("Controller")] public EnemyController enemyController;
     [InParam("TargetObject")] public GameObject targetObject;
@@ -18,7 +18,13 @@ public class AttackTarget : BasePrimitiveAction
         {
             return TaskStatus.ABORTED;
         }
-        enemyController.Attack();
+        if (enemyController.IsMelee)
+        {
+            enemyController.Attack();
+        } else
+        {
+            enemyController.Attack(targetObject);
+        }
         return TaskStatus.COMPLETED;
     }
 }

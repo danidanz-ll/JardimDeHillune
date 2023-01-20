@@ -5,6 +5,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
 {
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
+    [Header("Settings")]
+    [SerializeField] public bool IsMelee = true;
     [Header("Death settings")]
     [Min(0)]
     [SerializeField] private float TimeToDisappearAfterDeath = 0;
