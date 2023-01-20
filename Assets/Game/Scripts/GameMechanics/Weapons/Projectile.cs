@@ -14,6 +14,11 @@ public class Projectile : TriggerDamage
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    private void Update()
+    {
+        float angle = Vector3.Angle(Vector3.up, rb.velocity);
+        spriteRenderer.transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle*2);
+    }
     public void Fire()
     {
         rb.velocity = direction * MoveSpeed * Time.deltaTime;
