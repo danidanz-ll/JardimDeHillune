@@ -7,7 +7,6 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     [SerializeField] private GameObject projectileGameObject;
     [SerializeField][Min(0)] private float damageProjectiles = 0;
     [SerializeField][Min(0)] private float MoveSpeed = 10;
-    [SerializeField] private bool isEnemy = false;
     [SerializeField] private float attackTime = 0.2f;
     [SerializeField] private float startAttackDamageTime = 0.2f;
     [SerializeField] private float timeToFreeze = 0.2f;
@@ -60,11 +59,10 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         GameObject projectileCreated = Instantiate(projectileGameObject, new Vector3(0, 0, 0), Quaternion.identity);
         projectileCreated.transform.position = transform.position;
-        gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectilesParent").transform);
+        projectileCreated.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectilesParent").transform);
         Projectile projectile = projectileCreated.GetComponent<Projectile>();
         projectile.damage = damageProjectiles;
-        projectile.isEnemy = isEnemy;
-        projectile.direction = direction;
+        projectile.direction = direction.normalized;
         projectile.MoveSpeed = MoveSpeed;
         projectile.Origin = transform.parent.gameObject.tag;
         projectile.Fire();

@@ -50,7 +50,7 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
         {
             return;
         }
-        weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+        weapon.Attack(target.transform.position - gameObject.transform.position);
     }
     private void OnDeath()
     {

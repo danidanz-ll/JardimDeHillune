@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 5063216703566601276}
   m_Layer: 23
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,9 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileGameObject: {fileID: 1517298776174689585, guid: 5ca00784a272f2b4d90a55d6b255b207,
     type: 3}
-  damageProjectiles: 0
+  damageProjectiles: 10
   MoveSpeed: 100
-  isEnemy: 0
   attackTime: 1.8
   startAttackDamageTime: 0.3
   timeToFreeze: 0
@@ -421,7 +420,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014177434, y: 0.0015789866}
+  m_Offset: {x: 0.034483, y: -0.06054071}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -432,7 +431,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23407985, y: 0.38037014}
+  m_Size: {x: 0.39766178, y: 0.25613075}
   m_EdgeRadius: 0
 --- !u!50 &-1851160430859019964
 Rigidbody2D:
@@ -468,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: 997a5691bd83aee4d8785c965502623e, type: 2}
+  behavior: {fileID: 11400000, guid: 0ac8aed396d7fd344959166009d8654a, type: 2}
   paused: 0
   restartWhenFinished: 1
   blackboard:
@@ -532,8 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 2671455820243740955}
+  IsMelee: 0
   TimeToDisappearAfterDeath: 1.5
-  IsDead: 0
 --- !u!114 &1930486234779630036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.95}
+  m_AnchoredPosition: {x: 0.42, y: 0.18}
   m_SizeDelta: {x: 1.16, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8993712177993643657
