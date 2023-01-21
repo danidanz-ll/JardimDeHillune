@@ -133,7 +133,7 @@ MonoBehaviour:
   projectileGameObject: {fileID: 1517298776174689585, guid: 5ca00784a272f2b4d90a55d6b255b207,
     type: 3}
   damageProjectiles: 10
-  MoveSpeed: 100
+  MoveSpeed: 300
   attackTime: 1.8
   startAttackDamageTime: 0.3
   timeToFreeze: 0
@@ -417,7 +417,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.034483, y: -0.06054071}

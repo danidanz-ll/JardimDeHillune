@@ -21,8 +21,23 @@ public class IsTargetVisible : GOCondition
                 return true;
             }
         }
-        //Debug.Log(aiVision.forgetTargetTime.ToString());
-        return Time.time < aiVision.forgetTargetTime;
+        var IsTargetRecent = Time.time < aiVision.forgetTargetTime;
+        if (IsTargetRecent)
+        {
+            return IsTargetRecent;
+        }
+        else
+        {
+            // Enemy must always follow to the objective
+            if (gameObject.tag == "Enemy")
+            {
+                return true;
+            }
+            else
+            {
+                return IsTargetRecent;
+            }
+        }
     }
     private bool IsAvailable()
     {

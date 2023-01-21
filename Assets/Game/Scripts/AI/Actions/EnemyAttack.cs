@@ -16,7 +16,7 @@ public class EnemyAttack : BasePrimitiveAction
     {
         if (targetObject == null)
         {
-            return TaskStatus.ABORTED;
+            return TaskStatus.FAILED;
         }
         if (enemyController.IsMelee)
         {

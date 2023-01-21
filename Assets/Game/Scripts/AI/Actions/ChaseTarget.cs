@@ -30,7 +30,9 @@ public class ChaseTarget : BasePrimitiveAction
         }
         else if (GetControllerFromCharacter(targetObject).CharacterIsDead())
         {
-            return TaskStatus.ABORTED;
+            targetObject = GameObject.FindGameObjectsWithTag("Objective")[0];
+            Vector2 toTarget = targetObject.transform.position - enemyController.GetCurrentPosition();
+            enemyController.SetMovement(toTarget);
         }
         else
         {

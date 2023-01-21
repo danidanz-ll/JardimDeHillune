@@ -1,9 +1,6 @@
 using BBUnity.Actions;
-using BBUnity.Conditions;
 using Pada1.BBCore;
-using Pada1.BBCore.Framework;
 using Pada1.BBCore.Tasks;
-using UnityEngine;
 
 [Action("Game/Perception/IsNotDead")]
 public class IsNotDead : GOAction

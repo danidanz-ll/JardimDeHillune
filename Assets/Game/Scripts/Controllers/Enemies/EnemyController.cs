@@ -53,14 +53,12 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     public void Attack(GameObject target)
     {
         enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
-        var targetAttack = target.transform.position.normalized;
-        var gameObjectAttack = gameObject.transform.position.normalized;
+        var targetAttack = target.transform.position;
+        var originAttack = gameObject.transform.position;
+        var attackDirection = targetAttack - originAttack;
 
-        if(targetAttack == null)
-        {
-            return;
-        }
-        weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+
+        weapon.Attack(attackDirection);
     }
     private void OnDeath()
     {
