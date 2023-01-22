@@ -23,6 +23,15 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
 
     }
+    public void PerformAttack()
+    {
+        Attacking = true;
+    }
+    public void DisableAttack()
+    {
+        StartCoroutine(StartAttackCooldown());
+        Attacking = false;
+    }
     public void Attack()
     {
         if (!IsAttackInCooldown() && !IsAttacking())
@@ -36,10 +45,6 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         {
             StartCoroutine(StartAttackDamage(direction));
         }
-    }
-    public float GetAttackTime()
-    {
-        return attackTime;
     }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
@@ -71,12 +76,6 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         return Attacking;
     }
-
-    public float GetAttackingTime()
-    {
-        return attackTime;
-    }
-
     public float GetWaitToFreezeTime()
     {
         return timeToFreeze;

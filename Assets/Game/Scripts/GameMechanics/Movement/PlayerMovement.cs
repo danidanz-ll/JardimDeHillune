@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     private IMortal deathOnDamage;
 
     private Rigidbody2D rb;
-    private bool isFreeze = false;
+    public bool IsFreeze { get; private set; } = false;
     private bool lookingRight = true;
     private bool running = false;
     private Vector2 currentVelocity;
@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
         rb = GetComponent<Rigidbody2D>();
         damageable = GetComponent<IDamageable>();
         deathOnDamage = GetComponent<IMortal>();
-        damageable.DamageEvent += StopMovement;
-        deathOnDamage.DeathEvent += StopMovement;
+        damageable.DamageEvent += TakeDamage;
     }
     private void Update()
     {
@@ -48,11 +47,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     {
         if (damageable != null)
         {
-            damageable.DamageEvent -= StopMovement;
-        }
-        if (deathOnDamage != null)
-        {
-            deathOnDamage.DeathEvent -= StopMovement;
+            damageable.DamageEvent -= TakeDamage;
         }
     }
     public bool isRunning()
@@ -61,7 +56,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     }
     public bool isFreezing()
     {
-        return isFreeze;
+        return IsFreeze;
     }
     public bool isLookingToRight()
     {
@@ -108,28 +103,21 @@ public class PlayerMovement : MonoBehaviour, IMovement
         lookingDirection = direction;
         lastAccelerateSignal = new Vector2(Mathf.Sign(force.x), Mathf.Sign(force.y));
     }
-    public void StopMovement()
+    public void TakeDamage()
     {
-        rb.velocity = Vector2.zero;
-        running = false;
+
     }
-    public void FreezeMovement(float timeWait, float timeFreezing)
+    public void Freeze()
     {
+        rb.AddForce(-rb.velocity);
         rb.velocity = Vector2.zero;
         currentVelocity = Vector2.zero;
         running = false;
-        StartCoroutine(WaitToFreezing(timeWait, timeFreezing));
+        IsFreeze = true;
     }
-    private IEnumerator WaitToFreezing(float timeWait, float timeFreezing)
+    public void Unfreeze()
     {
-        yield return new WaitForSeconds(timeWait);
-        StartCoroutine(WaitFreezing(timeFreezing));
-    }
-    private IEnumerator WaitFreezing(float time)
-    {
-        isFreeze = true;
-        yield return new WaitForSeconds(time);
-        isFreeze = false;
+        IsFreeze = false;
     }
     private Vector2 GetForceVector(float x, float y)
     {

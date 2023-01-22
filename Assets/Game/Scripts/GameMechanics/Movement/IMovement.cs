@@ -9,7 +9,8 @@ public interface IMovement
     bool isLookingToRight();
     float GetCurrentVelocityNormalized();
     void SetMovement(Vector2 direction);
-    void StopMovement();
+    void Freeze();
+    void Unfreeze();
     void SetTemporarySlowdown(float time);
     IEnumerator WaitForNormalSpeed(float time);
 }

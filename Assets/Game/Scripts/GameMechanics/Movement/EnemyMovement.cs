@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     private IMortal deathOnDamage;
 
     private Rigidbody2D rb;
+    public bool IsFreeze { get; private set; } = false;
     private bool running = false;
     private bool lookingToRight = true;
     private bool isFreeze = false;
@@ -76,7 +77,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     }
     public void SetMovement(Vector2 direction)
     {
-        rb.velocity = direction * moveSpeed * Time.deltaTime;
+        rb.velocity = direction.normalized * moveSpeed * Time.deltaTime;
         currentVelocity = direction * moveSpeed * Time.deltaTime;
         if (direction != Vector2.zero)
         {
@@ -97,22 +98,17 @@ public class EnemyMovement : MonoBehaviour, IMovement
         rb.velocity = Vector2.zero;
         running = false;
     }
-    public void FreezeMovement(float timeWait, float timeFreezing)
+    public void Freeze()
     {
+        rb.AddForce(-rb.velocity);
         rb.velocity = Vector2.zero;
+        currentVelocity = Vector2.zero;
         running = false;
-        StartCoroutine(WaitToFreezing(timeWait, timeFreezing));
+        IsFreeze = true;
     }
-    private IEnumerator WaitToFreezing(float timeWait, float timeFreezing)
+    public void Unfreeze()
     {
-        yield return new WaitForSeconds(timeWait);
-        StartCoroutine(WaitFreezing(timeFreezing));
-    }
-    private IEnumerator WaitFreezing(float time)
-    {
-        isFreeze = true;
-        yield return new WaitForSeconds(time);
-        isFreeze = false;
+        IsFreeze = false;
     }
     public bool isFreezing()
     {

@@ -4,8 +4,6 @@ using System;
 
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
-    [SerializeField] private float attackTime = 0.2f;
-    [SerializeField] private float startAttackDamageTime = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
 
     public event Action AttackEvent;
@@ -13,10 +11,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     private bool Attacking = false;
     private bool attackCooldownOn = false;
     private BoxCollider2D boxCollider;
-    public float GetAttackTime()
-    {
-        return attackTime;
-    }
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -31,21 +25,23 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         if (!IsAttackInCooldown() && !IsAttacking())
         {
+            Attacking = true;
             AttackEvent.Invoke();
-            StartCoroutine(StartAttackDamage());
         }
     }
     public void Attack(Vector2 direction)
     {
         if (!IsAttackInCooldown() && !IsAttacking())
         {
-            StartCoroutine(StartAttackDamage());
+            AttackEvent.Invoke();
         }
     }
-    private IEnumerator PerformAttack()
+    public void PerformAttack()
     {
         boxCollider.enabled = true;
-        yield return new WaitForSeconds(attackTime);
+    }
+    public void DisableAttack()
+    {
         StartCoroutine(StartAttackCooldown());
         Attacking = false;
         boxCollider.enabled = false;
@@ -55,12 +51,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         return Attacking;
     }
-
-    public float GetAttackingTime()
-    {
-        return attackTime;
-    }
-
     public bool IsAttackInCooldown()
     {
         return attackCooldownOn;
@@ -71,13 +61,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         attackCooldownOn = true;
         yield return new WaitForSeconds(attackCooldown);
         attackCooldownOn = false;
-    }
-
-    public IEnumerator StartAttackDamage()
-    {
-        Attacking = true;
-        yield return new WaitForSeconds(startAttackDamageTime);
-        StartCoroutine(PerformAttack());
     }
 
     public void SetDirectionWeapon(bool right)

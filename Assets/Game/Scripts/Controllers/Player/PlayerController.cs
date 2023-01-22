@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private Dash dash;
     private TowerSkill towerSkill;
     private PlayerInput playerInput;
-    private LifeSystem lifeSystem;
     private ManaSystem manaSystem;
     private IWeapon weapon;
     private Vector2 movementInput;
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
         deathOnDamage = GetComponent<IMortal>();
-        lifeSystem = GetComponent<LifeSystem>();
         manaSystem = GetComponent<ManaSystem>();
         towerSkill = GetComponent<TowerSkill>();
 
@@ -68,24 +66,22 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
         {
             weapon.Attack();
-            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
+            //playerMovement.Freeze();
         }
     }
     private void FixedUpdate()
     {
-        if (weapon.IsAttacking())
+        if (weapon.IsAttacking() || playerMovement.IsFreeze)
         {
-            playerMovement.FreezeMovement(0, weapon.GetAttackingTime());
             return;
         }
-
+        #region Dash
         if (dash.isRunning())
         {
             dash.ContinueDashing();
             return;
         }
 
-        #region Dash
         if (playerInput.IsDashingButtonDown() && dash.isAvailable())
         {
             dash.StartDashing(movementInput);
@@ -104,6 +100,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
             deathOnDamage.DeathEvent -= OnDeath;
         }
     }
+    public void PerformAttack()
+    {
+        weapon.PerformAttack();
+    }
+    public void DisableAttack()
+    {
+        weapon.DisableAttack();
+    }
     public bool CharacterIsDead()
     {
         return deathOnDamage.IsDead;
@@ -111,11 +115,5 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private void OnDeath()
     {
         playerMovement.SetBodyType(RigidbodyType2D.Static);
-        StartCoroutine(DisappearAfterDeath());
-    }
-    private IEnumerator DisappearAfterDeath()
-    {
-        enabled = false;
-        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
     }
 }

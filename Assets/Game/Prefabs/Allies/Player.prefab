@@ -171,7 +171,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2eadcb54bb4ca874d922be12b4f9f75c, type: 2}
+  - {fileID: 2100000, guid: 538ab8aa787103b478ac88ad1bbd60b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ TrailRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Time: 0.5
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -201,7 +201,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.683548
+        value: 0.68844223
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -209,7 +209,16 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9719888
+        time: 0.33754495
+        value: 0.24512866
+        inSlope: -1.5069294
+        outSlope: -1.5069294
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9748858
         value: 0
         inSlope: 0
         outSlope: 0
@@ -222,7 +231,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.7764706, g: 0.8784314, b: 0.98039216, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -230,7 +239,7 @@ TrailRenderer:
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
+      ctime0: 50886
       ctime1: 65535
       ctime2: 0
       ctime3: 0
@@ -334,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e69579819ff6845a80de07f74be52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 10
   acceleration: 2
   decceleration: 6
   velPower: 0.8
@@ -546,10 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
   damage: 10
-  attackTime: 0.8
-  startAttackDamageTime: 0.2
   attackCooldown: 0.5
 --- !u!1 &8295163584922913687
 GameObject:

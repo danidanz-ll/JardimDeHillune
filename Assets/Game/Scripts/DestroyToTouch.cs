@@ -4,12 +4,13 @@ using UnityEngine;
 public class DestroyToTouch : MonoBehaviour
 {
     [SerializeField] public bool IsCharacter = true;
-    [SerializeField] public float LifeTime = 0.5f;
 
     private GameObject ParentGameObject;
+    protected Animator animator;
     private void Awake()
     {
         ParentGameObject = gameObject.transform.parent.gameObject;
+        animator = ParentGameObject.GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +28,7 @@ public class DestroyToTouch : MonoBehaviour
                     {
                         if (!characterController.CharacterIsDead())
                         {
-                            StartCoroutine(DestroyProjectile());
+                            animator.SetTrigger("Destroy");
                         }
                     }
                 }
@@ -37,16 +38,15 @@ public class DestroyToTouch : MonoBehaviour
                     {
                         if (!characterController.CharacterIsDead())
                         {
-                            StartCoroutine(DestroyProjectile());
+                            animator.SetTrigger("Destroy");
                         }
                     }
                 }
             }
         }
     }
-    public IEnumerator DestroyProjectile()
+    public void DestroyParent()
     {
-        yield return new WaitForSeconds(LifeTime);
         Destroy(ParentGameObject);
     }
 }

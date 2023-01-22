@@ -14,7 +14,7 @@ public class TriggerDamage : MonoBehaviour
 
             if (gameObject.tag == "Player" || gameObject.tag == "Ally" || gameObject.tag == "Objective")
             {
-                if (collisionGameObject.tag == "Enemy")
+                if (collisionGameObject.tag == "Enemy" && characterController != null)
                 {
                     if (!characterController.CharacterIsDead())
                     {
@@ -23,7 +23,7 @@ public class TriggerDamage : MonoBehaviour
                 }
             } else
             {
-                if ((collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective"))
+                if ((collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective") && characterController != null)
                 {
                     if (!characterController.CharacterIsDead())
                     {

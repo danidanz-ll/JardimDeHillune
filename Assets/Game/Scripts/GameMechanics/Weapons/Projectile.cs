@@ -9,11 +9,14 @@ public class Projectile : TriggerDamage
     private Rigidbody2D rb;
     public Vector3 direction;
     private SpriteRenderer spriteRenderer;
+    private DestroyToTouch DestroyToTouchComponent;
+    
     private void Awake()
     {
         gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        DestroyToTouchComponent = transform.GetChild(0).gameObject.GetComponent<DestroyToTouch>();
     }
     private void Update()
     {
@@ -31,5 +34,10 @@ public class Projectile : TriggerDamage
     {
         yield return new WaitForSeconds(LifeTime);
         Destroy(gameObject);
+    }
+    public void DestroyOnContact()
+    {
+        Debug.Log("Destuindo projétil");
+        Destroy(this.gameObject);
     }
 }

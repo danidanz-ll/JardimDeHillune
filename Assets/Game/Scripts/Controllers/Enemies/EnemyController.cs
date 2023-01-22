@@ -47,23 +47,33 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public void Attack()
     {
-        weapon.Attack();
-        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
+        if (!weapon.IsAttacking())
+        {
+            weapon.Attack();
+        }
     }
     public void Attack(GameObject target)
     {
-        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
-        var targetAttack = target.transform.position;
-        var originAttack = gameObject.transform.position;
-        var attackDirection = targetAttack - originAttack;
+        if (!weapon.IsAttacking())
+        {
+            var targetAttack = target.transform.position;
+            var originAttack = gameObject.transform.position;
+            var attackDirection = targetAttack - originAttack;
 
-
-        weapon.Attack(attackDirection);
+            weapon.Attack(attackDirection);
+        }
+    }
+    public void PerformAttack()
+    {
+        weapon.PerformAttack();
+    }
+    public void DisableAttack()
+    {
+        weapon.DisableAttack();
     }
     private void OnDeath()
     {
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
-        //StartCoroutine(DisappearAfterDeath());
     }
     private void Resurrect()
     {
@@ -74,15 +84,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     {
         return damageable.IsDead;
     }
-    private IEnumerator DisappearAfterDeath()
-    {
-        //enabled = false;
-        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-    }
     public Vector3 GetCurrentPosition()
     {
-        Debug.Log($"Returning current position.");
-        Debug.Log($"Current position: {transform.position}");
         return transform.position;
     }
 }

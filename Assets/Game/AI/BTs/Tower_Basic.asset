@@ -55,7 +55,7 @@ MonoBehaviour:
     id=\"12\" />\r\n            </child>\r\n          </GuardAndNode>\r\n       
     </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
     />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode
-    id=\"13\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Game/Perception/IsGameTargetClose\">\r\n     
+    id=\"13\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"Game/Perception/IsGameTargetClose\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"foundGameObject\" />\r\n          <entry name=\"AIVision\"
     type=\"AIVision\" isBlackboard=\"True\" blackboard=\"AIVision\" />\r\n       

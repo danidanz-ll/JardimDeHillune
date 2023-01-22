@@ -11,13 +11,17 @@ public class Damageable : MonoBehaviour, IDamageable, IMortal
     public event EventHandler<float> DamageValueEvent; 
     public bool IsHurting { get; private set; } = false;
     public bool IsDead { get; private set; } = false;
+    public bool IsInvincible { get; private set; } = false;
     public void TakeDamage(float damage)
     {
-        if (UnityEngine.Random.Range(0, 100) >= AttackEscape)
+        if (!IsInvincible || IsDead)
         {
-            IsHurting = true;
-            DamageEvent.Invoke();
-            DamageValueEvent.Invoke(this, damage);
+            if (UnityEngine.Random.Range(0, 100) >= AttackEscape)
+            {
+                IsHurting = true;
+                DamageEvent.Invoke();
+                DamageValueEvent.Invoke(this, damage);
+            }
         }
     }
     public void Die()
@@ -29,5 +33,13 @@ public class Damageable : MonoBehaviour, IDamageable, IMortal
     {
         IsDead = false;
         RessurectEvent.Invoke();
+    }
+    public void SetInvincible()
+    {
+        IsInvincible = true;
+    }
+    public void UnsetInvincible()
+    {
+        IsInvincible = false;
     }
 }
