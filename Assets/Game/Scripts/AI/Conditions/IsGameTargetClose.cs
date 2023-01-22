@@ -24,6 +24,10 @@ public class IsGameTargetClose : GOCondition
         {
             return false;
         }
+        if (!target.activeSelf)
+        {
+            return false;
+        }
         return true;
     }
 }

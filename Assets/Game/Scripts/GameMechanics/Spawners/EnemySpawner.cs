@@ -5,70 +5,33 @@ public class EnemySpawner : MobSpawner
 {
     [SerializeField] private MatchTimer matchTimer;
     [SerializeField] private float angleRangeToSpawn = 30.0f;
-    [SerializeField][Min(0)] private float timeToResurect = 3.0f;
     [SerializeField][Min(0)] private float IntervalBetweenSpawn = 3.0f;
 
     private float oldTime = 0;
+    private ManaEvents PlayerManaEvents;
 
     public override void Start()
     {
         base.Start();
         matchTimer = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MatchTimer>();
-        ActivateAllEntities(true);
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.transform.position = GetRandomPositionSpawn();
-        }
-        ActivateAllEntities(false);
         oldTime = matchTimer.timer;
+        PlayerManaEvents = GameObject.FindGameObjectWithTag("Player").GetComponent<ManaEvents>();
     }
     private void Update() 
     {
         if (oldTime - matchTimer.timer >= IntervalBetweenSpawn)
         {
             oldTime = matchTimer.timer;
-            ReleaseDeactivatedEntity();
-        }
-    }
-    private void ReleaseDeactivatedEntity()
-    {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            if (!gameObject.activeSelf)
+            try
             {
-                gameObject.SetActive(true);
-                LivingEntities++;
-                break;
+                GameObject mob = CreateEntity(GetRandomPositionSpawn(), transform);
+                IMortal mortalComponent = mob.GetComponent<IMortal>();
+                mortalComponent.DeathGameObjectEvent += GiveManaToPlayer;
+            } catch (System.Exception ex)
+            {
+                return;
             }
         }
-    }
-    public override void CountDeath()
-    {
-        base.CountDeath();
-        StartCoroutine(ResurrectEntityDead());
-    }
-    public IEnumerator ResurrectEntityDead()
-    {
-        yield return new WaitForSeconds(timeToResurect);
-        int i = 0;
-        foreach (IMortal deathEvent in deathEvents)
-        {
-            if (deathEvent != null)
-            {
-                if (deathEvent.IsDead)
-                {
-                    RepositionEntity(gameObjects[i].transform);
-                    deathEvent.Resurrect();
-                    break;
-                }
-            }
-            i++;
-        }
-        yield break;
-    }
-    private void RepositionEntity(Transform transformEntity)
-    {
-        transformEntity.position = GetRandomPositionSpawn();
     }
     public Vector3 GetRandomPositionSpawn()
     {   
@@ -85,6 +48,12 @@ public class EnemySpawner : MobSpawner
         }
 
         return spawnPosition;
+    }
+    private void GiveManaToPlayer(object sender, GameObject mob)
+    {
+        IMortal mortalComponent = mob.GetComponent<IMortal>();
+        mortalComponent.DeathGameObjectEvent -= GiveManaToPlayer;
+        PlayerManaEvents.GetMana();
     }
     public override void OnDrawGizmosSelected()
     {

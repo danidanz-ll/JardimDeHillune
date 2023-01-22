@@ -32,15 +32,22 @@ public class DestroyToTouch : MonoBehaviour
                         }
                     }
                 }
-                else
+                else if (gameObject.tag == "Enemy" || gameObject.tag == "Boss")
                 {
-                    if ((collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective") & characterController != null)
+                    if (collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective")
                     {
-                        if (!characterController.CharacterIsDead())
+                        if (characterController != null)
                         {
-                            animator.SetTrigger("Destroy");
+                            if (!characterController.CharacterIsDead())
+                            {
+                                animator.SetTrigger("Destroy");
+                            }
                         }
                     }
+                }
+                else
+                {
+                    Debug.Log("Não é um aliado nem um inimigo para ser destruído");
                 }
             }
         }

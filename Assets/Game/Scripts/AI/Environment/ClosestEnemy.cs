@@ -8,41 +8,39 @@ namespace BBUnity.Actions
     /// <summary>
     /// It is an action to find the closest game object with a given label.
     /// </summary>
-    [Action("GameObject/ClosestAlly")]
-    [Help("Encontra o aliado mais próximo")]
-    public class ClosestAlly : GOAction
+    [Action("GameObject/ClosestEnemy")]
+    [Help("Encontra o inimigo mais próximo")]
+    public class ClosestEnemy : GOAction
     {
         [OutParam("foundGameObject")]
-        [Help("O aliado mais próximo")]
+        [Help("O inimigo mais próximo")]
         public GameObject foundGameObject;
 
         private float elapsedTime;
-        private const string TagPlayer = "Player";
-        private const string TagAlly = "Ally";
-        private const string TagObjective = "Objective";
-        private List<GameObject> AlliesGameObject = new List<GameObject>();
+        private const string TagBoss = "Boss";
+        private const string TagEnemy = "Enemy";
+        private List<GameObject> EnemyGameObjects = new List<GameObject>();
         public override void OnStart()
         {
             base.OnStart();
-            SearchClosestAlly();
+            this.EnemyGameObjects.AddRange(GameObject.FindGameObjectsWithTag(TagBoss));
+            SearchClosestEnemy();
         }
         public override TaskStatus OnUpdate()
         {
-            SearchClosestAlly();
+            SearchClosestEnemy();
             return TaskStatus.COMPLETED;
         }
-        private void SearchClosestAlly()
+        private void SearchClosestEnemy()
         {
             float dist = float.MaxValue;
-            AlliesGameObject.AddRange(GameObject.FindGameObjectsWithTag(TagPlayer));
-            AlliesGameObject.AddRange(GameObject.FindGameObjectsWithTag(TagObjective));
-            var TowersGameObject = GameObject.FindGameObjectsWithTag(TagAlly);
-            if (TowersGameObject != null)
+            var EnemyGameObjects = GameObject.FindGameObjectsWithTag(TagEnemy);
+            if (EnemyGameObjects != null)
             {
-                AlliesGameObject.AddRange(TowersGameObject);
+                this.EnemyGameObjects.AddRange(EnemyGameObjects);
             }
 
-            foreach (GameObject go in AlliesGameObject)
+            foreach (GameObject go in this.EnemyGameObjects)
             {
                 IDamageable damageable = go.GetComponent<IDamageable>();
                 if (damageable != null)

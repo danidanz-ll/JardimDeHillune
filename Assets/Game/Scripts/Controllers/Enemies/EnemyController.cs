@@ -13,14 +13,17 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
 
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
-    private IDamageable damageable;
+    private Damageable damageable;
     private IWeapon weapon;
+
+    private GameObject Body;
+    private GameObject Canvas;
 
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
-        damageable = GetComponent<IDamageable>();
+        damageable = GetComponent<Damageable>();
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
@@ -28,6 +31,9 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
 
         damageable.DeathEvent += OnDeath;
         damageable.RessurectEvent += Resurrect;
+
+        Body = gameObject.transform.GetChild(1).gameObject;
+        Canvas = gameObject.transform.GetChild(2).gameObject;
     }
     private void OnDestroy()
     {
@@ -39,7 +45,10 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public void SetMovement(Vector2 direction)
     {
-        enemyMovement.SetMovement(direction);
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
+        {
+            enemyMovement.SetMovement(direction);
+        }
     }
     public float GetMovementSpeed()
     {
@@ -47,14 +56,14 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public void Attack()
     {
-        if (!weapon.IsAttacking())
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
         {
             weapon.Attack();
         }
     }
     public void Attack(GameObject target)
     {
-        if (!weapon.IsAttacking())
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
         {
             var targetAttack = target.transform.position;
             var originAttack = gameObject.transform.position;
@@ -74,6 +83,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     private void OnDeath()
     {
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
+        Body.SetActive(false);
+        Canvas.SetActive(false);
     }
     private void Resurrect()
     {

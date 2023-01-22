@@ -1657,12 +1657,12 @@ PrefabInstance:
     - target: {fileID: 4773925852305524513, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.68
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 4773925852305524513, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 4773925852305524513, guid: be778f1d4e74fed42adf1261ef8c3898,
         type: 3}
@@ -3755,7 +3755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.68, y: 0.3, z: -5}
+  m_LocalPosition: {x: 2.83, y: 1.58, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5530,7 +5530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &655116233
 Transform:
   m_ObjectHideFlags: 0
@@ -5562,10 +5562,9 @@ MonoBehaviour:
   NumberOfEntitiesInGame: 3
   NumberMaxEntities: 100
   LenghtMap: 30
-  LivingEntities: 0
+  TimeToDestroy: 5
   matchTimer: {fileID: 0}
   angleRangeToSpawn: -60
-  timeToResurect: 3
   IntervalBetweenSpawn: 3
 --- !u!114 &655116235
 MonoBehaviour:
@@ -8271,7 +8270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &743384182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8300,10 +8299,9 @@ MonoBehaviour:
   NumberOfEntitiesInGame: 2
   NumberMaxEntities: 2
   LenghtMap: 30
-  LivingEntities: 0
+  TimeToDestroy: 5
   matchTimer: {fileID: 0}
   angleRangeToSpawn: -60
-  timeToResurect: 3
   IntervalBetweenSpawn: 3
 --- !u!4 &743384184
 Transform:
@@ -10999,7 +10997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &793442307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11028,10 +11026,9 @@ MonoBehaviour:
   NumberOfEntitiesInGame: 5
   NumberMaxEntities: 100
   LenghtMap: 15
-  LivingEntities: 0
+  TimeToDestroy: 5
   matchTimer: {fileID: 0}
   angleRangeToSpawn: 30
-  timeToResurect: 3
   IntervalBetweenSpawn: 3
 --- !u!4 &793442309
 Transform:
@@ -17354,7 +17351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1300591085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17383,10 +17380,9 @@ MonoBehaviour:
   NumberOfEntitiesInGame: 5
   NumberMaxEntities: 100
   LenghtMap: 18.27
-  LivingEntities: 0
+  TimeToDestroy: 5
   matchTimer: {fileID: 0}
   angleRangeToSpawn: -60.8
-  timeToResurect: 3
   IntervalBetweenSpawn: 3
 --- !u!4 &1300591087
 Transform:
@@ -19194,7 +19190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431859032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.68, y: 0.3, z: -5}
+  m_LocalPosition: {x: 2.83, y: 1.58, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -37,7 +37,6 @@ public class Projectile : TriggerDamage
     }
     public void DestroyOnContact()
     {
-        Debug.Log("Destuindo projétil");
         Destroy(this.gameObject);
     }
 }

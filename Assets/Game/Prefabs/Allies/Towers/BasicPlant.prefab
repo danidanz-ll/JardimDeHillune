@@ -47,7 +47,7 @@ MonoBehaviour:
   projectileGameObject: {fileID: 1517298776174689585, guid: f8d1a658603664044a37a0b9aedb2abe,
     type: 3}
   damageProjectiles: 10
-  MoveSpeed: 100
+  MoveSpeed: 300
   attackTime: 1.8
   startAttackDamageTime: 0.2
   timeToFreeze: 0

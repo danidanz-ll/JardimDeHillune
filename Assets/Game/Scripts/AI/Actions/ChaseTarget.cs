@@ -17,11 +17,11 @@ public class ChaseTarget : BasePrimitiveAction
     {
         if (targetObject == null)
         {
-            return TaskStatus.ABORTED;
+            return TaskStatus.FAILED;
         }
         else if (!targetObject.activeSelf)
         {
-            return TaskStatus.ABORTED;
+            return TaskStatus.FAILED;
         }
         else if (targetObject.tag == "Objective")
         {

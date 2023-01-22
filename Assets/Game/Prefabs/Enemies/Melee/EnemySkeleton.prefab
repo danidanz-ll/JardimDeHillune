@@ -31,7 +31,7 @@ RectTransform:
   m_Children:
   - {fileID: 7773984575159766235}
   m_Father: {fileID: 5340184316468651167}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -90,7 +90,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5340184316468651167}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &60182214137979287
 BoxCollider2D:
@@ -130,10 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 1
   damage: 10
-  attackTime: 1.5
-  startAttackDamageTime: 0.2
   attackCooldown: 1.8
 --- !u!1 &3021196284507716434
 GameObject:
@@ -327,9 +324,9 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2337785646794571705}
   - {fileID: 918715972429428339}
   - {fileID: 3291528810654291238}
+  - {fileID: 2337785646794571705}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -560,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 70
   SpeedDecreaseFactor: 0.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
@@ -575,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionRange: 4.97
-  visionAttack: 2.02
+  visionAttack: 1.1
   visionAngle: 94
 --- !u!114 &-143579857977391122
 MonoBehaviour:
@@ -766,7 +763,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5340184316468651167}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &6110278979125465108
 CircleCollider2D:

@@ -100,7 +100,6 @@ public class EnemyMovement : MonoBehaviour, IMovement
     }
     public void Freeze()
     {
-        rb.AddForce(-rb.velocity);
         rb.velocity = Vector2.zero;
         currentVelocity = Vector2.zero;
         running = false;

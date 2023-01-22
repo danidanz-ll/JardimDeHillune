@@ -8,7 +8,9 @@ public class Damageable : MonoBehaviour, IDamageable, IMortal
     public event Action DamageEvent;
     public event Action DeathEvent;
     public event Action RessurectEvent;
-    public event EventHandler<float> DamageValueEvent; 
+    public event EventHandler<float> DamageValueEvent;
+    public event EventHandler<GameObject> DeathGameObjectEvent;
+
     public bool IsHurting { get; private set; } = false;
     public bool IsDead { get; private set; } = false;
     public bool IsInvincible { get; private set; } = false;
@@ -24,10 +26,22 @@ public class Damageable : MonoBehaviour, IDamageable, IMortal
             }
         }
     }
+    public void StopHurting()
+    {
+        IsHurting = false;
+    }
     public void Die()
     {
         IsDead = true;
         DeathEvent.Invoke();
+        try
+        {
+            DeathGameObjectEvent.Invoke(this, this.gameObject);
+        }
+        catch
+        {
+            Debug.Log("Um mob sem spawner atribuído foi morto!");
+        }
     }
     public void Resurrect()
     {

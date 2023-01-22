@@ -23,9 +23,11 @@ public class TowerAttack : BasePrimitiveAction
 
         if (towerController.IsMelee)
         {
+            towerController.SetLookDirection(targetObject);
             towerController.Attack();
         } else
         {
+            towerController.SetLookDirection(targetObject);
             towerController.Attack(targetObject);
         }
         return TaskStatus.COMPLETED;

@@ -45,6 +45,11 @@ public class IsTargetVisible : GOCondition
         {
             return false;
         }
+
+        if (!target.activeSelf)
+        {
+            return false;
+        }
         return true;
     }
     private bool IsObjective()
