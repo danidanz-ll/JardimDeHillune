@@ -348,6 +348,7 @@ MonoBehaviour:
   decceleration: 6
   velPower: 0.8
   SpeedDecreaseFactor: 0.5
+  CuttingSpeed: 10
 --- !u!114 &3455820143405995895
 MonoBehaviour:
   m_ObjectHideFlags: 0

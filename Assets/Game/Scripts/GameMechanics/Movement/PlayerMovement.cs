@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     [SerializeField] private float decceleration;
     [SerializeField] private float velPower;
     [SerializeField] private float SpeedDecreaseFactor = 0.5f;
+    [SerializeField] private float CuttingSpeed = 0f;
 
     private IDamageable damageable;
     private IMortal deathOnDamage;
@@ -25,18 +26,29 @@ public class PlayerMovement : MonoBehaviour, IMovement
     private Vector2 lastForce;
     private Vector2 lastAccelerateSignal;
 
+    private bool IsAccelerating = false;
+    private bool IsBraking = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         damageable = GetComponent<IDamageable>();
         deathOnDamage = GetComponent<IMortal>();
-        damageable.DamageEvent += TakeDamage;
     }
     private void Update()
     {
         if (rb.velocity.x != 0 || rb.velocity.y != 0)
         {
-            running = true;
+            var currentVelocity = GetCurrentVelocityNormalized();
+            if (currentVelocity >= -CuttingSpeed && currentVelocity < 0)
+            {
+                Freeze();
+                Unfreeze();
+            }
+            else
+            {
+                running = true;
+            }
         }
         else
         {
@@ -45,10 +57,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
     }
     private void OnDestroy()
     {
-        if (damageable != null)
-        {
-            damageable.DamageEvent -= TakeDamage;
-        }
     }
     public bool isRunning()
     {
@@ -77,35 +85,36 @@ public class PlayerMovement : MonoBehaviour, IMovement
     public float GetCurrentVelocityNormalized()
     {
         float velocity;
-
-        if (Vector2.Angle(lastForce, rb.velocity) == 0.0f || (currentVelocity.sqrMagnitude >= 99.0f && currentVelocity.sqrMagnitude <= 101.0f) || (currentVelocity.sqrMagnitude >= 199.0f))
+        if (IsBraking)
         {
-            velocity = currentVelocity.sqrMagnitude;
-        }
-        else if (Vector2.Angle(lastForce, rb.velocity) >= 90.0f && Vector2.Angle(lastForce, rb.velocity) <= 270.0f)
-        {
-            velocity = currentVelocity.sqrMagnitude * -1.0f;
+            velocity = rb.velocity.sqrMagnitude * -1.0f;
         }
         else
         {
-            velocity = currentVelocity.sqrMagnitude;
+            velocity = rb.velocity.sqrMagnitude;
         }
-
         return velocity;
     }
 
     public void SetMovement(Vector2 direction)
     {
+        if (direction.sqrMagnitude == 0)
+        {
+            IsAccelerating = false;
+            IsBraking = true;
+        }
+        else
+        {
+            IsAccelerating = true;
+            IsBraking = false;
+        }
+
         var force = GetForceVector(direction.x, direction.y);
         rb.AddForce(force);
         lastForce = force;
         currentVelocity = rb.velocity;
         lookingDirection = direction;
         lastAccelerateSignal = new Vector2(Mathf.Sign(force.x), Mathf.Sign(force.y));
-    }
-    public void TakeDamage()
-    {
-
     }
     public void Freeze()
     {
