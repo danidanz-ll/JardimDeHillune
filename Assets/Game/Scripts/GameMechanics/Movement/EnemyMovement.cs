@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
     [SerializeField] private float SpeedDecreaseFactor = 0.5f;
 
     private IDamageable damageable;
-    private IMortal deathOnDamage;
+    private LifeSystem lifeSystem;
 
     private Rigidbody2D rb;
     public bool IsFreeze { get; private set; } = false;
@@ -21,9 +21,9 @@ public class EnemyMovement : MonoBehaviour, IMovement
     private void Start()
     {
         damageable = GetComponent<IDamageable>();
-        deathOnDamage = GetComponent<IMortal>();
+        lifeSystem = GetComponent<LifeSystem>();
         damageable.DamageEvent += StopMovement;
-        deathOnDamage.DeathEvent += StopMovement;
+        lifeSystem.DeathEvent += StopMovement;
         rb = GetComponent<Rigidbody2D>();
     }
     private void OnDestroy()
@@ -32,9 +32,9 @@ public class EnemyMovement : MonoBehaviour, IMovement
         {
             damageable.DamageEvent -= StopMovement;
         }
-        if (deathOnDamage != null)
+        if (lifeSystem != null)
         {
-            deathOnDamage.DeathEvent -= StopMovement;
+            lifeSystem.DeathEvent -= StopMovement;
         }
     }
     public float GetCurrentVelocityNormalized()
@@ -95,11 +95,15 @@ public class EnemyMovement : MonoBehaviour, IMovement
     }
     public void StopMovement()
     {
+        if (lifeSystem.IsDead) return;
+
         rb.velocity = Vector2.zero;
         running = false;
     }
     public void Freeze()
     {
+        if (lifeSystem.IsDead) return;
+
         rb.velocity = Vector2.zero;
         currentVelocity = Vector2.zero;
         running = false;

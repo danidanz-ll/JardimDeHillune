@@ -22,13 +22,20 @@ public class ManaSystem : MonoBehaviour
             ManaBar.maxValue = maxMana;
             ManaBar.value = currentMana;
         }
-        manaEvents.GetManaPoints += GetManaPoints;
-        manaEvents.UseManaEvent += UseManaEvent;
+
+        if (manaEvents != null)
+        {
+            manaEvents.GetManaPoints += GetManaPoints;
+            manaEvents.UseManaEvent += UseManaEvent;
+        }
     }
     private void OnDestroy()
     {
-        manaEvents.GetManaPoints -= GetManaPoints;
-        manaEvents.UseManaEvent -= UseManaEvent;
+        if (manaEvents != null)
+        {
+            manaEvents.GetManaPoints -= GetManaPoints;
+            manaEvents.UseManaEvent -= UseManaEvent;
+        }
     }
     private void GetManaPoints()
     {

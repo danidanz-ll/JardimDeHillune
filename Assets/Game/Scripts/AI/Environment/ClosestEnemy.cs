@@ -42,10 +42,11 @@ namespace BBUnity.Actions
 
             foreach (GameObject go in this.EnemyGameObjects)
             {
-                IDamageable damageable = go.GetComponent<IDamageable>();
-                if (damageable != null)
+                LifeSystem lifeSystem = go.GetComponent<LifeSystem>();
+
+                if (lifeSystem != null)
                 {
-                    if (!damageable.IsDead)
+                    if (!lifeSystem.IsDead)
                     {
                         float newdist = Vector3.Distance(go.transform.position, gameObject.transform.position);
                         if (newdist < dist)

@@ -16,6 +16,7 @@ public class MatchTimer : MonoBehaviour
         oldTimer = timer;
 
         gameEvents.GameOver += StopTimer;
+        gameEvents.MatchWin += StopTimer;
     }
     private void Update()
     {

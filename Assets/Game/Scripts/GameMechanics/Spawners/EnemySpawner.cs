@@ -25,9 +25,9 @@ public class EnemySpawner : MobSpawner
             try
             {
                 GameObject mob = CreateEntity(GetRandomPositionSpawn(), transform);
-                IMortal mortalComponent = mob.GetComponent<IMortal>();
-                mortalComponent.DeathGameObjectEvent += GiveManaToPlayer;
-            } catch (System.Exception ex)
+                LifeSystem lifeSystem = mob.GetComponent<LifeSystem>();
+                lifeSystem.DeathGameObjectEvent += GiveManaToPlayer;
+            } catch
             {
                 return;
             }
@@ -51,8 +51,8 @@ public class EnemySpawner : MobSpawner
     }
     private void GiveManaToPlayer(object sender, GameObject mob)
     {
-        IMortal mortalComponent = mob.GetComponent<IMortal>();
-        mortalComponent.DeathGameObjectEvent -= GiveManaToPlayer;
+        LifeSystem lifeSystem = mob.GetComponent<LifeSystem>();
+        lifeSystem.DeathGameObjectEvent -= GiveManaToPlayer;
         PlayerManaEvents.GetMana();
     }
     public override void OnDrawGizmosSelected()

@@ -35,17 +35,17 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     }
     void Start()
     {
-        mortal.DeathEvent += OnDeath;
-        mortal.RessurectEvent += Resurrect;
+        lifeSystem.DeathEvent += OnDeath;
+        lifeSystem.RessurectEvent += Resurrect;
         Body = gameObject.transform.GetChild(1).gameObject;
         Canvas = gameObject.transform.GetChild(2).gameObject;
     }
     private void OnDestroy()
     {
-        if (mortal != null)
+        if (lifeSystem != null)
         {
-            mortal.DeathEvent -= OnDeath;
-            mortal.RessurectEvent -= Resurrect;
+            lifeSystem.DeathEvent -= OnDeath;
+            lifeSystem.RessurectEvent -= Resurrect;
         }
     }
     public void Born()
@@ -83,7 +83,7 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public bool CharacterIsDead()
     {
-        return mortal.IsDead;
+        return lifeSystem.IsDead;
     }
     private void SetMovement()
     {

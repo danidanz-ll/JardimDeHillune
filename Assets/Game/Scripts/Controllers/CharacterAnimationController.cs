@@ -22,6 +22,7 @@ public class CharacterAnimationController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
     public IMortal deathOnDamage;
+    public LifeSystem lifeSystem;
     private IWeapon weapon;
     protected IMovement movement;
     protected Animator animator;
@@ -32,6 +33,7 @@ public class CharacterAnimationController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageable = GetComponent<IDamageable>();
         deathOnDamage = GetComponent<IMortal>();
+        lifeSystem = GetComponent<LifeSystem>();
         
         weapon = GetComponentInChildren<IWeapon>();
 
@@ -39,9 +41,9 @@ public class CharacterAnimationController : MonoBehaviour
         {
             damageable.DamageEvent += OnDamage;
         }
-        if (deathOnDamage != null)
+        if (lifeSystem != null)
         {
-            deathOnDamage.DeathEvent += OnDeath;
+            lifeSystem.DeathEvent += OnDeath;
         }
         if (weapon != null)
         {
@@ -88,7 +90,7 @@ public class CharacterAnimationController : MonoBehaviour
         }
         if (deathOnDamage != null)
         {
-            deathOnDamage.DeathEvent -= OnDeath;
+            lifeSystem.DeathEvent -= OnDeath;
         }
         if (weapon != null)
         {

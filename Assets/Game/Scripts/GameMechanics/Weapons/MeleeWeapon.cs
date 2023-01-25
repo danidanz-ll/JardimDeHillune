@@ -5,6 +5,7 @@ using System;
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
     [SerializeField] private float attackCooldown = 0f;
+    [SerializeField] public AudioSource AudioAttacking;
 
     public event Action AttackEvent;
 
@@ -23,7 +24,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     public void Attack()
     {
-        if (!IsAttackInCooldown() && !IsAttacking())
+        if (!IsAttackInCooldown())
         {
             Attacking = true;
             AttackEvent.Invoke();
@@ -31,7 +32,7 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     public void Attack(Vector2 direction)
     {
-        if (!IsAttackInCooldown() && !IsAttacking())
+        if (!IsAttackInCooldown())
         {
             AttackEvent.Invoke();
         }
@@ -39,6 +40,10 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     public void PerformAttack()
     {
         boxCollider.enabled = true;
+        if (AudioAttacking != null)
+        {
+            AudioAttacking.Play();
+        }
     }
     public void DisableAttack()
     {

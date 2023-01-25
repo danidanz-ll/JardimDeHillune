@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     [SerializeField] private float CuttingSpeed = 0f;
 
     private IDamageable damageable;
-    private IMortal deathOnDamage;
+    private LifeSystem lifeSystem;
 
     private Rigidbody2D rb;
     public bool IsFreeze { get; private set; } = false;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, IMovement
     {
         rb = GetComponent<Rigidbody2D>();
         damageable = GetComponent<IDamageable>();
-        deathOnDamage = GetComponent<IMortal>();
+        lifeSystem = GetComponent<LifeSystem>();
     }
     private void Update()
     {
@@ -118,6 +118,8 @@ public class PlayerMovement : MonoBehaviour, IMovement
     }
     public void Freeze()
     {
+        if (lifeSystem.IsDead) return;
+
         rb.AddForce(-rb.velocity);
         rb.velocity = Vector2.zero;
         currentVelocity = Vector2.zero;

@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private TowerSkill towerSkill;
     private PlayerInput playerInput;
     private ManaSystem manaSystem;
+    private LifeSystem lifeSystem;
     private IWeapon weapon;
     private Vector2 movementInput;
 
@@ -35,16 +36,19 @@ public class PlayerController : MonoBehaviour, ICharacterController
         deathOnDamage = GetComponent<IMortal>();
         manaSystem = GetComponent<ManaSystem>();
         towerSkill = GetComponent<TowerSkill>();
+        lifeSystem = GetComponent<LifeSystem>();
 
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        deathOnDamage.DeathEvent += OnDeath;
+        lifeSystem.DeathEvent += OnDeath;
     }
     private void Update()
     {
+        if (lifeSystem.IsDead!) return;
+
         movementInput = playerInput.GetMovementInput();
 
         if (playerInput.IsSelectorTowerButtonDown())
@@ -63,14 +67,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
             }
         }
 
-        if (playerInput.IsAttackButtonDown() && !weapon.IsAttacking())
+        if (playerInput.IsAttackButtonDown())
         {
             weapon.Attack();
-            //playerMovement.Freeze();
         }
     }
     private void FixedUpdate()
     {
+        if (lifeSystem.IsDead!) return;
+
         if (weapon.IsAttacking() || playerMovement.IsFreeze)
         {
             return;
@@ -95,9 +100,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     }
     private void OnDestroy()
     {
-        if (deathOnDamage != null)
+        if (lifeSystem != null)
         {
-            deathOnDamage.DeathEvent -= OnDeath;
+            lifeSystem.DeathEvent -= OnDeath;
         }
     }
     public void PerformAttack()
@@ -110,7 +115,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     }
     public bool CharacterIsDead()
     {
-        return deathOnDamage.IsDead;
+        return lifeSystem.IsDead;
     }
     private void OnDeath()
     {

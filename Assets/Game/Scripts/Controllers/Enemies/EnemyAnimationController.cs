@@ -6,7 +6,7 @@ public class EnemyAnimationController : CharacterAnimationController
     {
         base.Awake();
         movement = GetComponent<EnemyMovement>();
-        deathOnDamage.RessurectEvent += Resurrect;
+        lifeSystem.RessurectEvent += Resurrect;
     }
     protected override void Update()
     {

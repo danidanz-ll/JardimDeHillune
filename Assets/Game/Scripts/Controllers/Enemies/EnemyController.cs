@@ -29,8 +29,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        damageable.DeathEvent += OnDeath;
-        damageable.RessurectEvent += Resurrect;
+        lifeSystem.DeathEvent += OnDeath;
+        lifeSystem.RessurectEvent += Resurrect;
 
         Body = gameObject.transform.GetChild(1).gameObject;
         Canvas = gameObject.transform.GetChild(2).gameObject;
@@ -39,8 +39,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     {
         if (damageable != null)
         {
-            damageable.DeathEvent -= OnDeath;
-            damageable.RessurectEvent -= Resurrect;
+            lifeSystem.DeathEvent -= OnDeath;
+            lifeSystem.RessurectEvent -= Resurrect;
         }
     }
     public void SetMovement(Vector2 direction)
@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public bool CharacterIsDead()
     {
-        return damageable.IsDead;
+        return lifeSystem.IsDead;
     }
     public Vector3 GetCurrentPosition()
     {

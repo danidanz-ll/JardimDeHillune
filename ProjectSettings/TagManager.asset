@@ -12,6 +12,7 @@ TagManager:
   - GameManager
   - ProjectilesParent
   - Boss
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

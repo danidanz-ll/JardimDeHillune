@@ -133,7 +133,7 @@ MonoBehaviour:
   projectileGameObject: {fileID: 1517298776174689585, guid: 5ca00784a272f2b4d90a55d6b255b207,
     type: 3}
   damageProjectiles: 10
-  MoveSpeed: 300
+  MoveSpeed: 600
   attackTime: 1.8
   startAttackDamageTime: 0.3
   timeToFreeze: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 60
+  moveSpeed: 120
   SpeedDecreaseFactor: 0.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:

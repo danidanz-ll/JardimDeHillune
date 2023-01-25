@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   attackCooldown: 2
+  AudioAttacking: {fileID: 0}
 --- !u!1 &2771039332123219750
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617a91c729ed84c44b29b377b3041bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 60
+  moveSpeed: 180
   SpeedDecreaseFactor: 0.5
 --- !u!114 &-2539461861218895632
 MonoBehaviour:
@@ -620,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionRange: 4.08
-  visionAttack: 2.42
+  visionAttack: 1.6
   visionAngle: 180
 --- !u!114 &-143579857977391122
 MonoBehaviour:

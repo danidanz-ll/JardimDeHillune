@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    [Header("Texts")]
+    [SerializeField] private TMP_Text gameOverText;
     public bool IsGameOver { get; private set; } = false;
     
     private GameObject Player;
@@ -11,6 +14,8 @@ public class GameOver : MonoBehaviour
 
     private GameEvents gameEvents;
 
+    private LifeSystem lifeSystem;
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -18,6 +23,9 @@ public class GameOver : MonoBehaviour
         PlayerLife = Player.GetComponent<LifeSystem>();
         ObjectiveLife = Objective.GetComponent<LifeSystem>();
         gameEvents = GetComponent<GameEvents>();
+
+        PlayerLife.DeathEvent += PlayerDeath;
+        ObjectiveLife.DeathEvent += PlayerDeath;
     }
     private void Update()
     {
@@ -25,6 +33,20 @@ public class GameOver : MonoBehaviour
         {
             gameEvents.WarnGameOver();
             IsGameOver = true;
+        }
+    }
+    private void PlayerDeath()
+    {
+        Debug.Log("O jogador morreu!");
+        gameEvents.WarnGameOver();
+        ShowGameOver();
+        IsGameOver = true;
+    }
+    private void ShowGameOver()
+    {
+        if (gameOverText != null)
+        {
+            gameOverText.text = "Você perdeu!";
         }
     }
 }

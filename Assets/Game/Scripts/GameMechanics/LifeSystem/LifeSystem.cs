@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,19 +10,20 @@ public class LifeSystem : MonoBehaviour
     [SerializeField] public float maxLife;
     [SerializeField] public float currentLife;
     [SerializeField] private Slider HealtBar;
-    [SerializeField] private float InvencibleTimeDamage;
-    [SerializeField] private float TimeDamage;
 
     public IDamageable damageable { get; private set; }
-    public IMortal deathOnDamage { get; private set; }
+    
+    public event Action DeathEvent;
+    public event Action RessurectEvent;
+    public event EventHandler<GameObject> DeathGameObjectEvent;
 
     public bool IsHurting { get; private set; } = false;
     public bool IsInvencible { get; private set; } = false;
+    public bool IsDead { get; private set; } = false;
 
     private void Start()
     {
         damageable = GetComponent<IDamageable>();
-        deathOnDamage = GetComponent<IMortal>();
         currentLife = maxLife;
         if (HealtBar != null)
         {
@@ -31,7 +32,18 @@ public class LifeSystem : MonoBehaviour
         }
         damageable.DamageValueEvent += TakeDamageEvent;
         damageable.DamageEvent += DamageEventFunction;
-        deathOnDamage.RessurectEvent += SetFullLife;
+    }
+    private void Update()
+    {
+        if (!IsDead)
+        {
+            UpdateHealthBar();
+            if (currentLife <= 0)
+            {
+                IsDead = true;
+                Die();
+            }
+        }
     }
     private void OnDestroy()
     {
@@ -39,10 +51,6 @@ public class LifeSystem : MonoBehaviour
         {
             damageable.DamageValueEvent -= TakeDamageEvent;
             damageable.DamageEvent -= DamageEventFunction;
-        }
-        if (deathOnDamage != null)
-        {
-            deathOnDamage.RessurectEvent -= SetFullLife;
         }
     }
     private void DamageEventFunction()
@@ -54,13 +62,11 @@ public class LifeSystem : MonoBehaviour
         if (currentLife + points <= maxLife)
         {
             currentLife += points;
-            UpdateHealthBar();
         }
     }
     public void SetFullLife()
     {
         currentLife = maxLife;
-        UpdateHealthBar();
     }
     public void TakeDamageEvent(object sender, float damage)
     {
@@ -70,15 +76,7 @@ public class LifeSystem : MonoBehaviour
     {
         if (!IsInvencible)
         {
-            StartCoroutine(PlayHurtingAnimation());
-            StartCoroutine(TimeInvencible());
-        
             currentLife -= damage;
-            UpdateHealthBar();
-            if (currentLife <= 0)
-            {
-                deathOnDamage.Die();
-            }
         }
     }
     public void UpdateHealthBar()
@@ -88,17 +86,19 @@ public class LifeSystem : MonoBehaviour
             HealtBar.value = currentLife;
         }
     }
-    
-    public IEnumerator PlayHurtingAnimation()
+    public void Die()
     {
-        IsHurting = true;
-        yield return new WaitForSeconds(TimeDamage);
-        IsHurting = false;
-    }
-    public IEnumerator TimeInvencible()
-    {
-        IsInvencible = true;
-        yield return new WaitForSeconds(InvencibleTimeDamage);
-        IsInvencible = false;
+        IsDead = true;
+        DeathEvent.Invoke();
+        try
+        {
+            DeathGameObjectEvent.Invoke(this, this.gameObject);
+        } catch(Exception e)
+        {
+            if (gameObject.tag == "Enemy")
+            {
+                throw e;
+            }
+        }
     }
 }
