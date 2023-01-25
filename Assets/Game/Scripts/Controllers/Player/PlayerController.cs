@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent (typeof(PlayerInput))]
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [Header("Tower skills")]
     [SerializeField][Min(0)] private float SummonCost = 0;
 
-    public IMortal deathOnDamage { get; private set; }
+    public UnityEngine.Events.UnityEvent TakeDamagePlayer;
+
+    public Damageable damageable { get; private set; }
     private PlayerMovement playerMovement;
     private Dash dash;
     private TowerSkill towerSkill;
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         playerMovement = GetComponent<PlayerMovement>();
         dash = GetComponent<Dash>();
         playerInput = GetComponent<PlayerInput>();
-        deathOnDamage = GetComponent<IMortal>();
+        damageable = GetComponent<Damageable>();
         manaSystem = GetComponent<ManaSystem>();
         towerSkill = GetComponent<TowerSkill>();
         lifeSystem = GetComponent<LifeSystem>();
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
 
         lifeSystem.DeathEvent += OnDeath;
+        damageable.DamageEvent += OnDamage;
     }
     private void Update()
     {
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             lifeSystem.DeathEvent -= OnDeath;
         }
+        damageable.DamageEvent -= OnDamage;
     }
     public void PerformAttack()
     {
@@ -120,5 +125,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private void OnDeath()
     {
         playerMovement.SetBodyType(RigidbodyType2D.Static);
+    }
+    private void OnDamage()
+    {
+        TakeDamagePlayer.Invoke();
     }
 }
