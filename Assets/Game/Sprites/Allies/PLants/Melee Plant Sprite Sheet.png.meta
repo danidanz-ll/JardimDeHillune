@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: f01aa9039938fe64fb2fd6e77b8b795c
+guid: fc92cd46fe731254f8315b856da2d569
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -100,656 +101,521 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_0
+      name: Melee Plant Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 116
+        x: 33
+        y: 140
         width: 5
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 762d5c58978b6064a879e26ad90f7e82
-      internalID: -2018831731
+      spriteID: dae06dcbcc278ce42a6d5ae7db87a4de
+      internalID: 1001443514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_1
+      name: Melee Plant Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 117
+        x: 65
+        y: 141
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2db561b560a5a374aa616fc7de42817a
-      internalID: 1999123699
+      spriteID: 0c7d59451ce309647a606fd27eca005b
+      internalID: 1238142661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_2
+      name: Melee Plant Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 116
+        x: 96
+        y: 140
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de4c6033570bbb428df051a8c007d35
-      internalID: 1064104560
+      spriteID: 0a726cfa4b2ddfc43b2eec9c0497e5f3
+      internalID: 762477579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_3
+      name: Melee Plant Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 110
-        y: 115
+        x: 126
+        y: 139
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f02103ecf32e8f944a3e7d9ef44cd267
-      internalID: 1025376135
+      spriteID: 2c56af79288f11d489ffd8ebc2d2b328
+      internalID: 1933952076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_4
+      name: Melee Plant Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 141
-        y: 114
+        x: 157
+        y: 138
         width: 17
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d33aa33ae5b398740b7238647ac7fb44
-      internalID: 528926472
+      spriteID: 87674b589b7c75a48812bfa95d29c07a
+      internalID: -1986219852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_5
+      name: Melee Plant Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 171
-        y: 113
+        x: 187
+        y: 137
         width: 20
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4777a7192f90642a2979232bf01857
-      internalID: -84127762
+      spriteID: 6c7e53283621c724886d2c4fdab1fd58
+      internalID: 1611273376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_6
+      name: Melee Plant Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 202
-        y: 112
+        x: 218
+        y: 136
         width: 24
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c01ff9e271ef2d4089557e41b5b1984
-      internalID: 889681645
+      spriteID: 5247a384de37c5c4f98c8b9381875b62
+      internalID: 1838267967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_7
+      name: Melee Plant Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 233
-        y: 112
+        x: 249
+        y: 136
         width: 25
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b635d72111a2701468ed7edad94227fc
-      internalID: -1982153347
+      spriteID: 9d93a196e5251d646b2b130174449b7a
+      internalID: -363065390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_8
+      name: Melee Plant Sprite Sheet_8
       rect:
         serializedVersion: 2
-        x: 4
-        y: 73
+        x: 25
+        y: 102
         width: 25
-        height: 15
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a794f6dd7ef16f4479c7f02198b2ee5f
-      internalID: -1805664889
+      spriteID: 78c6b0d2fb25bbe4c90ac30e37fe78fe
+      internalID: -1702740197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_9
+      name: Melee Plant Sprite Sheet_9
       rect:
         serializedVersion: 2
-        x: 36
-        y: 73
+        x: 57
+        y: 104
         width: 25
-        height: 18
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66da3d2dcd43da04291f70f9be8e432c
-      internalID: 1403865363
+      spriteID: 93c75eeaacdd1c645996432b46eb257f
+      internalID: 988973082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_10
+      name: Melee Plant Sprite Sheet_10
       rect:
         serializedVersion: 2
-        x: 67
-        y: 73
+        x: 88
+        y: 97
         width: 27
-        height: 26
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6608df73549e78f4eab58d588e3c0a4c
-      internalID: 1845891109
+      spriteID: 84e88185992814240aedbf528b24d141
+      internalID: -1698788735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_11
+      name: Melee Plant Sprite Sheet_11
       rect:
         serializedVersion: 2
-        x: 99
-        y: 73
-        width: 27
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6d94e9823715544dbe34a7784f851b6
-      internalID: 88031751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 73
+        x: 120
+        y: 104
         width: 27
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4305c847abc54e24094d09bae2abb619
-      internalID: -2135064016
+      spriteID: 0d2ecec87bc9a714f93108d406911f8a
+      internalID: -1720091148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_13
+      name: Melee Plant Sprite Sheet_12
       rect:
         serializedVersion: 2
-        x: 205
-        y: 85
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8cc5d7545860b74ca265d618b99a922
-      internalID: 490367971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 85
-        width: 18
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebd6601b442cfda439508d04ff0d16ac
-      internalID: 521614250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 85
-        width: 17
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1971dacaef6a3a489fb743d81fac7d4
-      internalID: -406507194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 85
-        width: 17
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1366b9c95eb4da24f90fd00aa4e73042
-      internalID: 312945585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 12
-        width: 27
+        x: 149
+        y: 104
+        width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbffc1bf539638641b828828a5d4bedb
-      internalID: -2079676531
+      spriteID: 60b6809a22e537a45a1703025c603053
+      internalID: -266902976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_18
+      name: Melee Plant Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 121
-        y: 12
-        width: 29
-        height: 35
+        x: 34
+        y: 40
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c19ff896ba5a9e24c9e34280d35a0299
-      internalID: 1577209062
+      spriteID: baa3df62b1560b94e8bf33c0d293f17c
+      internalID: -210717937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_19
+      name: Melee Plant Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 219
-        y: 12
-        width: 27
-        height: 36
+        x: 120
+        y: 40
+        width: 40
+        height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73a1dbd6e09306b43972c98f3726ba94
-      internalID: -1182326247
+      spriteID: c219a68e858595d48b9495adcbf39ffa
+      internalID: 1375780864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_20
+      name: Melee Plant Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 315
-        y: 12
-        width: 27
-        height: 39
+        x: 221
+        y: 40
+        width: 35
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb8bce384aaf4a4fba80ece656d0310
-      internalID: -1389767251
+      spriteID: a8f06309df961384295bf3fb047b482b
+      internalID: 531244461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_21
+      name: Melee Plant Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 411
-        y: 12
-        width: 27
-        height: 28
+        x: 324
+        y: 40
+        width: 28
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63af881be75e59b4e9a4773149fc6b34
-      internalID: -820365486
+      spriteID: d26b3e8652b8d644fa3f88bb4f763ab5
+      internalID: -871691965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_23
+      name: Melee Plant Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 40
+        width: 56
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab95abc661bbeef439e0646a929e0718
+      internalID: -1740448398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee Plant Sprite Sheet_18
       rect:
         serializedVersion: 2
         x: 498
-        y: 12
-        width: 36
-        height: 23
+        y: 13
+        width: 46
+        height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 392ce0038404b0f46a64b25e8b88670d
-      internalID: 756091561
+      spriteID: c247a675d14a8e547a620e6102132c6f
+      internalID: -1976264158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_25
+      name: Melee Plant Sprite Sheet_19
       rect:
         serializedVersion: 2
-        x: 594
-        y: 12
-        width: 36
-        height: 23
+        x: 613
+        y: 19
+        width: 57
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 366941930b3024740a71c08c3f9ab677
-      internalID: -1194447972
+      spriteID: b5f1f284b4bd500468041ec6cf5cfa2c
+      internalID: -157189082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_26
+      name: Melee Plant Sprite Sheet_20
       rect:
         serializedVersion: 2
-        x: 689
-        y: 12
-        width: 37
-        height: 32
+        x: 708
+        y: 40
+        width: 44
+        height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f51b3dc75a982764ea150545aec0ed83
-      internalID: -2107820678
+      spriteID: 7bd64d06a516b9445bcbd6e5c03b699e
+      internalID: 35350852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_27
+      name: Melee Plant Sprite Sheet_21
       rect:
         serializedVersion: 2
-        x: 795
-        y: 12
-        width: 27
+        x: 804
+        y: 40
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76066dc097bde34d860f367888dad1f
+      internalID: 1498542147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee Plant Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 40
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc8b519803f9884f887aab40854b310
+      internalID: -1542255331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee Plant Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 40
+        width: 40
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b2dfe281f9b2042ae4042be881a6bb
-      internalID: -1928323426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 891
-        y: 12
-        width: 27
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe835d67176da0d4bb2e6536364e1041
-      internalID: 1011004734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 987
-        y: 12
-        width: 27
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efe354b7f3f21eb4482fa7b4ba96620b
-      internalID: -1935748570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_30
-      rect:
-        serializedVersion: 2
-        x: 1083
-        y: 12
-        width: 27
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91492fd27c9b8d544bf0f1257cd9a359
-      internalID: -700718319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 1167
-        y: 15
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86e6968c64eb37040803bad8fbd003b7
-      internalID: 957401089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal Plant Sprite Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 1265
-        y: 15
-        width: 27
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fedf82d58c0f8bd499a4a8c3b117057d
-      internalID: 1278885349
+      spriteID: af439559758fc3f4ca41db46a6a30043
+      internalID: -163533117
       vertices: []
       indices: 
       edges: []
@@ -765,41 +631,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Normal Plant Sprite Sheet_26: -2107820678
-      Normal Plant Sprite Sheet_29: -1935748570
-      Normal Plant Sprite Sheet_3: 1025376135
-      Normal Plant Sprite Sheet_25: -1194447972
-      Normal Plant Sprite Sheet_6: 889681645
-      Normal Plant Sprite Sheet_20: -1389767251
-      Normal Plant Sprite Sheet_23: 756091561
-      Normal Plant Sprite Sheet_24: -335224367
-      Normal Plant Sprite Sheet_30: -700718319
-      Normal Plant Sprite Sheet_33: 145722512
-      Normal Plant Sprite Sheet_1: 1999123699
-      Normal Plant Sprite Sheet_13: 490367971
-      Normal Plant Sprite Sheet_28: 1011004734
-      Normal Plant Sprite Sheet_14: 521614250
-      Normal Plant Sprite Sheet_18: 1577209062
-      Normal Plant Sprite Sheet_32: 1278885349
-      Normal Plant Sprite Sheet_9: 1403865363
-      Normal Plant Sprite Sheet_34: -741488887
-      Normal Plant Sprite Sheet_31: 957401089
-      Normal Plant Sprite Sheet_12: -2135064016
-      Normal Plant Sprite Sheet_0: -2018831731
-      Normal Plant Sprite Sheet_11: 88031751
-      Normal Plant Sprite Sheet_5: -84127762
-      Normal Plant Sprite Sheet_7: -1982153347
-      Normal Plant Sprite Sheet_15: -406507194
-      Normal Plant Sprite Sheet_22: -918374460
-      Normal Plant Sprite Sheet_4: 528926472
-      Normal Plant Sprite Sheet_16: 312945585
-      Normal Plant Sprite Sheet_17: -2079676531
-      Normal Plant Sprite Sheet_27: -1928323426
-      Normal Plant Sprite Sheet_10: 1845891109
-      Normal Plant Sprite Sheet_2: 1064104560
-      Normal Plant Sprite Sheet_8: -1805664889
-      Normal Plant Sprite Sheet_21: -820365486
-      Normal Plant Sprite Sheet_19: -1182326247
+      Melee Plant Sprite Sheet_23: -163533117
+      Melee Plant Sprite Sheet_16: -871691965
+      Melee Plant Sprite Sheet_9: 988973082
+      Melee Plant Sprite Sheet_11: -1720091148
+      Melee Plant Sprite Sheet_12: -266902976
+      Melee Plant Sprite Sheet_13: -210717937
+      Melee Plant Sprite Sheet_18: -1976264158
+      Melee Plant Sprite Sheet_20: 35350852
+      Melee Plant Sprite Sheet_22: -1542255331
+      Melee Plant Sprite Sheet_15: 531244461
+      Melee Plant Sprite Sheet_5: 1611273376
+      Melee Plant Sprite Sheet_6: 1838267967
+      Melee Plant Sprite Sheet_2: 762477579
+      Melee Plant Sprite Sheet_8: -1702740197
+      Melee Plant Sprite Sheet_3: 1933952076
+      Melee Plant Sprite Sheet_1: 1238142661
+      Melee Plant Sprite Sheet_4: -1986219852
+      Melee Plant Sprite Sheet_7: -363065390
+      Melee Plant Sprite Sheet_14: 1375780864
+      Melee Plant Sprite Sheet_0: 1001443514
+      Melee Plant Sprite Sheet_19: -157189082
+      Melee Plant Sprite Sheet_21: 1498542147
+      Melee Plant Sprite Sheet_10: -1698788735
+      Melee Plant Sprite Sheet_17: -1740448398
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

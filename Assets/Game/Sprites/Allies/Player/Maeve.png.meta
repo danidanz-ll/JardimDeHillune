@@ -3,7 +3,7 @@ guid: 7173b7581749dc349a142e75f6f6f0f9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1471,7 +1472,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Maeve_11: -1959760153
-      Maeve_32: 1833343962
+      Maeve_2: 45054876
       Maeve_33: -2101732453
       Maeve_37: 1141307688
       Maeve_20: -1078720490
@@ -1550,7 +1551,7 @@ TextureImporter:
       Maeve_70: -1630177338
       Maeve_55: 1297812553
       Maeve_3: -140143910
-      Maeve_2: 45054876
+      Maeve_32: 1833343962
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
