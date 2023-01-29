@@ -82,20 +82,25 @@ public class PlayerController : MonoBehaviour, ICharacterController
         lifeSystem.DeathEvent += OnDeath;
         damageable.DamageEvent += OnDamage;
     }
+    private void OnEnable()
+    {
+        AttackInput.action.performed += Attack;
+        InvokeInput.action.performed += PerformInvoke;
+        DashInput.action.performed += PerformDash;
+        SwitchTowerInput.action.performed += PerformSwitchTower;
+    }
+    private void OnDisable()
+    {
+        AttackInput.action.performed -= Attack;
+        InvokeInput.action.performed -= PerformInvoke;
+        DashInput.action.performed -= PerformDash;
+        SwitchTowerInput.action.performed -= PerformSwitchTower;
+    }
     private void Update()
     {
         if (lifeSystem.IsDead!) return;
 
         movementInput = MovementInput.action.ReadValue<Vector2>();
-        invokeInput = InvokeInput.action.ReadValue<bool>();
-        attackInput = AttackInput.action.ReadValue<bool>();
-        dashInput = DashInput.action.ReadValue<bool>();
-        switchTowerInput = SwitchTowerInput.action.ReadValue<bool>();
-
-        if (attackInput)
-        {
-            weapon.Attack();
-        }
     }
     private void FixedUpdate()
     {
@@ -111,33 +116,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
             dash.ContinueDashing();
             return;
         }
-
-        if (dashInput && dash.isAvailable())
-        {
-            dash.StartDashing(movementInput);
-            return;
-        }
         #endregion
 
         #region Run
         playerMovement.SetMovement(movementInput);
         #endregion
-
-        if (switchTowerInput)
-        {
-            towerSkill.SelectNextTower();
-        }
-
-        if (invokeInput)
-        {
-            if (manaSystem.currentMana - SummonCost >= 0)
-            {
-                manaSystem.UseMana(SummonCost);
-                Vector2 aux = playerMovement.GetFacingDirection();
-                Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
-                towerSkill.Invoke(transform.position + aux2);
-            }
-        }
     }
     private void OnDestroy()
     {
@@ -150,6 +133,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
             damageable.DamageEvent -= OnDamage;
         }
     }
+    public void Attack(InputAction.CallbackContext obj)
+    {
+        weapon.Attack();
+    }
     public void PerformAttack()
     {
         weapon.PerformAttack();
@@ -157,6 +144,27 @@ public class PlayerController : MonoBehaviour, ICharacterController
     public void DisableAttack()
     {
         weapon.DisableAttack();
+    }
+    public void PerformDash(InputAction.CallbackContext obj)
+    {
+        if (dash.isAvailable())
+        {
+            dash.StartDashing(movementInput);
+        }
+    }
+    public void PerformInvoke(InputAction.CallbackContext obj)
+    {
+        if (manaSystem.currentMana - SummonCost >= 0)
+        {
+            manaSystem.UseMana(SummonCost);
+            Vector2 aux = playerMovement.GetFacingDirection();
+            Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
+            towerSkill.Invoke(transform.position + aux2);
+        }
+    }
+    public void PerformSwitchTower(InputAction.CallbackContext obj)
+    {
+        towerSkill.SelectNextTower();
     }
     public bool CharacterIsDead()
     {
