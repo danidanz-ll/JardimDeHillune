@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour
     {
         var horizontalInput = Input.GetAxisRaw("Horizontal");
         var verticalInput = Input.GetAxisRaw("Vertical");
-        return new Vector2(horizontalInput, verticalInput);
+        return new Vector2(horizontalInput, verticalInput).normalized;
     }
     public bool IsDashingButtonDown()
     {
