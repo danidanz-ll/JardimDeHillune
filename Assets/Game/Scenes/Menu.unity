@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingOverlay: {fileID: 490305166}
-  FadeTime: 0.5
+  FadeTime: 0.28
 --- !u!4 &486090254
 Transform:
   m_ObjectHideFlags: 0
@@ -984,7 +984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54480d9885b94be4690ca16dff090b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 486090252}
 --- !u!4 &1105597697
 Transform:
   m_ObjectHideFlags: 0

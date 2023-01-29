@@ -380,6 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494978770994813575}
   - component: {fileID: 1744433634114983853}
+  - component: {fileID: 601017296660912324}
   m_Layer: 0
   m_Name: ButtonsFunctions
   m_TagString: Untagged
@@ -412,6 +413,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad07ee37a6b78c643a5338bdcc9633b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &601017296660912324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3416517747838627149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54480d9885b94be4690ca16dff090b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5790440249516210347
@@ -785,9 +798,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7901678694050658888}
-        m_TargetAssemblyTypeName: PauseManagement.Core.PauseManager, Assembly-CSharp
-        m_MethodName: TogglePause
+      - m_Target: {fileID: 601017296660912324}
+        m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -932,6 +945,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: useTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: assignKeyFromPrefs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: useUnityInputSystem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: useUnityInputManager
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: pauseEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1009,18 +1038,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
---- !u!114 &7901678694050658888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921,
-    type: 3}
-  m_PrefabInstance: {fileID: 7901678694056839132}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03dee46b2ea8e734c93134b4edab2806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7901678694056380722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 462574, guid: 9fa0eb6531853e246931f87efac4e921,

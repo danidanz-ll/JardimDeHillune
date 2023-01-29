@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup loadingOverlay;
+    [SerializeField] 
+    private CanvasGroup loadingOverlay;
+    
     [SerializeField]
     [Range(0.01f, 3.0f)]
     private float FadeTime = 0.5f;
+
+    private AsyncOperation asyncOperation;
     public static SceneLoader Instance { get; private set; }
     private void Awake()
     {
@@ -22,28 +26,34 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
     public void LoadSceneAsync(string sceneName)
     {
+        gameObject.SetActive(true);
         StartCoroutine(PerformLoadSceneAsync(sceneName));
         
     }
     private IEnumerator PerformLoadSceneAsync(string sceneName)
     {
+        asyncOperation = SceneManager.LoadSceneAsync(sceneName);
         yield return StartCoroutine(FadeIn());
 
-        var operation = SceneManager.LoadSceneAsync(sceneName);
-        while (operation.isDone == false)
+        while (asyncOperation.isDone == false)
         {
             yield return null;
         }
 
         yield return StartCoroutine(FadeOut());
-        Debug.Log("Destroy");
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+        //Debug.Log("Destroy");
+        //Destroy(this.gameObject);
     }
     private IEnumerator FadeIn()
     {
@@ -54,7 +64,7 @@ public class SceneLoader : MonoBehaviour
         loadingOverlay.alpha = start;
         while (loadingOverlay.alpha < end)
         {
-            loadingOverlay.alpha += speed * Time.deltaTime;
+            loadingOverlay.alpha += asyncOperation.progress;
             yield return null;
         }
         loadingOverlay.alpha = end;
@@ -68,7 +78,7 @@ public class SceneLoader : MonoBehaviour
         loadingOverlay.alpha = start;
         while (loadingOverlay.alpha > end)
         {
-            loadingOverlay.alpha += speed * Time.deltaTime;
+            loadingOverlay.alpha -= asyncOperation.progress;
             yield return null;
         }
         loadingOverlay.alpha = end;

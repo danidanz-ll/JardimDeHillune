@@ -114,7 +114,9 @@ namespace PauseManagement.Core
 				pauseKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(propertyFromPrefs));
 
 			IsPaused = false;
-		}
+            TogglePause();
+            TogglePause();
+        }
 
 		// This function is called when the object becomes enabled and active
 		void OnEnable()
