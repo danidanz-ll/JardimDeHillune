@@ -6,8 +6,7 @@ public class GameOver : MonoBehaviour
     [Header("Texts")]
     [SerializeField] private TMP_Text gameOverText;
     public bool IsGameOver { get; private set; } = false;
-    
-    private GameObject Player;
+
     private GameObject Objective;
     private LifeSystem PlayerLife;
     private LifeSystem ObjectiveLife;
@@ -18,9 +17,8 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
         Objective = GameObject.FindGameObjectWithTag("Objective");
-        PlayerLife = Player.GetComponent<LifeSystem>();
+        PlayerLife = PlayerController.Instance.GetComponent<LifeSystem>();
         ObjectiveLife = Objective.GetComponent<LifeSystem>();
         gameEvents = GetComponent<GameEvents>();
 

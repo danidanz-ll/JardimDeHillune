@@ -13,15 +13,21 @@ public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]
     [SerializeField] GameObject weaponObject;
-    [Header("Death settings")]
-    [Min(0)]
-    [SerializeField] private float TimeToDisappearAfterDeath = 0;
+    
     [Header("Tower skills")]
-    [SerializeField][Min(0)] private float SummonCost = 0;
-
+    [SerializeField]
+    [Min(0)] 
+    private float SummonCost = 0;
+    
+    [SerializeField] 
     public UnityEngine.Events.UnityEvent TakeDamagePlayer;
-
+    
+    [HideInInspector]
     public Damageable damageable { get; private set; }
+
+    [HideInInspector]
+    public static GameObject Instance { get; private set; }
+    
     private PlayerMovement playerMovement;
     private Dash dash;
     private TowerSkill towerSkill;
@@ -31,6 +37,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private IWeapon weapon;
     private Vector2 movementInput;
 
+
+    private void Awake()
+    {
+        Instance = gameObject;
+    }
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
