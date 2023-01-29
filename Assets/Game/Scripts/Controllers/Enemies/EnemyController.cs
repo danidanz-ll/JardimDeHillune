@@ -4,12 +4,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, ICharacterController, IAIController
 {
     [Header("Weapon")]
-    [SerializeField] GameObject weaponObject;
+    [SerializeField] 
+    GameObject weaponObject;
+    
     [Header("Settings")]
-    [SerializeField] public bool IsMelee = true;
-    [Header("Death settings")]
-    [Min(0)]
-    [SerializeField] private float TimeToDisappearAfterDeath = 0;
+    [SerializeField] 
+    public bool IsMelee = true;
 
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
 
     private GameObject Body;
     private GameObject Canvas;
+
+    private EnemySpawner enemySpawner;
 
     void Start()
     {
@@ -42,6 +44,10 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
             lifeSystem.DeathEvent -= OnDeath;
             lifeSystem.RessurectEvent -= Resurrect;
         }
+    }
+    public void StartEnemy(EnemySpawner spawner)
+    {
+        enemySpawner = spawner;
     }
     public void SetMovement(Vector2 direction)
     {
@@ -85,6 +91,7 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
         Body.SetActive(false);
         Canvas.SetActive(false);
+        enemySpawner.DestroyMob(gameObject);
     }
     private void Resurrect()
     {

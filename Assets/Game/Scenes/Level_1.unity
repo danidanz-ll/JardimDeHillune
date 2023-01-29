@@ -5714,7 +5714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
   NumberOfEntitiesInGame: 3
-  NumberMaxEntities: 100
+  NumberMaxEntities: 3
   LenghtMap: 30
   TimeToDestroy: 5
   matchTimer: {fileID: 0}
@@ -8980,7 +8980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &743384182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18012,7 +18012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1300591085
 MonoBehaviour:
   m_ObjectHideFlags: 0
