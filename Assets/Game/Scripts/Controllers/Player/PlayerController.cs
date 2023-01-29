@@ -40,7 +40,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
-        Instance = gameObject;
+        if (Instance == null)
+        {
+            Instance = gameObject;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
