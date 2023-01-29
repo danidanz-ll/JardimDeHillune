@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(IMortal))]
 [RequireComponent(typeof(LifeSystem))]
@@ -25,6 +23,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField]
     public UnityEngine.Events.UnityEvent TakeDamagePlayer;
 
+    [SerializeField]
+    private InputActionReference MovementInput, AttackInput, DashInput, InvokeInput, SwitchTowerInput;
+
     [HideInInspector]
     public Damageable damageable { get; private set; }
 
@@ -39,6 +40,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private LifeSystem lifeSystem;
     private IWeapon weapon;
     private Vector2 movementInput;
+    private bool invokeInput;
+    private bool attackInput;
+    private bool dashInput;
+    private bool switchTowerInput;
 
 
     private void Awake()
@@ -81,25 +86,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         if (lifeSystem.IsDead!) return;
 
-        movementInput = playerInput.GetMovementInput();
+        movementInput = MovementInput.action.ReadValue<Vector2>();
+        invokeInput = InvokeInput.action.ReadValue<bool>();
+        attackInput = AttackInput.action.ReadValue<bool>();
+        dashInput = DashInput.action.ReadValue<bool>();
+        switchTowerInput = SwitchTowerInput.action.ReadValue<bool>();
 
-        if (playerInput.IsSelectorTowerButtonDown())
-        {
-            towerSkill.SelectNextTower();
-        }
-
-        if (playerInput.IsInvokeButtonDown())
-        {
-            if (manaSystem.currentMana - SummonCost >= 0)
-            {
-                manaSystem.UseMana(SummonCost);
-                Vector2 aux = playerMovement.GetFacingDirection();
-                Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
-                towerSkill.Invoke(transform.position + aux2);
-            }
-        }
-
-        if (playerInput.IsAttackButtonDown())
+        if (attackInput)
         {
             weapon.Attack();
         }
@@ -119,7 +112,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             return;
         }
 
-        if (playerInput.IsDashingButtonDown() && dash.isAvailable())
+        if (dashInput && dash.isAvailable())
         {
             dash.StartDashing(movementInput);
             return;
@@ -129,6 +122,22 @@ public class PlayerController : MonoBehaviour, ICharacterController
         #region Run
         playerMovement.SetMovement(movementInput);
         #endregion
+
+        if (switchTowerInput)
+        {
+            towerSkill.SelectNextTower();
+        }
+
+        if (invokeInput)
+        {
+            if (manaSystem.currentMana - SummonCost >= 0)
+            {
+                manaSystem.UseMana(SummonCost);
+                Vector2 aux = playerMovement.GetFacingDirection();
+                Vector3 aux2 = new Vector3(aux.x, aux.y, 0);
+                towerSkill.Invoke(transform.position + aux2);
+            }
+        }
     }
     private void OnDestroy()
     {

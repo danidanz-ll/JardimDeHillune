@@ -949,28 +949,56 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_Id
+      value: bcef2158-86f9-48fa-9a9d-e5efb00a97cc
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: assignKeyFromPrefs
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_Name
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: useUnityInputSystem
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: useUnityInputManager
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: pauseEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: resumeEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 308faaaa-8793-4541-88be-e4230426d756
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[1].m_Id
+      value: f4dceb4b-1e02-4e77-9bfd-18f0699d4fc3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: pauseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/escape
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/start
       objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: resumeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -984,6 +1012,14 @@ PrefabInstance:
       propertyPath: pauseEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9058929800983023377}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
+      propertyPath: pauseAction.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 11451796, guid: 9fa0eb6531853e246931f87efac4e921, type: 3}
       propertyPath: resumeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
