@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class TriggerDamage : MonoBehaviour
 {
-    [SerializeField][Min(0)] public float damage = 0;
+    [SerializeField]
+    [Min(0)] 
+    public float Damage = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -10,15 +12,22 @@ public class TriggerDamage : MonoBehaviour
         if (damageable != null)
         {
             GameObject collisionGameObject = collision.gameObject;
+            
+            if (collisionGameObject.tag == "Objective" && !(gameObject.tag == "Player" || gameObject.tag == "Ally"))
+            {
+                damageable.TakeDamage(Damage);
+                return;
+            }
+
             ICharacterController characterController = collision.GetComponent<ICharacterController>();
 
-            if (gameObject.tag == "Player" || gameObject.tag == "Ally" || gameObject.tag == "Objective")
+            if (gameObject.tag == "Player" || gameObject.tag == "Ally")
             {
                 if (collisionGameObject.tag == "Enemy" && characterController != null)
                 {
                     if (!characterController.CharacterIsDead())
                     {
-                        damageable.TakeDamage(damage);
+                        damageable.TakeDamage(Damage);
                     }
                 }
             } else
@@ -27,7 +36,7 @@ public class TriggerDamage : MonoBehaviour
                 {
                     if (!characterController.CharacterIsDead())
                     {
-                        damageable.TakeDamage(damage);
+                        damageable.TakeDamage(Damage);
                     }
                 }
             }

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  Damage: 0
   attackCooldown: 1.8
   AudioAttacking: {fileID: 5138939627353024175}
 --- !u!82 &5138939627353024175
@@ -625,7 +625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 2671455820243740955}
   IsMelee: 1
-  TimeToDisappearAfterDeath: 1.5
+  UseUserSettings: 1
+  EnemyName: Skeleton
 --- !u!114 &1930486234779630036
 MonoBehaviour:
   m_ObjectHideFlags: 0

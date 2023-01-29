@@ -95,9 +95,9 @@ public class LifeSystem : MonoBehaviour
             DeathGameObjectEvent.Invoke(this, this.gameObject);
         } catch(Exception e)
         {
-            if (gameObject.tag == "Enemy")
+            if (gameObject.tag != "Enemy")
             {
-                throw e;
+                Debug.LogError(e);
             }
         }
     }

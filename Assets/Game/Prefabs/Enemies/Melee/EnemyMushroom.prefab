@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  Damage: 0
   attackCooldown: 2
   AudioAttacking: {fileID: 0}
 --- !u!1 &2771039332123219750
@@ -576,7 +576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 2671455820243740955}
   IsMelee: 1
-  TimeToDisappearAfterDeath: 1.5
+  UseUserSettings: 1
+  EnemyName: Mushroom
 --- !u!114 &1930486234779630036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +594,7 @@ MonoBehaviour:
   AudioAttacking: {fileID: 0}
   AudioRunning: {fileID: 0}
   AudioDeath: {fileID: 0}
+  lifeSystem: {fileID: 0}
   dead: 0
 --- !u!114 &-8655884940628700118
 MonoBehaviour:
@@ -638,8 +640,6 @@ MonoBehaviour:
   maxLife: 50
   currentLife: 50
   HealtBar: {fileID: 4666449923132254164}
-  InvencibleTimeDamage: 0.3
-  TimeDamage: 1.5
 --- !u!114 &2739829779044965624
 MonoBehaviour:
   m_ObjectHideFlags: 0

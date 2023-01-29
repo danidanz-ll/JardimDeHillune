@@ -4,8 +4,11 @@ using System;
 
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
-    [SerializeField] private float attackCooldown = 0f;
-    [SerializeField] public AudioSource AudioAttacking;
+    [SerializeField] 
+    private float attackCooldown = 0f;
+    
+    [SerializeField] 
+    public AudioSource AudioAttacking;
 
     public event Action AttackEvent;
 
@@ -78,5 +81,10 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         {
             gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
+    }
+
+    public void SetDamage(float damage)
+    {
+        Damage = damage;
     }
 }

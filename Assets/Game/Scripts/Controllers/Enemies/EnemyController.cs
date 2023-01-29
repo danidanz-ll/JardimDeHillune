@@ -11,6 +11,9 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     [SerializeField] 
     public bool IsMelee = true;
 
+    [SerializeField]
+    public string EnemyName;
+
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
     private Damageable damageable;
@@ -36,6 +39,13 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
 
         Body = gameObject.transform.GetChild(1).gameObject;
         Canvas = gameObject.transform.GetChild(2).gameObject;
+
+        if (Settings.GetUserSettings())
+        {
+            lifeSystem.maxLife = SettingsEnemies.GetLife(EnemyName);
+            lifeSystem.currentLife = SettingsEnemies.GetLife(EnemyName);
+            weapon.SetDamage(SettingsEnemies.GetDamage(EnemyName));
+        }
     }
     private void OnDestroy()
     {

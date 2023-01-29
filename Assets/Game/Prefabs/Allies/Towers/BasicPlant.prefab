@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisionRange: 0
   IsMelee: 0
+  TowerName: Plant Basic
   weaponObject: {fileID: 475007656323915311}
 --- !u!114 &1135958757769859665
 MonoBehaviour:
@@ -473,8 +474,6 @@ MonoBehaviour:
   maxLife: 50
   currentLife: 0
   HealtBar: {fileID: 1009381888880913016}
-  InvencibleTimeDamage: 0.5
-  TimeDamage: 0.2
 --- !u!212 &-82692446307469739
 SpriteRenderer:
   m_ObjectHideFlags: 0

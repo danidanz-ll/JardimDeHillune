@@ -7,23 +7,19 @@ public class GameOver : MonoBehaviour
     [SerializeField] private TMP_Text gameOverText;
     public bool IsGameOver { get; private set; } = false;
 
-    private GameObject Objective;
     private LifeSystem PlayerLife;
     private LifeSystem ObjectiveLife;
 
     private GameEvents gameEvents;
 
-    private LifeSystem lifeSystem;
-
     private void Start()
     {
-        Objective = GameObject.FindGameObjectWithTag("Objective");
-        PlayerLife = PlayerController.Instance.GetComponent<LifeSystem>();
-        ObjectiveLife = Objective.GetComponent<LifeSystem>();
+        PlayerLife = ObeliscController.Instance.GetComponent<LifeSystem>();
+        ObjectiveLife = ObeliscController.Instance.GetComponent<LifeSystem>();
         gameEvents = GetComponent<GameEvents>();
 
         PlayerLife.DeathEvent += PlayerDeath;
-        ObjectiveLife.DeathEvent += PlayerDeath;
+        ObjectiveLife.DeathEvent += ObjectiveDeath;
     }
     private void Update()
     {
@@ -36,6 +32,13 @@ public class GameOver : MonoBehaviour
     private void PlayerDeath()
     {
         Debug.Log("O jogador morreu!");
+        gameEvents.WarnGameOver();
+        ShowGameOver();
+        IsGameOver = true;
+    }
+    private void ObjectiveDeath()
+    {
+        Debug.Log("O obelisco morreu!");
         gameEvents.WarnGameOver();
         ShowGameOver();
         IsGameOver = true;

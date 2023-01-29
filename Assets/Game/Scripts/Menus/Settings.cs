@@ -2,36 +2,58 @@
 
 public class Settings : MonoBehaviour
 {
-    public string GetResolution()
+    public static string GetResolution()
     {
         return PlayerPrefs.GetString("resolution");
     }
-    public void SetResolution(string resolution)
+    public static void SetResolution(string resolution)
     {
         PlayerPrefs.SetString("resolution", resolution);
     }
-    public string GetSoundVolume()
+    public static int GetSoundVolume()
     {
-        return PlayerPrefs.GetString("sound_volume");
+        return PlayerPrefs.GetInt("sound_volume");
     }
-    public void SetSoundVolume(string resolution)
+    public void SetSoundVolume(int volume)
     {
-        PlayerPrefs.SetString("sound_volume", resolution);
+        PlayerPrefs.SetInt("sound_volume", volume);
     }
-    public string GetMusicVolume()
+    public static int GetMusicVolume()
     {
-        return PlayerPrefs.GetString("music_volume");
+        return PlayerPrefs.GetInt("music_volume");
     }
-    public void SetMusicVolume(string resolution)
+    public void SetMusicVolume(int volume)
     {
-        PlayerPrefs.SetString("music_volume", resolution);
+        PlayerPrefs.SetInt("music_volume", volume);
     }
-    public string GetMute()
+    public static string GetMute()
     {
         return PlayerPrefs.GetString("mute");
     }
-    public void SetMute(string resolution)
+    public static void SetMute(string resolution)
     {
         PlayerPrefs.SetString("mute", resolution);
+    }
+    public static bool GetUserSettings()
+    {
+        if (PlayerPrefs.GetInt("UserSettings") != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static void SetUserSettings(bool userSettings)
+    {
+        if (userSettings)
+        {
+            PlayerPrefs.SetInt("UserSettings", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("UserSettings", 0);
+        }
     }
 }

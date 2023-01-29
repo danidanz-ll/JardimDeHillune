@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.U2D;
 
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent (typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(Dash))]
 [RequireComponent(typeof(IMortal))]
 [RequireComponent(typeof(LifeSystem))]
@@ -13,24 +13,24 @@ public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]
     [Tooltip("Instância do objeto da arma.")]
-    [SerializeField] 
+    [SerializeField]
     GameObject weaponObject;
-    
+
     [Header("Tower skills")]
     [SerializeField]
     [Min(0)]
     [Tooltip("Custo para sumonar uma planta.")]
     private float SummonCost = 0;
-    
+
     [SerializeField]
     public UnityEngine.Events.UnityEvent TakeDamagePlayer;
-    
+
     [HideInInspector]
     public Damageable damageable { get; private set; }
 
     [HideInInspector]
     public static GameObject Instance { get; private set; }
-    
+
     private PlayerMovement playerMovement;
     private Dash dash;
     private TowerSkill towerSkill;
@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (Instance == null)
         {
             Instance = gameObject;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -64,6 +65,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
+        }
+
+        if (Settings.GetUserSettings())
+        {
+            lifeSystem.maxLife = SettingsAllies.GetLife("Maeve");
+            lifeSystem.currentLife = SettingsAllies.GetLife("Maeve");
+            weapon.SetDamage(SettingsAllies.GetDamage("Maeve"));
         }
 
         lifeSystem.DeathEvent += OnDeath;
@@ -128,7 +136,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             lifeSystem.DeathEvent -= OnDeath;
         }
-        damageable.DamageEvent -= OnDamage;
+        if (damageable != null)
+        {
+            damageable.DamageEvent -= OnDamage;
+        }
     }
     public void PerformAttack()
     {

@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Level stats")]
-    [SerializeField] private int Level;
-    [SerializeField] private int NextLevel;
-    [SerializeField] private float TimeToNextLevel;
+    [SerializeField] 
+    private int Level;
+    
+    [SerializeField] 
+    private int NextLevel;
+    
+    [SerializeField] 
+    private float TimeToNextLevel;
+
+    [SerializeField]
+    private bool IsReloadLevel = false;
 
     private GameEvents gameEvents;
 
@@ -28,7 +36,14 @@ public class GameManager : MonoBehaviour
     private void PerformPlayerWin()
     {
         SaveProgress(NextLevel);
-        StartCoroutine(LoadNextLevel());
+        if (IsReloadLevel)
+        {
+            StartCoroutine(ReloadLevel());
+        }
+        else
+        {
+            StartCoroutine(ReloadLevel());
+        }
     }
     private void PerformGameOver()
     {
@@ -42,7 +57,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator ReloadLevel()
     {
         yield return new WaitForSeconds(TimeToNextLevel);
-        SceneManager.LoadScene("Level_" + Level);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public IEnumerator LoadNextLevel()
     {

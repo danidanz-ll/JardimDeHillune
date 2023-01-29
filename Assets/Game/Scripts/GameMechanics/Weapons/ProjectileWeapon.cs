@@ -66,7 +66,7 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         projectileCreated.transform.position = transform.position;
         projectileCreated.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectilesParent").transform);
         Projectile projectile = projectileCreated.GetComponent<Projectile>();
-        projectile.damage = damageProjectiles;
+        projectile.Damage = damageProjectiles;
         projectile.direction = direction.normalized;
         projectile.MoveSpeed = MoveSpeed;
         projectile.Origin = transform.parent.gameObject.tag;
@@ -103,5 +103,10 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         {
             gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
+    }
+
+    public void SetDamage(float damage)
+    {
+        damageProjectiles = damage;
     }
 }

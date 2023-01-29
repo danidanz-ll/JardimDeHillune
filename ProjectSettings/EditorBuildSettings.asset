@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Menu.unity
     guid: ac6e3e7d47697f2468eb8cc10fab5ae9
   - enabled: 1
-    path: Assets/Game/Scenes/Level_1.unity
+    path: Assets/Game/Scenes/Level_Night.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Game/Scenes/Options_Menu.unity
@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Fase Selection.unity
     guid: 87691ef1eebe6804697c10d806b3fbca
+  - enabled: 1
+    path: Assets/Game/Scenes/SpawnerSettings.unity
+    guid: 876ebc0839037d14399223ff8d46866c
+  - enabled: 1
+    path: Assets/Game/Scenes/CharactersSettings.unity
+    guid: 335c3582a93bf9645af8a6ee8c756f36
+  - enabled: 1
+    path: Assets/Game/Scenes/Level_Day.unity
+    guid: 8a0893296e2de4548846639207a6a9d0
   m_configObjects: {}

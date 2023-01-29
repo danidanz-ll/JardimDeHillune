@@ -6,11 +6,20 @@ using UnityEngine;
 public class TowerController : MonoBehaviour, ICharacterController, IAIController
 {
     [Header("Stats")]
-    [SerializeField][Range(0.5f, 10.0f)] public float VisionRange;
+    [SerializeField]
+    [Range(0.5f, 10.0f)] 
+    public float VisionRange;
+    
     [Header("Settings")]
-    [SerializeField] public bool IsMelee = true;
+    [SerializeField] 
+    public bool IsMelee = true;
+
+    [SerializeField]
+    public string TowerName;
+
     [Header("Weapon")]
-    [SerializeField] GameObject weaponObject;
+    [SerializeField] 
+    GameObject weaponObject;
 
     public bool IsPLantGrew { get; private set; } = false;
     private LifeSystem lifeSystem;
@@ -31,6 +40,13 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
+        }
+
+        if (Settings.GetUserSettings())
+        {
+            lifeSystem.maxLife = SettingsAllies.GetLife(TowerName);
+            lifeSystem.currentLife = SettingsAllies.GetLife(TowerName);
+            weapon.SetDamage(SettingsAllies.GetDamage(TowerName));
         }
     }
     void Start()

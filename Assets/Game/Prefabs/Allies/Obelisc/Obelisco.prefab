@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 4256169446978163019}
   - component: {fileID: -2529539002298962630}
   - component: {fileID: 6748606859703053783}
+  - component: {fileID: 6970634168978121359}
   m_Layer: 0
   m_Name: Obelisco
   m_TagString: Objective
@@ -245,6 +246,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.0625, y: 12.893861}
   m_EdgeRadius: 0
+--- !u!114 &6970634168978121359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468961585350312742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce4af8e273b5774a89ce116d77cbaac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2281580457779799707
 GameObject:
   m_ObjectHideFlags: 0

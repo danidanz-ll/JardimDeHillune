@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MobSpawner
 {
+
     [SerializeField]
     [Tooltip("Instância do match timer.")]
     private MatchTimer matchTimer;
@@ -15,6 +16,9 @@ public class EnemySpawner : MobSpawner
     [Tooltip("Define o intervalo entre o spawn de cada inimigo.")]
     private float IntervalBetweenSpawn = 3.0f;
 
+    [SerializeField]
+    private string EnemyName;
+
     private float oldTime = 0;
     private ManaEvents PlayerManaEvents;
 
@@ -24,7 +28,14 @@ public class EnemySpawner : MobSpawner
         base.Start();
         matchTimer = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MatchTimer>();
         oldTime = matchTimer.timer;
-        PlayerManaEvents = PlayerController.Instance.GetComponent<ManaEvents>();
+        PlayerManaEvents = ObeliscController.Instance.GetComponent<ManaEvents>();
+
+
+        if (Settings.GetUserSettings())
+        {
+            NumberMaxEntities = SettingsSpawners.GetMaxMob(EnemyName);
+            IntervalBetweenSpawn = SettingsSpawners.GetSpawnInterval(EnemyName);
+        }
     }
     private void Update() 
     {
