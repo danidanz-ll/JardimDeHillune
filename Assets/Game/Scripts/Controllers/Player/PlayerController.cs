@@ -12,14 +12,17 @@ using UnityEngine.U2D;
 public class PlayerController : MonoBehaviour, ICharacterController
 {
     [Header("Weapon")]
-    [SerializeField] GameObject weaponObject;
+    [Tooltip("Instância do objeto da arma.")]
+    [SerializeField] 
+    GameObject weaponObject;
     
     [Header("Tower skills")]
     [SerializeField]
-    [Min(0)] 
+    [Min(0)]
+    [Tooltip("Custo para sumonar uma planta.")]
     private float SummonCost = 0;
     
-    [SerializeField] 
+    [SerializeField]
     public UnityEngine.Events.UnityEvent TakeDamagePlayer;
     
     [HideInInspector]
