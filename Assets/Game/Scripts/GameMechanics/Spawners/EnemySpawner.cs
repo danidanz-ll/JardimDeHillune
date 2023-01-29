@@ -18,6 +18,7 @@ public class EnemySpawner : MobSpawner
     private float oldTime = 0;
     private ManaEvents PlayerManaEvents;
 
+
     public override void Start()
     {
         base.Start();

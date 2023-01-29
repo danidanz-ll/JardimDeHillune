@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ public class MobSpawner : MonoBehaviour, ISpawner
 
     [HideInInspector]
     public SpawnerEvents spawnerEvents { get; private set; }
+
+    [HideInInspector]
+    public event Action SpawnerIsEmpty;
 
     private List<GameObject> mobs;
     private int MobsDead;
@@ -76,8 +80,14 @@ public class MobSpawner : MonoBehaviour, ISpawner
 
         if (MobsDead == NumberMaxEntities)
         {
-            Debug.Log("Todos mobs foram mortos.");
-            spawnerEvents.WarnAllUnitsDied();
+            try
+            {
+                SpawnerIsEmpty.Invoke();
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+            }
         }
     }
     public virtual void OnDrawGizmosSelected()

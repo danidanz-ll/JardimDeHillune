@@ -5713,7 +5713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
-  NumberOfEntitiesInGame: 3
   NumberMaxEntities: 3
   LenghtMap: 30
   TimeToDestroy: 5
@@ -9006,7 +9005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: caaad7f8ae18bc144a5153e05f495a3f, type: 3}
-  NumberOfEntitiesInGame: 6
   NumberMaxEntities: 100
   LenghtMap: 30
   TimeToDestroy: 5
@@ -11733,7 +11731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: e3c5209114661a847aaef1d695919c98, type: 3}
-  NumberOfEntitiesInGame: 5
   NumberMaxEntities: 100
   LenghtMap: 15
   TimeToDestroy: 5
@@ -18038,7 +18035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 916133e22edd6c54c817f6ca4f081ece, type: 3}
-  NumberOfEntitiesInGame: 5
   NumberMaxEntities: 100
   LenghtMap: 18.27
   TimeToDestroy: 5
@@ -20988,6 +20984,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: EnemiesSpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: EnemiesSpawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 655116234}
+    - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: EnemiesSpawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 1300591086}
+    - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: EnemiesSpawners.Array.data[2]
+      value: 
+      objectReference: {fileID: 743384183}
+    - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
+        type: 3}
+      propertyPath: EnemiesSpawners.Array.data[3]
+      value: 
+      objectReference: {fileID: 793442308}
     - target: {fileID: 3482393959709446075, guid: 816d17c6a9eedb240b658aae8b7914bd,
         type: 3}
       propertyPath: SpawnersGameObjects.Array.size
