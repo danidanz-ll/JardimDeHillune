@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -6193081077006437855}
   - component: {fileID: 4306691374141301980}
   - component: {fileID: 2461474773925571185}
-  - component: {fileID: 1650838882543801875}
   - component: {fileID: 8714474026156658655}
   - component: {fileID: 3455820143405995895}
   - component: {fileID: -6052855907788223349}
@@ -300,8 +299,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObject: {fileID: 6930895518700754521}
-  TimeToDisappearAfterDeath: 4
   SummonCost: 0
+  TakeDamagePlayer:
+    m_PersistentCalls:
+      m_Calls: []
+  MovementInput: {fileID: -5853926438527842742, guid: c83ffa04f799307428a6ef0777594285,
+    type: 3}
+  AttackInput: {fileID: -3628744553792794356, guid: c83ffa04f799307428a6ef0777594285,
+    type: 3}
+  DashInput: {fileID: 6118412275728624952, guid: c83ffa04f799307428a6ef0777594285,
+    type: 3}
+  InvokeInput: {fileID: -1170667510308156782, guid: c83ffa04f799307428a6ef0777594285,
+    type: 3}
+  SwitchTowerInput: {fileID: 1806146565352104770, guid: c83ffa04f799307428a6ef0777594285,
+    type: 3}
 --- !u!114 &2461474773925571185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,18 +331,6 @@ MonoBehaviour:
   AudioDeath: {fileID: 0}
   lifeSystem: {fileID: 0}
   dead: 0
---- !u!114 &1650838882543801875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2414705926397175537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e215c2bb940f9824fbe5611afff775c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8714474026156658655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: 40157553e8bcc8e4eb4c7bcce9737d4d, type: 3}
-  NumberOfEntitiesInGame: 10
   NumberMaxEntities: 999
   LenghtMap: 0
   TimeToDestroy: 5
@@ -480,7 +478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 3651131934071168343, guid: e3c5209114661a847aaef1d695919c98, type: 3}
-  NumberOfEntitiesInGame: 10
   NumberMaxEntities: 999
   LenghtMap: 0
   TimeToDestroy: 5
@@ -556,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed6b3e94f8f02428369dd59116fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  Damage: 0
   attackCooldown: 0.5
   AudioAttacking: {fileID: 876470261188984940}
 --- !u!82 &876470261188984940

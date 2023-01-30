@@ -92,6 +92,7 @@ public class TowerController : MonoBehaviour, ICharacterController, IAIControlle
     {
         Body.SetActive(false);
         Canvas.SetActive(false);
+        Destroy(gameObject, 5f);
     }
     private void Resurrect()
     {

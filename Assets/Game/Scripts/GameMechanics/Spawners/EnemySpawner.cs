@@ -71,11 +71,9 @@ public class EnemySpawner : MobSpawner
 
         return spawnPosition;
     }
-    private void GiveManaToPlayer(object sender, GameObject mob)
+    public static void GiveManaToPlayer(object sender, GameObject mob)
     {
-        LifeSystem lifeSystem = mob.GetComponent<LifeSystem>();
-        lifeSystem.DeathGameObjectEvent -= GiveManaToPlayer;
-        PlayerManaEvents.GetMana();
+        PlayerController.Instance.GetComponent<ManaEvents>().GetMana();
     }
     public override void OnDrawGizmosSelected()
     {

@@ -65,6 +65,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e29b8713-88d2-4ca9-8d2d-cb58632e7ec5",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1256120b-6ead-47ef-a9ee-fe5544d35245",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -76,8 +87,30 @@
                 },
                 {
                     "name": "",
+                    "id": "00a05a10-dee1-482b-9485-3e78a816eae3",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "eb1fd68f-7610-457c-9fd5-c892960f71e3",
                     "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Invoke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55e6e33d-9adc-4f3e-bf62-70112a634aee",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -198,7 +231,18 @@
                 {
                     "name": "",
                     "id": "6bc606da-35fe-4122-9ba6-f6aafada980a",
-                    "path": "",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch Tower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05a22b11-1772-458c-888a-d12897551cbc",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

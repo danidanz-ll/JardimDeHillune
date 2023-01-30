@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
         {
             lifeSystem.DeathEvent -= OnDeath;
             lifeSystem.RessurectEvent -= Resurrect;
+            lifeSystem.DeathGameObjectEvent -= EnemySpawner.GiveManaToPlayer;
         }
     }
     public void StartEnemy(EnemySpawner spawner)
