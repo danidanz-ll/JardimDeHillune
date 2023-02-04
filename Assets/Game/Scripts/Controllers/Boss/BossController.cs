@@ -50,7 +50,7 @@ public class BossController : MonoBehaviour, ICharacterController
     public void Attack()
     {
         weapon.Attack();
-        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
+        enemyMovement.Freeze();
     }
     private void OnDeath()
     {

@@ -6,15 +6,10 @@ public class TowerSkill : MonoBehaviour
 {
     [SerializeField] public List<TowerSpawner> towerSpawners;
     public int currentTower = 0;
-    private TowerSpawner towerSpawner;
-    private void Start()
-    {
-        towerSpawner = GetComponent<TowerSpawner>();
-    }
     public void Invoke(Vector3 position)
     {
-        //towerSpawner.ActivateEntity(true, position);
-        towerSpawners[currentTower].ActivateEntity(true, position);
+        Transform towersParent = GameObject.FindGameObjectWithTag("TowersParent").transform;
+        towerSpawners[currentTower].CreateEntity(position, towersParent);
     }
     public void SelectNextTower()
     {

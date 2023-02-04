@@ -1,44 +1,43 @@
-using BBUnity.Actions;
 using BBUnity.Conditions;
 using Pada1.BBCore;
-using Pada1.BBCore.Framework;
-using Pada1.BBCore.Tasks;
 using UnityEngine;
 
-[Action("Game/Perception/IsTargetVisible")]
-public class IsTargetVisible : GOAction
+[Condition("Game/Perception/IsTargetVisible")]
+public class IsTargetVisible : GOCondition
 {
-    [InParam("Target")]
-    private GameObject target;
-    [InParam("AIVision")]
-    private AIVision aiVision;
-    [InParam("TargetMemoryDuration")]
-    private float targetMemoryDuration;
-
-    private float forgetTargetTime = 0f;
-
-    public override TaskStatus OnUpdate()
-    {
-        if (Check())
-        {
-            return TaskStatus.COMPLETED;
-        }
-        else
-        {
-            return TaskStatus.FAILED;
-        }
-    }
-    private bool Check()
+    [InParam("Target")] private GameObject target;
+    [InParam("AIVision")] private AIVision aiVision;
+    [InParam("TargetMemoryDuration")] private float targetMemoryDuration;
+    [InParam("ForgetTargetTime")] private float forgetTargetTime;
+    public override bool Check()
     {
         if (IsAvailable())
         {
+            if (IsObjective()) return true;
+
             if (aiVision.IsVisible(target))
             {
-                forgetTargetTime = Time.time + targetMemoryDuration;
+                aiVision.forgetTargetTime = Time.time + targetMemoryDuration;
                 return true;
             }
         }
-        return Time.time < forgetTargetTime;
+        var IsTargetRecent = Time.time < aiVision.forgetTargetTime;
+        if (IsTargetRecent)
+        {
+            return IsTargetRecent;
+        }
+        else
+        {
+            // Enemy must always follow to the objective
+            if (gameObject.tag == "Enemy")
+            {
+                return true;
+            }
+            else
+            {
+                return IsTargetRecent;
+            }
+        }
     }
     private bool IsAvailable()
     {
@@ -46,6 +45,19 @@ public class IsTargetVisible : GOAction
         {
             return false;
         }
+
+        if (!target.activeSelf)
+        {
+            return false;
+        }
         return true;
+    }
+    private bool IsObjective()
+    {
+        if (target.tag == "Objective")
+        {
+            return true;
+        }
+        return false;
     }
 }

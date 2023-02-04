@@ -12,10 +12,15 @@ public class MatchTimer : MonoBehaviour
 
     private void Start()
     {
+        if (Settings.GetUserSettings())
+        {
+            timer = SettingsMatch.GetTimeMatch();
+        }
         gameEvents = GetComponent<GameEvents>();
         oldTimer = timer;
 
         gameEvents.GameOver += StopTimer;
+        gameEvents.MatchWin += StopTimer;
     }
     private void Update()
     {

@@ -2,27 +2,42 @@ using UnityEngine;
 
 public class TriggerDamage : MonoBehaviour
 {
-    [SerializeField] public bool isEnemy = false;
-    [SerializeField][Min(0)] public float damage = 0;
+    [SerializeField]
+    [Min(0)] 
+    public float Damage = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
-        GameObject collisionGameObject = collision.gameObject;
         if (damageable != null)
         {
-            if (isEnemy)
+            GameObject collisionGameObject = collision.gameObject;
+            
+            if (collisionGameObject.tag == "Objective" && !(gameObject.tag == "Player" || gameObject.tag == "Ally"))
             {
-                if (collisionGameObject.tag != "Enemy")
-                {
-                    damageable.TakeDamage(damage);
-                }
+                damageable.TakeDamage(Damage);
+                return;
             }
-            else
+
+            ICharacterController characterController = collision.GetComponent<ICharacterController>();
+
+            if (gameObject.tag == "Player" || gameObject.tag == "Ally")
             {
-                if (collisionGameObject.tag == "Enemy")
+                if (collisionGameObject.tag == "Enemy" && characterController != null)
                 {
-                    damageable.TakeDamage(damage);
+                    if (!characterController.CharacterIsDead())
+                    {
+                        damageable.TakeDamage(Damage);
+                    }
+                }
+            } else
+            {
+                if ((collisionGameObject.tag == "Player" || collisionGameObject.tag == "Ally" || collisionGameObject.tag == "Objective") && characterController != null)
+                {
+                    if (!characterController.CharacterIsDead())
+                    {
+                        damageable.TakeDamage(Damage);
+                    }
                 }
             }
         }

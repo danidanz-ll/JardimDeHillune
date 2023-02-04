@@ -4,19 +4,17 @@ using System;
 
 public class MeleeWeapon : TriggerDamage, IWeapon
 {
-    [SerializeField] private float attackTime = 0.2f;
-    [SerializeField] private float startAttackDamageTime = 0.2f;
-    [SerializeField] private float attackCooldown = 0f;
+    [SerializeField] 
+    private float attackCooldown = 0f;
+    
+    [SerializeField] 
+    public AudioSource AudioAttacking;
 
     public event Action AttackEvent;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
     private BoxCollider2D boxCollider;
-    public float GetAttackTime()
-    {
-        return attackTime;
-    }
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -29,23 +27,29 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     }
     public void Attack()
     {
-        if (!IsAttackInCooldown() && !IsAttacking())
+        if (!IsAttackInCooldown())
         {
+            Attacking = true;
             AttackEvent.Invoke();
-            StartCoroutine(StartAttackDamage());
         }
     }
     public void Attack(Vector2 direction)
     {
-        if (!IsAttackInCooldown() && !IsAttacking())
+        if (!IsAttackInCooldown())
         {
-            StartCoroutine(StartAttackDamage());
+            AttackEvent.Invoke();
         }
     }
-    private IEnumerator PerformAttack()
+    public void PerformAttack()
     {
         boxCollider.enabled = true;
-        yield return new WaitForSeconds(attackTime);
+        if (AudioAttacking != null)
+        {
+            AudioAttacking.Play();
+        }
+    }
+    public void DisableAttack()
+    {
         StartCoroutine(StartAttackCooldown());
         Attacking = false;
         boxCollider.enabled = false;
@@ -55,12 +59,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
     {
         return Attacking;
     }
-
-    public float GetAttackingTime()
-    {
-        return attackTime;
-    }
-
     public bool IsAttackInCooldown()
     {
         return attackCooldownOn;
@@ -73,13 +71,6 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         attackCooldownOn = false;
     }
 
-    public IEnumerator StartAttackDamage()
-    {
-        Attacking = true;
-        yield return new WaitForSeconds(startAttackDamageTime);
-        StartCoroutine(PerformAttack());
-    }
-
     public void SetDirectionWeapon(bool right)
     {
         if (right)
@@ -90,5 +81,10 @@ public class MeleeWeapon : TriggerDamage, IWeapon
         {
             gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
+    }
+
+    public void SetDamage(float damage)
+    {
+        Damage = damage;
     }
 }

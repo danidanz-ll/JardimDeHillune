@@ -3,72 +3,57 @@ using UnityEngine;
 
 public class EnemySpawner : MobSpawner
 {
-    [SerializeField] private MatchTimer matchTimer;
-    [SerializeField] private float angleRangeToSpawn = 30.0f;
-    [SerializeField][Min(0)] private float timeToResurect = 3.0f;
-    [SerializeField][Min(0)] private float IntervalBetweenSpawn = 3.0f;
+
+    [SerializeField]
+    [Tooltip("Instância do match timer.")]
+    private MatchTimer matchTimer;
+
+    [SerializeField]
+    private float angleRangeToSpawn = 30.0f;
+
+    [SerializeField]
+    [Min(0)]
+    [Tooltip("Define o intervalo entre o spawn de cada inimigo.")]
+    private float IntervalBetweenSpawn = 3.0f;
+
+    [SerializeField]
+    private string EnemyName;
 
     private float oldTime = 0;
+    private ManaEvents PlayerManaEvents;
+
 
     public override void Start()
     {
         base.Start();
         matchTimer = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MatchTimer>();
-        ActivateAllEntities(true);
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.transform.position = GetRandomPositionSpawn();
-        }
-        ActivateAllEntities(false);
         oldTime = matchTimer.timer;
+        PlayerManaEvents = ObeliscController.Instance.GetComponent<ManaEvents>();
+
+
+        if (Settings.GetUserSettings())
+        {
+            NumberMaxEntities = SettingsSpawners.GetMaxMob(EnemyName);
+            IntervalBetweenSpawn = SettingsSpawners.GetSpawnInterval(EnemyName);
+        }
     }
     private void Update() 
     {
         if (oldTime - matchTimer.timer >= IntervalBetweenSpawn)
         {
             oldTime = matchTimer.timer;
-            ReleaseDeactivatedEntity();
-        }
-    }
-    private void ReleaseDeactivatedEntity()
-    {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            if (!gameObject.activeSelf)
+            try
             {
-                gameObject.SetActive(true);
-                LivingEntities++;
-                break;
+                GameObject mob = CreateEntity(GetRandomPositionSpawn(), transform);
+                LifeSystem lifeSystem = mob.GetComponent<LifeSystem>();
+                EnemyController enemyController = mob.GetComponent<EnemyController>();
+                enemyController.StartEnemy(this);
+                lifeSystem.DeathGameObjectEvent += GiveManaToPlayer;
+            } catch
+            {
+                return;
             }
         }
-    }
-    public override void CountDeath()
-    {
-        base.CountDeath();
-        StartCoroutine(ResurrectEntityDead());
-    }
-    public IEnumerator ResurrectEntityDead()
-    {
-        yield return new WaitForSeconds(timeToResurect);
-        int i = 0;
-        foreach (IMortal deathEvent in deathEvents)
-        {
-            if (deathEvent != null)
-            {
-                if (deathEvent.IsDead)
-                {
-                    RepositionEntity(gameObjects[i].transform);
-                    deathEvent.Resurrect();
-                    break;
-                }
-            }
-            i++;
-        }
-        yield break;
-    }
-    private void RepositionEntity(Transform transformEntity)
-    {
-        transformEntity.position = GetRandomPositionSpawn();
     }
     public Vector3 GetRandomPositionSpawn()
     {   
@@ -85,6 +70,10 @@ public class EnemySpawner : MobSpawner
         }
 
         return spawnPosition;
+    }
+    public static void GiveManaToPlayer(object sender, GameObject mob)
+    {
+        PlayerController.Instance.GetComponent<ManaEvents>().GetMana();
     }
     public override void OnDrawGizmosSelected()
     {

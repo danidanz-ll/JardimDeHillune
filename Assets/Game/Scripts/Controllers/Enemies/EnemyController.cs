@@ -4,43 +4,68 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, ICharacterController, IAIController
 {
     [Header("Weapon")]
-    [SerializeField] GameObject weaponObject;
-    [Header("Death settings")]
-    [Min(0)]
-    [SerializeField] private float TimeToDisappearAfterDeath = 0;
+    [SerializeField] 
+    GameObject weaponObject;
+    
+    [Header("Settings")]
+    [SerializeField] 
+    public bool IsMelee = true;
 
-    public bool IsDead = false;
+    [SerializeField]
+    public string EnemyName;
+
     private EnemyMovement enemyMovement;
     private LifeSystem lifeSystem;
-    private IDamageable damageable;
-    public IMortal mortal { get; private set; }
+    private Damageable damageable;
     private IWeapon weapon;
+
+    private GameObject Body;
+    private GameObject Canvas;
+
+    private EnemySpawner enemySpawner;
 
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         lifeSystem = GetComponent<LifeSystem>();
-        damageable = GetComponent<IDamageable>();
-        mortal = GetComponent<IMortal>();
+        damageable = GetComponent<Damageable>();
         if (weaponObject != null)
         {
             weapon = weaponObject.GetComponent<IWeapon>();
         }
 
-        mortal.DeathEvent += OnDeath;
-        mortal.RessurectEvent += Resurrect;
+        lifeSystem.DeathEvent += OnDeath;
+        lifeSystem.RessurectEvent += Resurrect;
+
+        Body = gameObject.transform.GetChild(1).gameObject;
+        Canvas = gameObject.transform.GetChild(2).gameObject;
+
+        if (Settings.GetUserSettings())
+        {
+            lifeSystem.maxLife = SettingsEnemies.GetLife(EnemyName);
+            lifeSystem.currentLife = SettingsEnemies.GetLife(EnemyName);
+            weapon.SetDamage(SettingsEnemies.GetDamage(EnemyName));
+        }
     }
     private void OnDestroy()
     {
-        if (mortal != null)
+        if (damageable != null)
         {
-            mortal.DeathEvent -= OnDeath;
-            mortal.RessurectEvent -= Resurrect;
+            lifeSystem.DeathEvent -= OnDeath;
+            lifeSystem.RessurectEvent -= Resurrect;
+            lifeSystem.DeathGameObjectEvent -= EnemySpawner.GiveManaToPlayer;
         }
+    }
+    public void StartEnemy(EnemySpawner spawner)
+    {
+        enemySpawner = spawner;
     }
     public void SetMovement(Vector2 direction)
     {
-        enemyMovement.SetMovement(direction);
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
+        {
+            enemyMovement.SetMovement(direction);
+        }
     }
     public float GetMovementSpeed()
     {
@@ -48,25 +73,36 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public void Attack()
     {
-        weapon.Attack();
-        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
+        {
+            weapon.Attack();
+        }
     }
     public void Attack(GameObject target)
     {
-        enemyMovement.FreezeMovement(0, weapon.GetAttackingTime());
-        var targetAttack = target.transform.position.normalized;
-        var gameObjectAttack = gameObject.transform.position.normalized;
-
-        if(targetAttack == null)
+        if (!weapon.IsAttacking() && !damageable.IsHurting && !enemyMovement.IsFreeze)
         {
-            return;
+            var targetAttack = target.transform.position;
+            var originAttack = gameObject.transform.position;
+            var attackDirection = targetAttack - originAttack;
+
+            weapon.Attack(attackDirection);
         }
-        weapon.Attack(target.transform.position.normalized - gameObject.transform.position.normalized);
+    }
+    public void PerformAttack()
+    {
+        weapon.PerformAttack();
+    }
+    public void DisableAttack()
+    {
+        weapon.DisableAttack();
     }
     private void OnDeath()
     {
         enemyMovement.SetBodyType(RigidbodyType2D.Static);
-        //StartCoroutine(DisappearAfterDeath());
+        Body.SetActive(false);
+        Canvas.SetActive(false);
+        enemySpawner.DestroyMob(gameObject);
     }
     private void Resurrect()
     {
@@ -75,14 +111,9 @@ public class EnemyController : MonoBehaviour, ICharacterController, IAIControlle
     }
     public bool CharacterIsDead()
     {
-        return mortal.IsDead;
+        return lifeSystem.IsDead;
     }
-    private IEnumerator DisappearAfterDeath()
-    {
-        //enabled = false;
-        yield return new WaitForSeconds(TimeToDisappearAfterDeath);
-    }
-    public Vector3 GetPosition()
+    public Vector3 GetCurrentPosition()
     {
         return transform.position;
     }

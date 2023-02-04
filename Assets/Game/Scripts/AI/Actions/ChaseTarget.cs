@@ -7,7 +7,7 @@ using UnityEngine;
 [Action("Game/ChaseTarget")]
 public class ChaseTarget : BasePrimitiveAction
 {
-    [InParam("AIController")] public IAIController iaController;
+    [InParam("Controller")] public EnemyController enemyController;
     [InParam("TargetObject")] public GameObject targetObject;
     public override void OnStart()
     {
@@ -17,23 +17,27 @@ public class ChaseTarget : BasePrimitiveAction
     {
         if (targetObject == null)
         {
-            Debug.Log("Target Nulo");
-            return TaskStatus.ABORTED;
+            return TaskStatus.FAILED;
         }
         else if (!targetObject.activeSelf)
         {
-            Debug.Log("Target Desativado");
-            return TaskStatus.ABORTED;
+            return TaskStatus.FAILED;
+        }
+        else if (targetObject.tag == "Objective")
+        {
+            Vector2 toTarget = targetObject.transform.position - enemyController.GetCurrentPosition();
+            enemyController.SetMovement(toTarget);
         }
         else if (GetControllerFromCharacter(targetObject).CharacterIsDead())
         {
-            Debug.Log("Target Esta morto");
-            return TaskStatus.ABORTED;
+            targetObject = GameObject.FindGameObjectsWithTag("Objective")[0];
+            Vector2 toTarget = targetObject.transform.position - enemyController.GetCurrentPosition();
+            enemyController.SetMovement(toTarget);
         }
         else
         {
-            Vector2 toTarget = targetObject.transform.position - iaController.GetPosition();
-            iaController.SetMovement(toTarget);
+            Vector2 toTarget = targetObject.transform.position - enemyController.GetCurrentPosition();
+            enemyController.SetMovement(toTarget);
         }
         return TaskStatus.COMPLETED;
     }

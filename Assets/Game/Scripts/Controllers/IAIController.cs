@@ -5,6 +5,6 @@ public interface IAIController
     void Attack();
     void Attack(GameObject target);
     void SetMovement(Vector2 direction);
-    Vector3 GetPosition();
+    Vector3 GetCurrentPosition();
     float GetMovementSpeed();
 }

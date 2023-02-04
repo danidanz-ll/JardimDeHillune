@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,91 +6,88 @@ using UnityEngine;
 public class MobSpawner : MonoBehaviour, ISpawner
 {
     [Header("Spawn settings")]
-    [SerializeField] public GameObject Entity;
-    [SerializeField] [Min(0)] public int NumberOfEntitiesInGame = 0;
-    [SerializeField] [Min(0)] public int NumberMaxEntities = 0;
-    [SerializeField] [Min(0)] public float LenghtMap = 0;
+    [SerializeField] 
+    public GameObject Entity;
+    
+    [SerializeField] 
+    [Min(0)] 
+    public int NumberMaxEntities = 0;
+    
+    [SerializeField] 
+    [Min(0)] 
+    public float LenghtMap = 0;
+    
+    [SerializeField]
+    [Min(0)] 
+    public float TimeToDestroy = 5.0f;
 
-    public int LivingEntities = 0;
-    public int EliminatedEntities { get; private set; } = 0;
-    public List<GameObject> gameObjects { get; private set; } = new List<GameObject>();
-    public List<IMortal> deathEvents { get; private set; } = new List<IMortal>();
+    [HideInInspector]
     public SpawnerEvents spawnerEvents { get; private set; }
-    public virtual void Awake()
-    {
-        CreateEntities();
-    }
+
+    [HideInInspector]
+    public event Action SpawnerIsEmpty;
+
+    private List<GameObject> mobs;
+    private int MobsDead;
+    private int MobsCreated;
     public virtual void Start()
     {
         spawnerEvents = GetComponent<SpawnerEvents>();
+        mobs = new List<GameObject>();
+        MobsDead = 0;
+        MobsCreated = 0;
+    }
+    public GameObject CreateEntity(Transform parentGameObject = null)
+    {
+        if (MobsCreated < NumberMaxEntities)
+        {
+            GameObject mob = Instantiate(Entity, new Vector3(0, 0, 0), Quaternion.identity);
 
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.transform.parent = transform;
-        }
-        ActivateAllEntities(true);
-        GetMortalComponents();
-        SubscribeDeathEvent();
-        ActivateAllEntities(false);
-    }
-    private void Destroy()
-    {
-        UnsubscribeDeathEvent();
-    }
-    public void CreateEntities()
-    {
-        for (int i = 0; i < NumberOfEntitiesInGame; i++)
-        {
-            gameObjects.Add(Instantiate(Entity, new Vector3(0, 0, 0), Quaternion.identity));
-        }
-    }
-    private void GetMortalComponents()
-    {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            deathEvents.Add(gameObject.GetComponent<IMortal>());
-        }
-    }
-    private void SubscribeDeathEvent()
-    {
-        foreach (IMortal deathEvent in deathEvents)
-        {
-            deathEvent.DeathEvent += CountDeath;
-        }
-    }
-    private void UnsubscribeDeathEvent()
-    {
-        foreach (IMortal deathEvent in deathEvents)
-        {
-            if (deathEvent != null)
+            if (parentGameObject != null)
             {
-                deathEvent.DeathEvent -= CountDeath;
+                mob.transform.SetParent(parentGameObject);
             }
-        }
-    }
-    public void ActivateAllEntities(bool active)
-    {
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.SetActive(active);
-            if (active)
-            {
-                LivingEntities++;
-            }
-            else
-            {
-                LivingEntities--;
-            }
-        }
-    }
-    public virtual void CountDeath()
-    {
-        LivingEntities--;
-        EliminatedEntities++;
 
-        if (EliminatedEntities == NumberMaxEntities)
+            return mob;
+        }
+        return null;
+    }
+    public GameObject CreateEntity(Vector3 position, Transform parentGameObject=null)
+    {
+        if (MobsCreated < NumberMaxEntities)
         {
-            spawnerEvents.WarnAllUnitsDied();
+            GameObject mob = Instantiate(Entity, position, Quaternion.identity);
+            mobs.Add(mob);
+
+            if (parentGameObject != null)
+            {
+                mob.transform.SetParent(parentGameObject);
+            }
+
+            MobsCreated++;
+            return mob;
+        }
+        return null;
+    }
+    public void DestroyMob(GameObject mob)
+    {
+        if (mobs.Contains(mob))
+        {
+            mobs.Remove(mob);
+            Destroy(mob, TimeToDestroy);
+            MobsDead++;
+        }
+
+        if (MobsDead == NumberMaxEntities)
+        {
+            try
+            {
+                SpawnerIsEmpty.Invoke();
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+            }
         }
     }
     public virtual void OnDrawGizmosSelected()

@@ -11,6 +11,8 @@ TagManager:
   - TowersParent
   - GameManager
   - ProjectilesParent
+  - Boss
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

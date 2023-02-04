@@ -7,24 +7,30 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     [SerializeField] private GameObject projectileGameObject;
     [SerializeField][Min(0)] private float damageProjectiles = 0;
     [SerializeField][Min(0)] private float MoveSpeed = 10;
-    [SerializeField] private bool isEnemy = false;
     [SerializeField] private float attackTime = 0.2f;
     [SerializeField] private float startAttackDamageTime = 0.2f;
     [SerializeField] private float timeToFreeze = 0.2f;
     [SerializeField] private float attackCooldown = 0f;
     public event Action AttackEvent;
-    private SpriteRenderer spriteRenderer;
 
     private bool Attacking = false;
     private bool attackCooldownOn = false;
     private void Awake()
     {
         gameObject.SetActive(true);
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
 
+    }
+    public void PerformAttack()
+    {
+        Attacking = true;
+    }
+    public void DisableAttack()
+    {
+        StartCoroutine(StartAttackCooldown());
+        Attacking = false;
     }
     public void Attack()
     {
@@ -40,22 +46,10 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
             StartCoroutine(StartAttackDamage(direction));
         }
     }
-    public float GetAttackTime()
-    {
-        return attackTime;
-    }
     public IEnumerator StartAttackDamage(Vector2 direction)
     {
         Attacking = true;
         AttackEvent.Invoke();
-        if (direction.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
         yield return new WaitForSeconds(startAttackDamageTime);
         StartCoroutine(PerformAttack(direction));
     }
@@ -70,24 +64,18 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
     {
         GameObject projectileCreated = Instantiate(projectileGameObject, new Vector3(0, 0, 0), Quaternion.identity);
         projectileCreated.transform.position = transform.position;
-        gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectilesParent").transform);
+        projectileCreated.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectilesParent").transform);
         Projectile projectile = projectileCreated.GetComponent<Projectile>();
-        projectile.damage = damageProjectiles;
-        projectile.isEnemy = isEnemy;
-        projectile.direction = direction;
+        projectile.Damage = damageProjectiles;
+        projectile.direction = direction.normalized;
         projectile.MoveSpeed = MoveSpeed;
+        projectile.Origin = transform.parent.gameObject.tag;
         projectile.Fire();
     }
     public bool IsAttacking()
     {
         return Attacking;
     }
-
-    public float GetAttackingTime()
-    {
-        return attackTime;
-    }
-
     public float GetWaitToFreezeTime()
     {
         return timeToFreeze;
@@ -115,5 +103,10 @@ public class ProjectileWeapon : MonoBehaviour, IWeapon
         {
             gameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
         }
+    }
+
+    public void SetDamage(float damage)
+    {
+        damageProjectiles = damage;
     }
 }

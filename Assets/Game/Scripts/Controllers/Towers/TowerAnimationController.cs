@@ -19,7 +19,7 @@ public class TowerAnimationController : MonoBehaviour
     [SerializeField] public AudioSource AudioDeath;
     private SpriteRenderer spriteRenderer;
     private IDamageable damageable;
-    public IMortal deathOnDamage;
+    public LifeSystem lifeSystem;
     private IWeapon weapon;
     private bool AttackingAnimationIsOn = false;
     protected Animator animator;
@@ -29,7 +29,7 @@ public class TowerAnimationController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageable = GetComponent<IDamageable>();
-        deathOnDamage = GetComponent<IMortal>();
+        lifeSystem = GetComponent<LifeSystem>();
         
         weapon = GetComponentInChildren<IWeapon>();
 
@@ -37,10 +37,10 @@ public class TowerAnimationController : MonoBehaviour
         {
             damageable.DamageEvent += OnDamage;
         }
-        if (deathOnDamage != null)
+        if (lifeSystem != null)
         {
-            deathOnDamage.DeathEvent += OnDeath;
-            deathOnDamage.RessurectEvent += Resurrect;
+            lifeSystem.DeathEvent += OnDeath;
+            lifeSystem.RessurectEvent += Resurrect;
         }
         if (weapon != null)
         {
@@ -70,10 +70,10 @@ public class TowerAnimationController : MonoBehaviour
         {
             damageable.DamageEvent -= OnDamage;
         }
-        if (deathOnDamage != null)
+        if (lifeSystem != null)
         {
-            deathOnDamage.DeathEvent -= OnDeath;
-            deathOnDamage.RessurectEvent -= Resurrect;
+            lifeSystem.DeathEvent -= OnDeath;
+            lifeSystem.RessurectEvent -= Resurrect;
         }
     }
     private void OnDamage()

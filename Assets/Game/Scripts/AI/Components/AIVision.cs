@@ -7,6 +7,8 @@ public class AIVision : MonoBehaviour
     [Range(0.5f, 10.0f)] public float visionAttack = 5.0f;
     [Range(0, 360)] public float visionAngle = 30.0f;
 
+    public float forgetTargetTime { get; set; } = 0;
+
     private EnemyMovement enemyMovement;
     private Vector2 toTarget;
 
